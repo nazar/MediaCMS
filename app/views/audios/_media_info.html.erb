@@ -1,0 +1,7 @@
+<table class="media_info" cellpadding="0" cellspacing="0">
+  <%= media_info_row('Price:', media_info.price > 0 ? media_info.price : 'Free') %>
+  <%= media_info_row('By:', "#{media_info.user.pretty_name}<br />#{link_to('about', user_about_path(media_info.user.login))} | #{link_to('audios', user_audios_path(media_info.user.login))}") %>
+  <%= media_info_row('Category:', render_category_links(media_info.categories, {:action => 'audios'})) %>
+  <%= media_info_row('Length:', "#{media_info.duration.to_i.to_time_stamp} ") %>
+  <%= media_info_row('Format:', media_info.orig_file_ext) %>
+</table>

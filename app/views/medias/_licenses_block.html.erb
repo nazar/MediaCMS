@@ -1,0 +1,28 @@
+<% if @adv_lic %>
+  <h2>Media Licenses</h2>
+  <div>
+    <table id="licenses" cellpadding="0" cellspacing="0">
+      <tr>
+        <th colspan="2">Licenses</th>
+        <th style="text-align: right">Additional Price</th>
+      </tr>
+      <%= render_license_prices(MediaLicensePrice.media_user_licenses(@media), {:selected => @licenses}) %>
+    </table>
+  </div>
+<% else -%>
+  <h2>Buy Now</h2>
+<% end %>
+<div>
+  <table id="total" cellpadding="0" cellspacing="0">
+    <tr>
+      <th>Total Credits:&nbsp;</th>
+      <td id="total_value"><%= @price -%></td>
+    </tr>
+    <tr>
+      <% if @adv_lic -%>
+        <td id="update"><%= submit_tag('Update prices', :name => 'update') -%></td>
+      <% end -%>  
+      <td colspan="2" id="buy"><%= submit_tag 'Buy', :name => 'submit_buy' -%></td>
+    </tr>
+  </table>
+</div>

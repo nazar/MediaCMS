@@ -1,0 +1,26 @@
+<%= start_tabnav :account %>
+<div class="block_title"><h2>My Photos - Listing most recent photos first</h2></div>
+<p><strong><%= link_to 'View photos by statistics (most viewed, commented etc...)', :action => 'stat_photos' %></strong></p>
+<small><%= will_paginate @photos %></small>
+<div class="step clearfix media">
+  <% if @photos.length > 0 %>
+    <% for photo in @photos %>
+      <div class="listPhotos">
+        <%= render :partial => 'photos/small_picture', :locals => { :photo => photo} %>
+      </div>
+    <% end %>
+  <% else %>
+    You haven't uploaded any photos yet.
+  <% end %>
+</div>
+<% if (current_user.photo_markers_count > 0) && (params[:page].to_i < 2)%>
+  <div class="block_title"><h2>My Photo Markers</h2></div>
+  <div class="step clearfix">
+    <%= render :partial => '/maps/map_viewer',
+               :locals => {:data_url => "/photos/photo_user_markers/#{@current_user.id}",
+                           :height => '290px'} %>
+  </div>
+<% end %>
+<small><%= will_paginate @photos %></small>
+<%= end_tabnav %>
+

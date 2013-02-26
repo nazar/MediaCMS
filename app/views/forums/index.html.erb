@@ -1,0 +1,23 @@
+<% now = Time.new %>
+<div id="index_welcome">
+	<div class="title">Welcome to our Forums</div>
+	<p class="desc">To start viewing messages, select the forum that you want to visit from the list below. Please register for a free account if you wish to either start a new topic or reply to any posts.</p>
+	<div class="visit">The time now is <%= now.to_formatted_s(:long) %></div>
+</div>  
+<% if @public_forums.length > 0 %>
+  <div class="block_title"><h2>Public Forums</h2></div>
+  <%= render :partial => '/forums/forum_list_block', :locals => {:forums => @public_forums} %>
+<% end %>
+<% if @clubs.length > 0 %>
+  <div class="block_title"><h2>Club Forums</h2></div>
+  <div class="step">
+    <p>The following club specific forums are listed here. Club owners can add and manage their club's forums via their club administration interface.
+  </div>
+  <% for club in @clubs do %>
+    <% club_forums = club.forums_for_user(current_user) %>
+    <% if club_forums.length > 0 %>
+      <div class="block_title"><h2>Club <%= "#{link_to h(club.name), :controller => '/clubs', :action => :view, :id => club.id} has #{pluralize(club_forums.length,'Forum')}" %></h2></div>
+      <%= render :partial => '/forums/forum_list_block', :locals => {:forums => club_forums} %>              
+    <% end %>  
+  <% end %>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="block_title"><h2><%= @title %></h2></div>
+<% unless @media.blank? %>
+  <%= will_paginate @media -%>
+  <div class="step">
+    <p><strong><%= @media.length %> media were found matching your search criteria.</strong></p>
+    <%= render_media_search_result(@media) %>
+  </div>
+  <%= will_paginate @media -%>
+<% else -%>
+  <div class="step">No Media found matching <%= params[:search] %></div>
+<% end %>

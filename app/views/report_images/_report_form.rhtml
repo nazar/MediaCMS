@@ -1,0 +1,8 @@
+<% form_tag '/report_images/report_photo', {:id => 'report_form'} do %>
+  <p><label for="report_type_id">Report Image for</label><br/>
+     <%= select 'report', 'report_type_id', ReportImageType.ordered_types.map{|type| [type.report_type, type.id]} %></p>
+  <p><label for="description">Please describe why this image is being reported</label><br/>
+     <%= markup_area 'report', 'description' %></p>
+  <%= hidden_field_tag 'photo_id', @photo.id %>   
+  <p><%= submit_tag 'Submit Report' %></p>  
+<% end %>

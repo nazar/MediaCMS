@@ -1,0 +1,10 @@
+<%= error_messages_for 'forum' %>
+
+<p><label for="forum_name">Name</label><br/>
+<%= text_field 'forum', 'name'  %></p>
+
+<p><label for="forum_description">Description</label><br/>
+<%= markup_area 'forum', 'description', {:rows => 10}  %></p>
+
+<p><label for="forum_position">Display Position</label><br/>
+<%= text_field 'forum', 'position'  %></p>

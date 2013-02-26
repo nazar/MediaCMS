@@ -1,0 +1,13 @@
+<div class="block_title"><h2><%= @title %></h2></div>
+<% unless @categories.blank? %>
+  <%= will_paginate @categories -%>
+  <% for category in @categories %>
+    <div class="step clearfix">
+      <%= category_title(category) %>
+      <%= render_media_search_result(category.medias[0..9]) %>
+    </div>
+  <% end %>
+  <%= will_paginate @categories -%>
+<% else-%>
+  <div class="step">No Categories found matching <%= params[:search] %></div>
+<% end %>

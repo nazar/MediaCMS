@@ -1,0 +1,30 @@
+<div class="block_title"><h2>Viewing Category <%= @category.name %></h2></div>
+<div class="step">
+  <%= categories_media_count_links(@category, @most_recent_photos, @most_recent_videos, @most_recent_audios) %> in this category.
+</div>
+<% unless @most_recent_photos.blank? %>
+  <%= feed_title_link_block('Latest Photos', link_to('view all', :action => :all_photos, :id => @category.id) , 
+                            {:controller => 'feed', :action => :latest_in_category, :id => @category.id}, {:auto_rss => true}) %>
+  <div class="step clearfix">
+    <% for photo in @most_recent_photos %>
+      <div class="listPhotos">
+        <%= render :partial => '/photos/small_picture', :locals => {:photo => photo} %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<% unless @most_recent_videos.blank? -%>
+  <%= feed_title_link_block('Latest Videos', link_to('view all', :action => :videos, :id => @category.id) ,
+                            {:controller => 'feed', :action => :latest_videos_in_category, :id => @category.id}, {:auto_rss => true}) %>
+  <div class="step clearfix">
+    <%= render_video_block(@most_recent_videos) %>
+  </div>
+<% end -%>
+<% unless @most_recent_audios.blank? -%>
+  <%= feed_title_link_block('Latest Audio Files', link_to('view all', :action => :audios, :id => @category.id) ,
+                            {:controller => 'feed', :action => :latest_videos_in_category, :id => @category.id}, {:auto_rss => true}) %>
+  <div class="step clearfix">
+    <%= render_audio_block(@most_recent_audios) %>
+  </div>
+  <%= render :partial => 'audios/hook_listener' %>
+<% end -%>

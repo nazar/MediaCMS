@@ -1,0 +1,13 @@
+<h2><%= "Managing News for #{link_to @club.name, club_view_path(@club)}" %></h2>
+<div class="step">
+  Manage your club's news and news items on this page.
+</div>
+<h2>Club News Items</h2>
+<div class="step">
+  <p><%= link_to 'Create', club_news_new_path(@club) %> a new Club News Item.</p>
+  <%= render :partial => 'news/news_items', :locals => {:news_items => @club.news_items, :link => false} %>
+</div>
+<h2>Newsletter Email History</h2>
+<div class="step" id="news_histories">
+  <%= render :partial => 'news_histories/histories', :locals => {:histories => @club.news_histories} %>
+</div>

@@ -1,0 +1,15 @@
+<%= error_messages_for 'license' %>
+
+<div class="step">
+  <!--[form:license]-->
+  <p><label for="license_name">Name</label><br/>
+  <%= text_field 'license', 'name'  %></p>
+
+  <p><label for="license_description">Description</label><br/>
+  <%= markup_area 'license', 'description'  %></p>
+
+  <p><label for="default_price">Default Price</label><br/>
+  <%= text_field 'license', 'default_price'  %></p>
+  <!--[eoform:license]-->
+</div> <br />
+

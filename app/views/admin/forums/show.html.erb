@@ -1,0 +1,8 @@
+<% for column in Forum.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @forum.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @forum %> |
+<%= link_to 'Back', :action => 'list' %>

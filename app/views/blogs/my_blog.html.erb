@@ -1,0 +1,21 @@
+<% @page_title = 'My Blog Management' %>
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>Add a New Blog</h2></div>
+  <div class="step">
+    <form action="/blogs/add" method="post">
+      <%= render :partial => '/blogs/form' %>
+      <%= submit_tag "Create" %>
+    </form>
+  </div>
+  <% if @blogs.length > 0 %>
+    <div class="block_title"><h2>My Blogs</h2></div>
+    <small><%= will_paginate @blogs -%></small>
+    <div class="step">
+      <% for blog in @blogs %>
+        <%= render :partial => '/blogs/blog_summary', 
+                   :locals => {:blog => blog} %>
+      <% end %>
+    </div>
+    <small><%= will_paginate @blogs -%></small>
+  <% end %>
+<%= end_tabnav %>

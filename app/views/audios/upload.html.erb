@@ -1,0 +1,30 @@
+<%= start_tabnav :account %>
+  <%= render :partial => '/medias/disk_space' %>
+  <div class="block_title"><h2>Step 1 - Upload Audio Files</h2></div>
+  <div class="step">
+    <p>Click the Browse button to select your audio files.</p>
+    <p>You can upload multiple files when Browsing by selecting more than one file to upload in the current folder.</p>
+    <p><strong>Only <%= Configuration.supported_audio_types %> will be accepted.</strong></p>
+    <div align="center"><%= render :partial => '/shared/upload', :locals => {:upload_action => '/audios/upload_audio/'} %></div>
+  </div>
+  <%= render :partial => 'medias/upload_job_list', :locals => {:jobs => @jobs}  %>
+  <div class="block_title"><h2>Step 2 - Press F5 to view and Categorise Your Uploaded Audio Files</h2></div>
+  <% form_tag({:action => 'categorise'}, {:id => 'cat_audios'}) do -%>
+    <div class="step clearfix">
+      <p>All uploaded and un-categorised audio files will be listed here.
+        These audio files will not be visible until they have been categorised.
+      Press the refresh button on your browser or the F5 key to display any newly uploaded audio files.</p>
+      <p><input type="checkbox" id="toggle" name="toggle" checked="checked" onclick="CheckAllCheckboxes('catUploads','toggle');"> Mark all audio files to save.</p>
+      <%= render :partial => 'audios/render_uncated', :locals => {:audios => @unsorted} %>
+    </div>
+    <div class="block_title"><h2>Step 3 - Save Audio File Details</h2></div>
+    <div class="step">
+      <p>
+        Once all audio titles, descriptions, tags and categories are set press the <strong>Save Uploaded Audio Files</strong> button to finally save these.
+        Please remember that the more information you provide on your audio files (title, description and tags) the easier they are to find.
+      </p>
+      <%= submit_tag "Save Uploaded Audio Files" %>
+    </div>
+  <% end %>
+  <%= render :partial => 'audios/hook_listener' %>
+<%= end_tabnav %>

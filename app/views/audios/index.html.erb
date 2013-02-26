@@ -1,0 +1,9 @@
+<% cache('more_audios') do %>
+  <%= render_title_link_block('Most Recent',    render_most_recent_audios,       :more_link => {:controller => 'audios', :action => :more_recent}) -%>
+  <%= render_title_link_block('Most Viewed',    render_most_viewed_audios,       :more_link => {:controller => 'audios', :action => :more_viewed}) -%>
+  <%= render_title_link_block('Most Voted',     render_most_voted_audios,        :more_link => {:controller => 'audios', :action => :more_votes}) -%>
+  <%= render_title_link_block('Most Discussed', render_most_talked_about_audios, :more_link => {:controller => 'audios', :action => :more_discussed}) -%>
+  <%= render_title_link_block('Favourites',     render_most_favourites_audios,   :more_link => {:controller => 'audios', :action => :more_favourites}) -%>
+  <%= render_title_link_block('Best Selling',   render_best_selling_audios,      :more_link => {:controller => 'audios', :action => :more_sellers}) -%>
+<% end %>
+<%= render :partial => 'audios/hook_listener' %>

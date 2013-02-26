@@ -1,0 +1,8 @@
+<li id="comment-<%= comment.id%>">
+  <p class="commentdetails">
+    <a href="#comment-<%= comment.id%>" class="commentnumber"><%=num%>.</a> <%= time_ago_in_words(comment.created_at) %> ago | <cite><%=comment.user_name %> said…</cite>
+  </p>
+  <div class="commenttext">
+	  <p><%=comment.formatted_body%></p>
+  </div>
+</li>

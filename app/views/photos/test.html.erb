@@ -1,0 +1,4 @@
+<% render_swatch(@photo) do |div, member|-%>
+    <%= link_to div, :action => :by_color, :id => @photo.id, :color => member.id %>
+<% end %>
+<%= render_view(@photo) -%>

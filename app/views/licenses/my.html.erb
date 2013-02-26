@@ -1,0 +1,12 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>Photo Licenses</h2></div>
+  <div class="step">
+    <p>This page allows you to manage your media licenses. <%= Configuration.site_name %> provides a standard license type
+    under which all our media is published. You can, however, create your own licenses and assign these against your media.</p>
+  </div>
+  <div class="block_title"><h2>Manage Photo Licenses</h2></div>
+  <div class="step" id="licenses">
+    <%= link_to 'Create a new License', :action => :add %>
+    <%= render :partial => 'licenses/licenses', :locals => {:licenses => @licenses} %>
+  </div>
+<%= end_tabnav %>

@@ -1,0 +1,32 @@
+<h1>Listing promotions</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>ID</th>
+    <th>Type</th>
+    <th>Vendor Ref</th>
+    <th>Credits</th>
+    <th>Uses</th>
+    <th>Strict</th>
+  </tr>
+  
+<% for promotion in @promotions %>
+  <tr>
+    <td><%=link_to promotion.code, :action => 'edit', :id => promotion %></td>
+    <td><%=h promotion.link_id %></td>
+    <td><%=h promotion.link_type %></td>
+    <td><%=h promotion.vendor_ref %></td>
+    <td><%=h promotion.credits %></td>
+    <td><%=h promotion.uses_remaining %></td>
+    <td><%=h promotion.strict %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @promotion_pages.current.previous } if @promotion_pages.current.previous %>
+<%= link_to 'Next page', { :page => @promotion_pages.current.next } if @promotion_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New promotion', :action => 'new' %>

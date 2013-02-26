@@ -1,0 +1,5 @@
+<p>Dear <%= @user.pretty_name %>.</p>
+<p>You are receiving this email because you have just uploaded media to <%= Configuration.site_name -%>.</p>
+<p>I regret that your upload titled <%= @photo.title -%> has not been approved for publishing on our site. The reason given by the editor:</p>
+<p><%= @reason -%></p>
+<%= @sig %>   

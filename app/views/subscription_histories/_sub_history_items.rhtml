@@ -1,0 +1,18 @@
+<table id="account_cap" cellpadding="0px" cellspacing="0">
+  <tr>
+    <td class="head">Transaction ID</td>
+    <td class="head">Value</td>
+    <td class="head">Date</td>
+  </tr>
+  <% limit = 0 %>
+  <% for history in histories %>
+  <% klass = limit.odd? ? 'odd' : 'even' %>
+    <tr>
+      <td class="<%=klass%>"><%= history.order_transaction %></td>
+      <td class="<%=klass%>"><%= history.value %></td>
+      <td class="<%=klass%>"><%= history.created_at.to_formatted_s(:long) %></td>
+    </tr>
+    <% limit += 1 %>
+    <% break if limit == list_limit %>
+  <% end %>
+</table>

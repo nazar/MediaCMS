@@ -1,0 +1,16 @@
+<% if club_members && club_members.length > 0 %>
+  <table class="outer" cellpadding="0" cellspacing="0">
+    <tr>
+      <td class="head">Member</td>      
+      <td class="head">Joined</td>      
+    </tr>
+    <% for member in club_members %>
+      <tr class="<%= cycle('even','odd') %>">
+        <td><%= "<a href='/account/about/#{member.user.login_safe}'>#{member.user.pretty_name}</a>" %></td>
+        <td><%= "#{date_ago(member.created_at)} ago" %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No members yet.</p>
+<% end %>

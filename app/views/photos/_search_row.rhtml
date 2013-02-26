@@ -1,0 +1,8 @@
+<tr>
+  <td class="even" rowspan="2" align="center"> <%= render :partial => '/photos/photo_view_compact', 
+                                                          :locals => {:photo => photo} %></td>
+  <td class="odd" height="15px;"><strong>Title : <%= h photo.title %></strong></td>  
+</tr>      
+<tr>
+  <td class="even" width="100%">Description : <%= h photo.description %></td>
+</tr>

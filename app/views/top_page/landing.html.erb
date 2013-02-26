@@ -1,0 +1,107 @@
+<% add_extra_header_content(theme_stylesheet_link_tag('landing')) -%>  
+<div id="landing-wrapper">
+  <div id="wrapper-top">
+    <div id="main-content">
+      <div id="header">
+        <div id="logo"><%= link_to image_tag('pf.png'), home_path %></div>
+        <div id="main-nav-bar">
+          <ul>
+            <li id="navbar-enter"><%= link_to 'Start', home_path %></li>
+            <li id="navbar-login"><%= link_to 'Login', login_path %></li>
+            <li id="navbar-signup"><%= link_to 'Signup', signup_path %></li>
+            <li id="navbar-about"><%= link_to 'About', '/pages/about_us' %></li>
+          </ul>
+        </div>
+      </div>
+      <div id="body">
+        <div id="title">
+          <div id="title-wrap">
+            <h1>Buy & Sell Images, Videos and Audio Files</h1>
+            <h2>Media owners, <%= link_to 'free hosting plan', more_info_path  %> to get you started today!</h2>
+          </div>
+        </div>
+        <div id="content">
+          <div class="pf-description">
+            <p><strong>PantherFotos</strong> is a media publishing website, enabling media owners to sell images, photos, videos and audio files.</p>
+            <p>We only charge a <strong>10% commission</strong> on all sales, one of the lowest rates in the media library industry.</p>
+            <p>We have several <%= link_to 'hosting plans', more_info_path, :class => 'underline' %>, starting from a <strong>free</strong> basic plan to more advanced paid options.</p>
+            <p><%= link_to theme_image_tag('enter-dragon.png'), home_path %></p>
+          </div>
+          <div class="screenie">
+             <%= link_to theme_image_tag('screenie2.png'), home_path %>
+          </div>
+        </div>
+        <div id="content-more">
+          <div class="four">
+            <div class="column callout-body" style="min-height: 343px;">
+              <div class="callout-content">
+                <h2>All About You</h2>
+                <p>PantherFotos provides a <strong>Blogging</strong> engine allowing you to create an unlimited number of posts and to which followers can subscribe via RSS feeds.</p>
+                <p>All uploaded images are consistently <strong>watermarked</strong> with your name and a unique ID making your images easy to find.</p>
+              </div>
+            </div>
+            <div class="column callout-body" style="min-height: 343px;">
+              <div class="callout-content">
+                <h2>Categorisation</h2>
+                <p>All uploaded Media can belong to multiple <strong>categories</strong> and <strong>tags</strong>, allowing for improved searches and navigation between media.</p>
+                <p>Media can also be grouped in <strong>albums or collections</strong>, which can then be sold.</p>
+              </div>
+            </div>
+            <div class="column callout-body" style="min-height: 343px;">
+              <div class="callout-content">
+                <h2>Community</h2>
+                <p>Website visitors can rate and comment on all uploaded media, albums or collections and submitted web links. </p>
+                <p>Premium members can start a <strong>Club</strong>. Club owners can administer their own forums and newsletters.</p>
+                <p></p>
+              </div>
+            </div>
+            <div class="column callout-body last" style="min-height: 343px;">
+              <div class="callout-content">
+                <h2>Web Resources</h2>
+                <p>All our members can submit media related <strong>links</strong> to Internet based resources, against which votes can be placed to determine and rate popularity.</p>
+                <p>View, comment on and subscribe to our daily updated <strong>syndicated news</strong>.</p>
+              </div>
+            </div>
+          </div>
+          <div class="seperator"></div>
+          <div class="three">
+            <div class="col">
+              <div>
+                <h2>Color Based Navigation</h2>
+                <p>All uploaded images are analysed and categorised by color. This enables: </p>
+                <ul>
+                  <li>grouping images by how similar their color pallets are.</li>
+                  <li>navigating and finding images based on their color properties. </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col">
+              <div>
+                <h2>Google Maps</h2>
+                <p>All media can be Geotagged using Google Maps</p>
+                <p>Geotagging information is available against all our media based RSS feeds which means that Google can index our RSS feeds against Google Maps and Google Earth searches.</p>
+              </div>
+            </div>
+            <div class="col last">
+              <div>
+                <h2>RSS Syndication</h2>
+                <p>We provide RSS feeds on the following:</p>
+                <ul>
+                  <li>Member Blogs</li>
+                  <li>Member uploaded images</li>
+                  <li>Club news and club related media</li>
+                  <li>Latest news</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </div>
+</div>
+<div id="page-bottom"></div>
+<%= render :partial => 'shared/stats' %>
+

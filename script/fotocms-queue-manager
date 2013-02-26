@@ -1,0 +1,26 @@
+#!/opt/ruby-enterprise/bin/ruby
+
+puts "#{Time.now.to_s} - Starting FotoCMS Queue Manager"
+
+require File.join(File.dirname(__FILE__), "/../lib/site_queues")
+
+puts "#{Time.now.to_s} - Loading Rails"
+require File.join(File.dirname(__FILE__), "/../config/environment")
+puts "#{Time.now.to_s} - Loaded Rails"
+
+#instantiate manager and start queues (if any)
+manager = SiteQueues::Manager::DaemonManager.new(['short', 'long'])
+
+#setup signal interrupt
+at_exit{ SiteQueues::Manager.write_log("Queue Manager caught TERM. Shutting down all Daemons"); manager.stop; SiteQueues::Manager.write_log("Exiting"); exit }
+
+#loop until killed
+
+loop do
+  sleep 10
+  manager.process
+  if manager.threads_are_idle
+    SiteQueues::Manager.write_log("All threads are idle... shutting down daemon")
+    break
+  end
+end

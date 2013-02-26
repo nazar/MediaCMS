@@ -1,0 +1,63 @@
+<h3>Generated Ebay listing HTML</h3>
+<div class="step">
+  <p>Collection name: <input type="text" value="<%=@collection.name%>"> </p>
+  HTML collection listing<br />
+  <textarea rows="20" cols="60">
+    <style type="text/css">
+      <!--
+    .table {width:80%}
+    .head {background-color: #B6BF8A; padding: 5px; font-weight: bold;}
+    .even {background-color: #E9EBDE; padding: 5px;}
+    .odd {background-color: #DEE1CE; padding: 5px;}
+    .crop_image{float: left; width: 130px; height: 130px; overflow: hidden; background-repeat: no-repeat; background-position: center;}   
+    .crop_image img{opacity: 0} 
+    #powered a img {border: none;}
+        -->
+    </style>
+    <div align="center">
+      <p>You are bidding on a collection of high resolution JPEG images. There are a total of <%= pluralize(@collection.collections_items.length,'file') %> compressed into a <%= human_size(@collection.collection_size) %> zip file for download immediately after the end of this auction.</p>
+      <table class="table" cellpadding="0px" cellspacing="0">
+        <tr>
+          <td colspan="2" class="odd" align="center" width="800px;">
+            <% for item in @collection.collections_items %><div class="crop_image" title="<%= item.photo.title %>" style="background-image: url(<%= thumbnail_path(item.photo, {:only_path => false}) %>)"><%= renderThumbnail(item.photo, {:only_path => false}) %></div><% end %>
+          </td>
+        </tr>
+        <tr>
+          <td class="head">Collection Name</td>
+          <td class="even"><%= @collection.name %></td>
+        </tr>
+        <tr>
+          <td class="head">Collection Photo Names</td>
+          <td class="even"><%= @collection.photos_names %></td>
+        </tr>
+        <tr>
+          <td class="head">View Collection Photos</td>
+          <td class="even"><%= link_to 'View', url_for({:controller => '/collections', :action => :view, :id => @collection.id, :only_path => false }) %></td>
+        </tr>
+        <tr>
+          <td class="head">Number of JPEGS</td>
+          <td class="even"><%= pluralize(@collection.collections_items.length,'file') %></td>
+        </tr>
+        <tr>
+          <td class="head">Collection Download Size</td>
+          <td class="even"><%= human_size(@collection.collection_size) %></td>
+        </tr>
+        <tr>
+          <td class="head">Collection Code</td>
+          <td class="even"><%= @promotion.code %></td>
+        </tr>
+        <tr>
+          <td class="even" colspan="2"><%= @collection.markup_description %></td>
+        </tr>
+        <tr>
+          <td class="odd" colspan="2" align="center"><%= "<a href='#{current_domain}photos/by/#{@collection.user.login}'>More photos from this seller</a>" %></td>
+        </tr>
+      </table>
+      <p id="powered">
+        <a href="<%="#{current_domain}promotions/about"%>"><img alt="Powered by <%= Configuration.site_name %>" src="<%=current_domain%>images/powered.png" /></a><br />
+        <small>Powered by <a href="<%=current_domain%>promotions/about"><%= Configuration.site_name %></a></small>
+      </p>
+    </div>
+  </textarea>
+  <p>Copy and paste the above HTML code into your Ebay photo listing description.</p>
+</div>  

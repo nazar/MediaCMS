@@ -1,0 +1,8 @@
+<%= start_tabnav :account %>
+    <% if @bookmarks.length > 0 %>
+      <h2>Bookmarked Links</h2>
+      <div class="step">
+        <%= render :partial => '/links/links_list', :locals => {:links => @bookmarks} %>
+      </div>
+    <% end %>  
+<%= end_tabnav %>    

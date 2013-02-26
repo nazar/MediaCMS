@@ -1,0 +1,20 @@
+<table id="account_cap" cellpadding="0px" cellspacing="0">
+  <tr>
+    <td class="head">Order Number</td>
+    <td class="head">Description</td>
+    <td class="head">Credits</td>
+    <td class="head">Date Purchased</td>
+  </tr>
+  <% limit = 0 %>
+  <% for credit in credit_histories %>
+    <% klass = limit.odd? ? 'odd' : 'even' %>
+    <tr>
+      <td class="<%=klass%>"><%= credit.order_id %></td>
+      <td class="<%=klass%>"><%= credit.description %></td>
+      <td class="<%=klass%>"><%= credit.value %></td>
+      <td class="<%=klass%>"><%= credit.created_at.to_formatted_s(:long) %></td>
+    </tr>
+    <% limit += 1 %>
+    <% break if limit == list_limit %>
+  <% end %>
+</table>

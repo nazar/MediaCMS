@@ -1,0 +1,5 @@
+  <a href="<%= photo_view_url(:id => photo.id, :name => photo.safe_title)%>"><%= renderThumbnail(photo, {:only_path => false}) %></a>
+  <div align="center" style="clear:both"><%= photo.short_title %></div>
+  <div><%=photo.formatted_description%></div>
+      
+      

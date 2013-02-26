@@ -1,0 +1,3 @@
+page.replace 'uncated_photos', :partial => '/photos/render_uncated'
+#since we are here, render the disk free space as well
+page.recalc_space(current_user)

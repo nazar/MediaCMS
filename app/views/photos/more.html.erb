@@ -1,0 +1,6 @@
+<div class="block_title"><h2><%= @page_title -%></h2></div>
+<%= will_paginate @photos -%>
+<div class='step'>
+  <%= render_photo_block(@photos) -%>
+</div>
+<%= will_paginate @photos -%>

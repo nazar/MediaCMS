@@ -1,0 +1,22 @@
+<% 
+  script  = 'var pathPrefix_link = ""; var menuItems = ['
+  tabs.each do |tab|      
+    if eval(tab.condition) 
+      if tab.has_submenu
+        script += "['#{tab.name}','', , , , , , , , ],"
+        tab.submenus.each do |sub|
+          if eval(sub.condition)
+            script += "['|#{sub.name}','#{url_for sub.link}', , , , , , , , ]," 
+          end
+        end
+      else
+        script += "['#{tab.name}','#{url_for tab.link}', , , , , , , , ]," 
+      end
+    end
+  end
+  script += ']; dm_init();'
+%>
+<%= javascript_tag script %>
+<noscript>
+  <%= render :partial => '/tabnav/css_menu', :locals => {:tabs => tabs} -%> 
+</noscript>

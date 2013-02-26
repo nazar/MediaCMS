@@ -1,0 +1,27 @@
+<div class="block_title"><h2><%= @title %></h2></div>
+<% unless @topics.blank? %>
+  <%= will_paginate @topics %>
+  <div class="step">
+    <table cellpadding="0px" cellspacing="0">
+      <tr>
+        <td class="head">Forum</td>
+        <td class="head">Topic</td>
+        <td class="head">Posted</td>
+      </tr>
+    <% for topic in @topics %>
+      <% row_class = cycle('even','odd') %>
+      <tr>
+        <td class="<%=row_class%>"><%= link_to(h(topic.forum.name), forum_url(:id=>topic.forum_id)) %></td>
+        <td class="<%=row_class%>"><%= "<a href='/forum/#{topic.forum_id}/topic/#{topic.topic_id}#post#{topic.id}'>#{topic.title}</a>" %></td>
+        <td class="<%=row_class%>"><%= date_ago(topic.created_at) %> ago</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="<%=row_class%>"><%= topic.body[0,100] %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+  <%= will_paginate @topics %>
+<% else -%>
+  <div class="step">No topics found</div>
+<% end %>

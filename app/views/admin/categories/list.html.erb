@@ -1,0 +1,23 @@
+<% @contentTitle = 'Listing categories' %>
+<table>
+  <tr>
+  <% for column in Category.content_columns %>
+    <th><%= column.human_name %></th> 
+  <% end %>
+  </tr>
+  
+<% for category in Category.all %>
+  <tr>
+    <td><%= category.long_name %></td>
+    <td><%= category.description %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => category %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => category %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => category }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<br />
+
+<%= link_to 'New category', :action => 'new' %>

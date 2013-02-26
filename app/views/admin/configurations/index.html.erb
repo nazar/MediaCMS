@@ -1,0 +1,7 @@
+<h1><%= Configuration.site_name %> configuration</h1>
+<div class="step">
+  <% form_tag '/admin/configurations/update' do %>
+    <%= render :partial => 'admin/configurations/form' %>
+    <%= submit_tag 'Save' %>
+  <% end %>
+</div>

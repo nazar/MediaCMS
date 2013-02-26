@@ -1,0 +1,10 @@
+<div class="block_title"><h2><%= @title %></h2></div>
+<% unless @links.blank? %>
+  <%= will_paginate @links %>
+  <div class="step clearfix" id="links">
+    <%= render :partial => '/links/links_list', :locals => {:links => @links} %>    
+  </div>
+  <%= will_paginate @links %>
+<% else -%>
+  <div class="step">No Web Links found</div>
+<% end %>

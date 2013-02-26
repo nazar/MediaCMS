@@ -1,0 +1,21 @@
+<p>Dear <%= @user.login %>.</p>
+<p>You are receiving this email because you have just sold us Credits for your <%= Configuration.site_name %> account.
+Please keep this email for your records.</p>
+<table>
+  <tr>
+    <th>Sale Reference</th>
+    <td><%= @sale.id %></td>
+  </tr>
+  <tr>
+    <th>Order Date</th>
+    <td><%= @sale.created_at %></td>
+  </tr>
+  <tr>
+    <th>Order Value</th>
+    <td><%= number_to_currency(@sale.value,{:unit => '&pound;'}) %></td>
+  </tr>
+</table>
+<p><%= Configuration.site_name %> requires <%= Configuration.payment_days %> working days to process your payment prior to sending funds to your Paypal account.</p>
+<p>Please contact <a href="mailto:<%=Configuration.site_admin%>"><%= Configuration.site_name %> Admin</a> if your Paypal account has not been credited
+ after 14 working days.</p>
+<%= @sig %>

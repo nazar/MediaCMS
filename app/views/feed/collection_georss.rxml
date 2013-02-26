@@ -1,0 +1,4 @@
+xml.instruct!
+render_photo_feed(@photos, xml,
+                 {:title => "Collection #{h @collection.name} GeoRSS Feed",
+                  :description => "GeoRSS feed for all photos in #{h @collection.name}"})

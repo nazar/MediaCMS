@@ -1,0 +1,32 @@
+<h1>Listing News Items</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Active</th>
+    <th>Category</th>
+    <th>Author</th>
+    <th>Created At</th>
+    <th>Read</th>
+    <th colspan="2">Actions</th>
+  </tr>
+
+<% for news_item in @news_items %>
+  <tr>
+    <td><a href="/admin/news_items/edit/<%=news_item.id%>"><%=h news_item.send('title') %></a></td>
+    <td><%=h news_item.active %></td>
+    <td><%=h(news_item.itemable.name) unless news_item.itemable.blank? %></td>
+    <td><%=h news_item.user.login %></td>
+    <td><%=h news_item.send('created_at') %></td>
+    <td><%=h news_item.send('read') %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => news_item %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => news_item }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @news_items %>
+
+<br />
+
+<%= link_to 'New News Item', :action => 'new' %>

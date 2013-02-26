@@ -1,0 +1,16 @@
+<% if histories.length > 0 %>
+  <table class="outer" cellpadding="0" cellspacing="0">
+    <tr>
+      <td class="head">Newsletter Title</td>
+      <td class="head">Date Newsletter Sent</td>
+    </tr>
+    <% for news_item in histories %>
+      <tr class="<%=cycle('even','odd')%>">
+        <td><%= news_item.news_item.title %></td>
+        <td><%= news_item.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+    No newsletters sent yet.
+<% end %>

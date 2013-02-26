@@ -1,0 +1,20 @@
+<%= error_messages_for 'promotion' %>
+<div class="block_title"><h2>Redeem your token code</h2></div>
+<div class="step">
+  <% form_tag :action => 'claim' do %>
+    <% if !current_user %>
+      <p>Please use your username and password to login if you are a registered user of <%= Configuration.site_name %>. Alternatively please provide the email address to which your token code was sent to create a free account and then download your media</p>
+      <p>Please note that your token code is linked to the email address the code was sent to. An alternative email address will not be recognised.</p>
+      <p><label for="promotion_user_email">User email</label><br/>
+      <%= text_field_tag 'user_email', nil, {:size => 40}  %></p>
+    <% end %>
+    <p><label for="promotion_user_code">Token Code</label><br/>
+       <%= text_field_tag 'code', nil, {:size => 40} %></p>
+    <p><%= submit_tag "Claim Token" %></p>
+  <% end %>
+  <% if current_user %>
+    <p>Please visit your <%=link_to 'library', :controller => 'account', :action => 'library'%> to view and download the image associated with your token code.</p>
+  <% else %>
+    <p>Once the token code is claimed an email will be sent to your supplied email address with details of your username and password. <a href="/account/login">Login</a> to the <%= Configuration.site_name %> website and view your media under <em>My Account</em> then <em>My Library</em>. Full details and links will be supplied in your welcome email.</p>
+    <% end %>  
+</div>

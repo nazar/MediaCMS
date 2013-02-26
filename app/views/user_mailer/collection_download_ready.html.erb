@@ -1,0 +1,6 @@
+<p>Dear <%= @user.pretty_name %>.</p>
+<p>You are receiving this email because collection <%= @collection.name %> is ready for download.<br />
+   Download your collection by clicking on clicking: <a href="<%=@link%>">here</a></p>
+<p>If the above link is not visible then the following link can be copied to your web browser's address bar:<br />
+   <strong>Download Link:</strong> <%= @link %></p>
+<%= @msg %>

@@ -1,0 +1,4 @@
+xml.instruct!
+render_photo_feed(@photos, xml,
+                 {:title => "Latest 10 Photos",
+                  :description => "Displaying latest 10 #{Configuration.site_name} photos."})

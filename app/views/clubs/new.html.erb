@@ -1,0 +1,8 @@
+<div class="block_title"><h2><%= @page_title %></h2></div>
+<%= error_messages_for 'club' %>
+<div class="step">
+  <% form_tag club_new_path do -%>
+    <%= render :partial => 'clubs/form' %>
+    <%= submit_tag 'Create Club' -%>
+  <% end -%>
+</div>

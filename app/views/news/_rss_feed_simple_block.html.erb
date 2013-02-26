@@ -1,0 +1,10 @@
+<% for feed in feeds %>
+  <div style="float:left; width:48%; height:320px;">
+    <h4><%= feed.name -%></h4>
+    <ul>
+      <% for item in feed.feed_items %>
+        <%= "<li><a class=\"no_underline\" target=\"_blank\" href=\"#{item.link}\">#{item.title}</a></li>" -%>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

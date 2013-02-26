@@ -1,0 +1,14 @@
+<%= error_messages_for 'blog' %>
+
+<!--[form:blog]-->
+<p><label for="blog_created_on">Blog Published Date</label><br/>
+<%= datetime_select 'blog', 'created_at'  %></p>
+
+<p><label for="blog_title">Blog Title</label><br/>
+<%= text_field 'blog', 'title'  %></p>
+
+<p><label for="blog_body">Blog Body</label><br/>
+<small> Use &lt;spotlight&gt;&lt;/spotlight&gt; markup to define the spotlight part of your blog</small><br />
+<%= markup_area 'blog', 'body', {:rows => 13, :cols => '100'}  %></p>
+<!--[eoform:blog]-->
+

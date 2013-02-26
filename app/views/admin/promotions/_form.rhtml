@@ -1,0 +1,37 @@
+<%= error_messages_for 'promotion' %>
+
+<div style="float:right; padding-right:20px;">
+  <div class="step">
+    <div id="display_object"></div>
+    <br clear="all">
+  </div>
+</div>
+<!--[form:promotion]-->
+<p><label for="promotion_code">Code</label><br/>
+<%= text_field 'promotion', 'code'  %></p>
+
+<p><label for="promotion_link_type">Object Type</label><br/>
+<%= select 'promotion', 'link_type', Promotion.types.collect{|t| [t]}  %></p>
+
+<p>
+  <label for="promotion_link_id">Object ID</label><br/>
+  <%= text_field 'promotion', 'link_id'  %>
+  <a href="#" onclick="new Ajax.Request('/admin/promotions/lookup_object/'+$('promotion_link_id').value+'?type='+$('promotion_link_type').value, {asynchronous:true, evalScripts:true}); return false;">?</a>
+</p>
+
+<p>
+  <label for="promotion_vendor_ref">Vendor ref</label><br/>
+  <%= text_field 'promotion', 'vendor_ref'  %>
+</p>
+
+<p><label for="promotion_credits">Credits / Free Memberships in months</label><br/>
+<%= text_field 'promotion', 'credits'  %></p>
+
+<p><label for="promotion_uses_remaining">Uses remaining</label><br/>
+<%= text_field 'promotion', 'uses_remaining'  %></p>
+
+<p><label for="promotion_credits">Strict</label><br/>
+<%= check_box 'promotion', 'strict'  %></p>
+
+<!--[eoform:promotion]-->
+

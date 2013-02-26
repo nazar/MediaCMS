@@ -1,0 +1,8 @@
+<% for column in License.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @license.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @license %> |
+<%= link_to 'Back', :action => 'list' %>

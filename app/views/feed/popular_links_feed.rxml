@@ -1,0 +1,4 @@
+xml.instruct!
+render_item_feed(@links, xml,
+                 {:title => "Latest #{Configuration.site_name} Photography Links",
+                  :description => "Latest #{Configuration.site_name} Photography Links as voted by our members"})

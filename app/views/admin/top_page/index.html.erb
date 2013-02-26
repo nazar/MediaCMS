@@ -1,0 +1,8 @@
+<h1>Headers and Front Page Content</h1>
+<div class="step">
+  <% form_tag '/admin/top_page/update' do %>
+    <%= render :partial => '/admin/top_page/form' %>
+    <%= submit_tag 'Save' %>
+  <% end %>
+</div>
+

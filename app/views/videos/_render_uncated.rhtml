@@ -1,0 +1,7 @@
+<div id="uncated_videos">
+  <% for video in videos %>
+    <div class="list_uncategories_videos" id="video_div_<%=video.id%>">
+      <%= render :partial => '/videos/video_update', :locals => { :video => video}%>
+    </div>
+  <% end %>
+</div>

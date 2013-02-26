@@ -1,0 +1,21 @@
+<% form_tag '/admin/report_images/batch_process', {:id => 'report_images'} do %>
+  <table>
+    <tr>
+      <td class="head">Actions</td>
+      <td class="head"><input type="checkbox" name="select_all" id="select_all" onclick="CheckAllCheckboxes('report_images','select_all');"/></td>
+      <td class="head">Image</td>
+      <td class="head">Type</td>
+      <td class="head">Reason</td>
+      <td class="head">Reported</td>
+      <td class="head">By</td>
+    </tr>
+    <%= render :partial => '/admin/report_images/report_row', :collection => @reports  %>
+  </table>
+	<h2>Process Selected Items</h2>
+	<p>
+		<strong>Reason for action:</strong><br />
+   <%= markup_area 'report', 'description'  %>
+	</p>
+  <p><%= select_tag 'Action', ['delete photo','ignore report'].map {|o| "<option>#{o}</option>"} %> <%= submit_tag('Batch Process') %></p>    
+<% end %>
+<% add_footer_sript(javascript_tag("Event.addBehavior({'.view_report': Remote, '.delete_report' : Remote, '.delete_image' : Remote});")) %>

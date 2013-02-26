@@ -1,0 +1,21 @@
+<h1>Editing: <%= link_to @media.title, audio_path(@media) %></h1>
+<div class="step">
+  <div align="center"><%= render_audio_view(@media) %></div><br>
+  <%= h2_title 'Audio File Properties' %>
+  <% form_tag :action => 'update', :id => @media do %>
+    <div class="step">
+      <%= error_messages_for 'properties' %>
+      <%= render :partial => 'medias/media_form' %>
+      <%= submit_tag 'Save' %>
+    </div>
+  <% end %>
+  <%= h2_title 'Audio Preview Streaming Properties' %>
+  <% form_tag :action => 'recode_audio', :id => @media do -%>
+    <div class="step">
+      <%= render :partial => 'audios/audio_properties_form' -%>
+      <%= submit_tag 'Recode Audio File' %>
+    </div>
+  <% end -%>
+  <br />
+  <%= render :partial => '/maps/markers', :locals => {:markable => @media, :data_url => "/audios/markers/#{@media.id}"} %>
+</div>

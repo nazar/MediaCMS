@@ -1,0 +1,10 @@
+<h1>Editing account</h1>
+
+<% form_tag :action => 'update', :id => @account do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
+<br />
+<%= link_to 'Back', :action => 'list' %> | 
+<%= link_to 'Edit', :action => 'edit', :id => @account %> | 
+<%= link_to 'Destroy', { :action => 'destroy', :id => @account }, :confirm => 'Are you sure?', :post => true %> 

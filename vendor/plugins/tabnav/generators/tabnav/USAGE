@@ -1,0 +1,8 @@
+Description:
+    The tabnav generator creates a sample Tabnav model and a partial for it.
+    
+    You will need to use the tabnav plugin in order to use them.
+   
+Example:
+
+    ./script/generate tabnav Main

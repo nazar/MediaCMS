@@ -1,0 +1,7 @@
+<div class="comment_avatar">
+  <% if comment.user_id.to_i > 0 %>
+    <img src="<%=User.avatar_path(comment.user_id)%>" alt="" />
+  <% else %>
+    <img src="/images/anonymous.png" alt="Anonymous User" />
+  <% end %>
+</div>

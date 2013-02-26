@@ -1,0 +1,6 @@
+<%= periodically_call_remote(:url => {:action => 'job_list'}, :update => 'job_list') %>
+<div id="job_list">
+  <% unless jobs.nil? %>
+    <%= render :partial => '/jobs/list', :locals => {:jobs => jobs} %>
+  <% end %>
+</div>

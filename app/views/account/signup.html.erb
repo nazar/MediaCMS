@@ -1,0 +1,71 @@
+<% @page_title = 'Register for a Free Account' %>
+<%= error_messages_for :user %>
+<div class="block_title"><h2>Register for a <%= Configuration.site_name %> account</h2></div>
+<div class="step">
+  <% form_for :user do |f| -%>
+  <table cellpadding="0px" cellspacing="0" id="signup">
+    <tr>
+      <td class="even">
+        <p><label for="login"><strong>Login</strong></label><br/>
+        <%= f.text_field :login %></p>
+      </td>
+      <td class="odd">
+        Choose a login name, which will be used to both login into <%= Configuration.site_name %> and to identify your 
+        photos, blogs and forum posts. Login must be between 3 and 12 characters long.
+      </td>
+    </tr>
+    <tr>
+      <td  class="even">
+        <p><label for="email">Email</label><br/>
+        <%= f.text_field :email %></p>
+      </td>
+      <td class="odd">
+        A welcome email, containing an activation link, will be sent to this email address. 
+        <strong>You will not be able to access your account until it has been activated.</strong>
+      </td>
+    </tr>
+    <tr>
+      <td  class="even">
+        <p><label for="password">Password</label><br/>
+        <%= f.password_field :password %></p>
+      </td>
+      <td class="odd">
+        Choose a secure but memorable password to login into your <%= Configuration.site_name %> account area. 
+        This password must be between 4 and 12 charactets long. Your password will be emailed to you along with your login in your welcome email. 
+      </td>
+    </tr>
+    <tr>
+      <td class="even">
+        <p><label for="password_confirmation">Confirm Password</label><br/>
+        <%= f.password_field :password_confirmation %></p>
+      </td>
+      <td class="odd">
+        Confirm your password.
+      </td>
+    </tr>
+    <tr>
+      <td class="even">
+        <p><label for="promotion_code">Promotion Code</label><br/>
+        <%= f.text_field :promotion_code %></p>
+      </td>
+      <td class="odd">
+        Enter your promotion code, if available. 
+      </td>
+    </tr>
+    <tr>
+      <td class="even">
+        <p><%= f.check_box :terms %>I agree.</p>
+      </td>
+      <td class="odd">
+        Read and agree the <%= link_to 'Terms of Service', {:controller => 'pages', :action => :terms_of_service}, :popup => 'Terms of Service' %> by ticking the <strong>I agree</strong> box.
+      </td>
+    </tr>
+  </table>
+  
+  <p><%= submit_tag 'Sign up' %></p>
+  <% end -%>
+</div>
+<br/>
+<div class="step">
+  <%= render :partial => '/account/hosting_plans' %>
+</div>

@@ -1,0 +1,40 @@
+<div id="article">
+  <div class="underline">
+    <div style='float:right'>
+      <small>
+        Posted <%= date_ago(article.created_at) %> 
+        ago by <%= link_to h(article.user.login), :controller => '/account', :action => :about, :id => article.user.login %>
+      </small>
+    </div>
+    <div class="blogTitle"><%= h article.title %></div>
+  </div>
+  <div class="blogBody" id="article_body">
+    <% if article.diggable? %><%= render :partial => '/articles/digg', :locals => {:title => article.title} %><% end %>
+    <%= body %>
+  </div>
+  <div class="small">tags: <%= article_tags(article) %></div>
+  <br clear="both"/>
+  <% if current_user && ((current_user.id == article.user_id) || (current_user.admin) ) %>
+    <div class="overline">
+      <div style="float:right">
+        <small> 
+          <% if current_user.admin? %>
+            <% if not article.approved? %>
+              <%= link_to 'approve', {:controller => '/articles', :action => :approve, :id => article.id}, :method => :post %> | 
+            <% else %>
+              <%= link_to 'un-approve', {:controller => '/articles', :action => :unapprove, :id => article.id}, :method => :post %> | 
+            <% end %>
+          <% end %>
+          <a href="/articles/edit/<%=article.id%>">edit</a> |
+          <%= link_to 'delete', { :action => 'delete', :id => article }, 
+          :confirm => 'Are you sure?', :post => true %>
+        </small>
+      </div>
+      <div>
+        <% if current_user && ((current_user.id == article.user_id) || (current_user.admin)) %>
+          <small>revision: <%= revision %> | <%= revision_navigation(article, revision) %></small>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>  

@@ -1,0 +1,55 @@
+<h3>Generated Ebay listing HTML</h3>
+<div class="step">
+  <p>Photo title: <input type="text" value="<%=@photo.title%>"> </p>
+  <p>Photo price: <input type="text" value="<%=@photo.price%>"> </p>
+  HTML photo listing<br />
+  <textarea rows="20" cols="60">
+  <style type="text/css">
+    <!--
+    .table {width:80%}
+    .head {background-color: #B6BF8A; padding: 5px; font-weight: bold;}
+    .even {background-color: #E9EBDE; padding: 5px;}
+    .odd {background-color: #DEE1CE; padding: 5px;}
+    #powered a img {border: none;}
+    -->
+    </style>
+    <div align="center">
+      <p><%= renderViewFullPath(@photo) %></p>
+			<p>You are bidding on a high resolution photographic JPEG image which is <%=@photo.width%> by <%=@photo.height%> pixels and <%= number_to_human_size(@photo.file_size) %> in size. The winning bidder has full access to this royalty free image. Download instructions are provided at the end of auction. </p>
+      <table class="table" cellpadding="0px" cellspacing="0">
+        <tr>
+          <td class="head">Title</td>
+          <td class="even"><%= @photo.title %></td>
+        </tr>
+        <tr>
+          <td class="head">Description</td>
+          <td class="even"><%= @photo.description %></td>
+        </tr>
+        <tr>
+          <td class="head">Dimensions</td>
+          <td class="even"><%= "#{@photo.width} x #{@photo.height}" %></td>
+        </tr>
+        <tr>
+          <td class="head">File Size</td>
+          <td class="even"><%= number_to_human_size(@photo.file_size) %></td>
+        </tr>
+        <tr>
+          <td class="head">Price</td>
+          <td class="even"><%= "&pound;#{@photo.price}" %></td>
+        </tr>
+        <tr>
+          <td class="head">Photo Code</td>
+          <td class="even"><%= @promotion.code %></td>
+        </tr>
+        <tr>
+          <td class="odd" colspan="2" align="center"><%= "<a href='#{current_domain}photos/by/#{@photo.user.login}'>More photos from this seller</a>" %></td>
+        </tr>
+      </table>
+      <p id="powered">
+        <a href="<%="#{current_domain}promotions/about"%>"><img alt="Powered by <%= Configuration.site_name %>" src="<%=current_domain%>images/powered.png" /></a><br />
+        <small>Powered by <a href="<%=current_domain%>promotions/about"><%= Configuration.site_name %></a></small>
+      </p>
+    </div>
+  </textarea>
+  <p>Copy and paste the above HTML code into your Ebay photo listing description.</p>
+</div>  

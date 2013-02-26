@@ -1,0 +1,30 @@
+<div class="block_title"><h2>Viewing Tag: <%= @tag.name %></h2></div>
+<div class="step">
+  <% if @photos_count == 1 %>
+    There is <%= @photos_count -%> tagged photo.
+  <% else %>
+    There are <%= @photos_count -%> tagged photos.
+    <strong><%= link_to "View all photos in #{@tag.name}.", :action => :all_photos, :id => @tag.name %></strong>
+  <% end %>
+</div>
+<% if @photos_count > 0 %>
+  <%= feed_title_block("Latest Photos Tagged #{@tag.name}", {:controller => 'feed', :action => :latest_in_tag, :id => @tag.name}, {:auto_rss => true}) %>
+  <div class="step clearfix">
+    <% for photo in Photo.most_recent_in_tag(@tag) %>
+      <div class="listPhotos">
+        <%= render :partial => '/photos/small_picture', :locals => {:photo => photo} %>
+      </div>
+    <% end %>
+  </div>
+  <% top_rated_photos = Photo.top_rated_in_tag(@tag) %>
+  <% if top_rated_photos.length > 0 %>
+    <%= feed_title_block("Top Rated Photos Tagged #{@tag.name}", {:controller => 'feed', :action => :top_in_tag, :id => @tag.name}, {:auto_rss => true}) %>
+    <div class="step clearfix">
+      <% for photo in top_rated_photos %>
+        <div class="listPhotos">
+          <%= render :partial => '/photos/small_picture', :locals => {:photo => photo} %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

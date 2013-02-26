@@ -1,0 +1,29 @@
+<% if @order.status == 4 %>
+  <h1>Thank you for your photo purchase.</h1>
+  <div class="step">
+    <p><strong>You account has been debited <%= pluralize(@order.total,'credit') %>.</strong></p>
+    <p>You can view and download your purchased photos from your <a href="/account/library">Photo Library</a>.</p>
+    <p>Please consider rating and or leaving comments on your purchased photos to give feedback to our photographers.</p>
+  </div>
+  <div class="block_title"><h2>Order Receipt</h2></div>
+  <div class="step">
+    <table id="account_cap" cellpadding="0px" cellspacing="0">
+      <tr>
+        <td class="odd">Order Number</td>
+        <td class="even"><%= @order.id %></td>
+      </tr>
+      <tr>
+        <td class="odd">Order Date</td>
+        <td class="even"><%= @order.created_at.to_formatted_s(:long) %></td>
+      </tr>
+      <tr>
+        <td class="odd">Order Value</td>
+        <td class="even"><%= pluralize(@order.total,'Credit') %></td>
+      </tr>
+    </table>
+  </div>
+<% else %>
+  <% if @order.user_id != current_user.id %>
+    <h1>Security Alert. Order user does not match. Incident from IP <%= request.remote_ip %> logged for further investigation.</h1>
+  <% end %>
+<% end %>

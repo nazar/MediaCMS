@@ -1,0 +1,124 @@
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => 'blogs_by', :id => @grapher.id}, {:title => "Blogs by #{@grapher.pretty_name}"})) %>
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => :photographer_georss, :id => @grapher.id}, {:title => "GeoRSS from #{@grapher.pretty_name}"})) %>
+<div class="block_title"><h2>Profiling <%= @grapher.pretty_name %></h2></div>
+<div class="step">
+  <table cellpadding="0px" cellspacing="0">
+    <% if @grapher.name %>
+      <tr>
+        <td class="head">Real name</td>
+        <td class="odd"><%= @grapher.name %></td>
+      </tr>
+    <% end %>
+    <tr class="even">
+      <td class="head" width="25%">Joined</td>
+      <td class="odd"><%= date_ago(@grapher.created_at) %> ago.</td>
+    </tr>
+    <tr class="even">
+      <td class="head">Uploaded</td>
+      <td class="odd">
+        <%= "#{pluralize(@grapher.photos_count,'photo')}" %>. 
+        <strong><a href='<%="/photos/by/#{@grapher.login}"%>'>View photos</a>.</strong>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<% if  @grapher.bio && (@grapher.bio.length > 0) %>
+  <div class="block_title"><h2>My Biography</h2></div>
+  <div class="step"><%= @grapher.formatted_bio %></div>  
+<% end %>
+
+<% if  @grapher.photos_count > 0 %>
+  <%= feed_title_block('My Latest Photos', {:controller => 'feed', :action => :latest_member_photos, :id => @grapher.id}, {:auto_rss => true}) %>
+  <div class="step clearfix">
+    <%= render_photo_block(@grapher.latest_photos(10)) %>
+  </div>  
+<% end %>
+
+<% if @grapher.collections_count > 0 %>
+  <div class="block_title"><h2>My Latest Collections</h2></div>
+  <div class="step">
+    <%= render :partial => 'collections/my_collection_in_profile', :locals => {:user => @grapher, :limit => 3} %>
+  </div>
+<% end  %>
+
+<% if @grapher.photo_markers_count > 0%>
+  <div class="block_title">
+    <div class="feed"><%= link_to image_tag('georss.png'), {:controller => '/feed', :action => :photographer_georss, :id => @grapher.id}, {:class => 'no_underline'} %></div>
+    <h2>My Photo Markers</h2>
+  </div>
+  <div class="step">
+    <%= render :partial => '/maps/map_viewer', 
+               :locals => {:data_url => "/photos/photo_user_markers/#{@grapher.id}",
+                           :height => '350px'} %>
+  </div>
+<% end %>
+
+<div class="block_title"><h2>Clubs & Groups <%= @grapher.pretty_name %> is a Member of</h2></div>
+<div class="step">
+  <% if @grapher.club_memberships.length > 0 %>
+    <%= render :partial => 'clubs/member_of_clubs', :locals => {:clubs => @grapher.club_memberships} %>
+  <% else %>
+    <p>Not in any clubs or groups yet</p>
+  <% end %>
+</div>
+
+
+<% if @grapher.blogs.count > 0 %>
+  <div class="block_title">
+    <div class="feed"><%= link_to(image_tag('rss.gif'), {:controller => 'feed', :action => :blogs_by, :id => @grapher.id},{:class => 'no_underline'}) %></div>
+    <h2>Latest Blogs</h2>
+  </div>
+  <div class="step">
+  <% limit = 1 %>
+  <% for blog in @grapher.blogs %>
+    <%= render :partial => '/blogs/blog_summary', :locals => {:blog => blog, :user => @grapher} %>
+    <% break if limit > 5 %>
+    <% limit += 1 %>
+  <% end %>
+  </div>
+<% end %>
+  
+<% render :partial => '/friends/friends/', :locals => {:user => @grapher} %>
+
+<% if @my_photo_comments.length > 0 %>
+  <div class="block_title"><h2>My Recent Comments on Photographs</h2></div>
+  <div class="step">
+    <%= render :partial => '/comments/photo_comments', :locals => {:comments => @my_photo_comments} %>
+  </div>
+<% end %>
+
+<% my_tags = render :partial => '/tags/my_tags', :locals => {:user => @grapher} %>
+<% if my_tags %>
+  <div class="block_title"><h2>My Tags</h2></div>
+  <div class="step">
+    <%= my_tags %>
+  </div>
+<% end %>
+<div class="block_title"><h2>Email Member</h2></div>
+<div class="step">
+  <% if current_user %>
+    <% form_tag '/account/send_message' do %>
+      <table cellpadding="0" cellspacing="0">
+        <tr class="even">
+          <td class="head">Your Email</td>
+          <td class="odd"><%= current_user.email %></td>
+        </tr> 
+        <tr class="even">
+          <td class="head">Subject</td>
+          <td class="odd"><%= text_field_tag 'subject', nil, :size => 50 %></td>
+        </tr>
+        <tr class="even">
+          <td class="head">Message<br />Body</td>
+          <td class="odd"><%= markup_editor_tag 'markup_message', nil, 
+                                                 {:url => {:controller => 'pages', 
+                                                           :action => 'preview'}} %></td>
+        </tr>
+      </table>
+      <%= hidden_field_tag 'user_id', @grapher.id %>
+      <p><%= submit_tag 'Send Message' %></p>
+  <% end %>
+  <% else %>
+    <p>You must be a <a href="/account/signup">member</a> and <a href="/account/login">logged</a> in to send a message to this member.</p>
+  <% end %>
+</div>

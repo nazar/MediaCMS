@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://purl.org/rss/1.0/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:cc="http://web.resource.org/cc/"
+ xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+ xmlns:admin="http://webns.net/mvcb/"
+ xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+>
+
+<channel rdf:about="http://www.earthboundlight.com/phototips.html">
+<title>Earthbound Light Photography Tips</title>
+<link>http://www.earthboundlight.com/phototips.html</link>
+<description>Weekly Photoshop and digital photography tips, articles and tutorials from EarthboundLight.com</description>
+<dc:language>en-US</dc:language>
+<dc:rights>Copyright (c) 2000-3909 Bob Johnson, Earthbound Light</dc:rights>
+<dc:publisher>www.earthboundlight.com</dc:publisher>
+<dc:creator>www.earthboundlight.com</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<syn:updatePeriod>daily</syn:updatePeriod>
+<syn:updateFrequency>1</syn:updateFrequency>
+<syn:updateBase>2000-01-01T00:00+00:00</syn:updateBase>
+<cc:license rdf:resource="http://creativecommons.org/licenses/by-nd-nc/3.0/" />
+<items>
+ <rdf:Seq>
+  <rdf:li rdf:resource="http://www.earthboundlight.com/phototips/photoshop-cursor-problems.html" />
+  <rdf:li rdf:resource="http://www.earthboundlight.com/phototips/camera-raw-versus-lightroom.html" />
+  <rdf:li rdf:resource="http://www.earthboundlight.com/phototips/adobe-lightroom-3-beta.html" />
+  <rdf:li rdf:resource="http://www.earthboundlight.com/phototips/sunset-filters.html" />
+  <rdf:li rdf:resource="http://www.earthboundlight.com/phototips/photoshop-notes-tool.html" />
+  <rdf:li rdf:resource="http://www.earthboundlight.com/phototips/avoiding-color-manglement.html" />
+  <rdf:li rdf:resource="http://www.earthboundlight.com/phototips/ken-burns-national-parks.html" />
+  <rdf:li rdf:resource="http://www.earthboundlight.com/phototips/facebook-and-site-updates.html" />
+  <rdf:li rdf:resource="http://www.earthboundlight.com/phototips/nikon-lens-letter-codes.html" />
+  <rdf:li rdf:resource="http://www.earthboundlight.com/phototips/using-photographic-triangle.html" />
+ </rdf:Seq>
+</items>
+<image rdf:resource="http://www.earthboundlight.com/subscribe/rss_120x60.jpg" />
+<textinput rdf:resource="http://www.earthboundlight.com/phototip_search.html" />
+</channel>
+
+<image rdf:about="http://www.earthboundlight.com/subscribe/rss_120x60.jpg">
+<title>Earthbound Light - Nature photography from the Pacific Northwest and beyond</title>
+<url>http://www.earthboundlight.com/subscribe/rss_120x60.jpg</url>
+<link>http://www.earthboundlight.com</link>
+<dc:creator>Bob Johnson, Earthbound Light - www.earthboundlight.com</dc:creator>
+</image>
+
+<item rdf:about="http://www.earthboundlight.com/phototips/photoshop-cursor-problems.html">
+<title>Help! My Photoshop Cursors are Messed Up!</title>
+<link>http://www.earthboundlight.com/phototips/photoshop-cursor-problems.html</link>
+<description>Photoshop is a complex program that lets users configure numerous options to meet their needs and preferences. Unfortunately, every now and then this can lead to frustration if you settings get messed up somehow. One of the most visible such frustrations stems from messed up cursors. But before you literally start cursing at Photoshop, there are ways to solve Photoshop cursor problems....</description>
+<dc:creator>Bob Johnson, Earthbound Light</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<dc:date>2009-11-15T00:00-02:00</dc:date>
+</item>
+
+<item rdf:about="http://www.earthboundlight.com/phototips/camera-raw-versus-lightroom.html">
+<title>Using Both Adobe Camera Raw and Lightroom</title>
+<link>http://www.earthboundlight.com/phototips/camera-raw-versus-lightroom.html</link>
+<description>Adobe makes both Camera Raw and Lightroom so it's natural to compare the two. While they do have a lot in common there are differences, and those differences mean that Camera Raw and Lightroom don't always play well together....</description>
+<dc:creator>Bob Johnson, Earthbound Light</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<dc:date>2009-11-08T00:00-02:00</dc:date>
+</item>
+
+<item rdf:about="http://www.earthboundlight.com/phototips/adobe-lightroom-3-beta.html">
+<title>Adobe Lightroom 3 Public Beta</title>
+<link>http://www.earthboundlight.com/phototips/adobe-lightroom-3-beta.html</link>
+<description>Towards the end of October, Adobe made available a public beta of the forthcoming Lightroom 3 application. So far, it looks great. Read on for my initial thoughts....</description>
+<dc:creator>Bob Johnson, Earthbound Light</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<dc:date>2009-11-01T00:00-02:00</dc:date>
+</item>
+
+<item rdf:about="http://www.earthboundlight.com/phototips/sunset-filters.html">
+<title>Why I Don't Like Sunset Filters</title>
+<link>http://www.earthboundlight.com/phototips/sunset-filters.html</link>
+<description>Sometimes when you go out to shoot a sunset, the sunset doesn't cooperate. I'm sure it's happened to you. It certainly has to me. Common advice for how to make the best of a bad situation is to place a "sunset filter" in front of your lens to simulate the colors you had hoped to see. But images created with such filters almost always have a certain telltale flaw that lets viewers know they aren't real....</description>
+<dc:creator>Bob Johnson, Earthbound Light</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<dc:date>2009-10-25T00:00-01:00</dc:date>
+</item>
+
+<item rdf:about="http://www.earthboundlight.com/phototips/photoshop-notes-tool.html">
+<title>Taking Notes in Photoshop</title>
+<link>http://www.earthboundlight.com/phototips/photoshop-notes-tool.html</link>
+<description>I'm betting that no one uses every feature built into Photoshop, except perhaps a few of the folks who work at Adobe developing or testing it. One of the features I only recently got turned onto is the Notes tool. If you've been wishing for a way to keep track of what you did or perhaps what you need to do to an image, Notes may be just what you're looking for....</description>
+<dc:creator>Bob Johnson, Earthbound Light</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<dc:date>2009-10-18T00:00-01:00</dc:date>
+</item>
+
+<item rdf:about="http://www.earthboundlight.com/phototips/avoiding-color-manglement.html">
+<title>Moving From Color Manglement to Color Management</title>
+<link>http://www.earthboundlight.com/phototips/avoiding-color-manglement.html</link>
+<description>Color Management can be an endless source of frustration for some. The temptation to give up on the whole thing can be a strong one, but for those willing to persevere, most will eventually have their "aha!" moment when it finally makes sense and everything actually works. In the mean time, if your colors are coming out more "mangled" than "managed," here are some pointers to help get beyond the frustration....</description>
+<dc:creator>Bob Johnson, Earthbound Light</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<dc:date>2009-10-11T00:00-01:00</dc:date>
+</item>
+
+<item rdf:about="http://www.earthboundlight.com/phototips/ken-burns-national-parks.html">
+<title>Ken Burns' &quot;National Parks&quot; is a Good Idea Indeed</title>
+<link>http://www.earthboundlight.com/phototips/ken-burns-national-parks.html</link>
+<description>No doubt most of you have heard of Ken Burns' new documentary "The National Parks: America's Best Idea." Hopefully many of you have watched at least part of it on public television. I highly recommend it. Not only is it an excellent history or the national park system, for a nature photographer, it's also a great source of inspiration....</description>
+<dc:creator>Bob Johnson, Earthbound Light</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<dc:date>2009-10-04T00:00-01:00</dc:date>
+</item>
+
+<item rdf:about="http://www.earthboundlight.com/phototips/facebook-and-site-updates.html">
+<title>Earthbound Light Comes to Facebook and Site Updates</title>
+<link>http://www.earthboundlight.com/phototips/facebook-and-site-updates.html</link>
+<description>It seems like everybody is on Facebook, doesn't it? Well, now Earthbound Light is too. I thought I'd take a few minutes to let you know and also give you some details on recent site upgrades here at Earthbound Light....</description>
+<dc:creator>Bob Johnson, Earthbound Light</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<dc:date>2009-09-27T00:00-01:00</dc:date>
+</item>
+
+<item rdf:about="http://www.earthboundlight.com/phototips/nikon-lens-letter-codes.html">
+<title>Nikon Lens Designation Alphabet Soup</title>
+<link>http://www.earthboundlight.com/phototips/nikon-lens-letter-codes.html</link>
+<description>If you're new to the Nikon system, or perhaps even if you're not, the endless strings of seemingly random letters that Nikon tacks onto the end of their lens names can seem confusing.  Beyond the basic focal length and aperture designations, there's a lot you can learn from what I lovingly call the "Nikon lens alphabet soup."....</description>
+<dc:creator>Bob Johnson, Earthbound Light</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<dc:date>2009-09-20T00:00-01:00</dc:date>
+</item>
+
+<item rdf:about="http://www.earthboundlight.com/phototips/using-photographic-triangle.html">
+<title>Making Better Images With The Photographic Triangle</title>
+<link>http://www.earthboundlight.com/phototips/using-photographic-triangle.html</link>
+<description>Cameras these days generally do a good job of automatically determining exposure, but that doesn't mean you have to accept what yours comes up with. By understanding the photographic triangle, you can take control of exposure....</description>
+<dc:creator>Bob Johnson, Earthbound Light</dc:creator>
+<dc:subject>Nature Photography Tips</dc:subject>
+<dc:date>2009-09-13T00:00-01:00</dc:date>
+</item>
+
+<textinput rdf:about="http://www.earthboundlight.com/phototip_search.html">
+<title>Search EarthboundLight.com PhotoTips</title>
+<description>Search EarthboundLight.com PhotoTips</description>
+<name>search</name>
+<link>http://www.earthboundlight.com/phototip_search.html</link>
+</textinput>
+
+</rdf:RDF>

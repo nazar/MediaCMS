@@ -1,0 +1,50 @@
+<%= start_tabnav :account %>
+<div class="block_title"><h2>My Recent Photos</h2></div>
+<div class="step clearfdix media">
+  <% unless @most_recent.blank? %>
+    <% for photo in @most_recent %>
+      <div class="listPhotos">
+        <%= render :partial => 'photos/small_picture', :locals => { :photo => photo} %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="step_text">You haven't uploaded any photos yet.</div>
+  <% end %>
+</div>
+<div class="block_title"><h2>My Top Rated Photos</h2></div>
+<div class="step clearfdix media">
+  <% unless @top_rated.blank? %>
+    <% for photo in @top_rated %>
+      <div class="listPhotos">
+        <%= render :partial => 'photos/small_picture', :locals => { :photo => photo} %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="step_text">Photos not reated yet.</div>
+  <% end %>
+</div>
+<div class="block_title"><h2>My Popular Photos</h2></div>
+<div class="step clearfdix media">
+  <% unless @most_popular.blank? %>
+    <% for photo in @most_popular %>
+      <div class="listPhotos">
+        <%= render :partial => 'photos/small_picture', :locals => { :photo => photo} %>
+      </div>
+    <% end %>
+  <% else %>  
+    <div class="step_text">Photos not viewed yet.</div>
+  <% end %>
+</div>
+<div class="block_title"><h2>My Most Talked About Photos</h2></div>
+<div class="step clearfdix media">
+  <% unless @talked_about.blank? %>
+    <% for photo in @talked_about %>
+      <div class="listPhotos">
+        <%= render :partial => 'photos/small_picture', :locals => { :photo => photo} %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="step_text">Photos not commented yet.</div>    
+  <% end %>
+</div>
+<% end_tabnav %>

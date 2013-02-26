@@ -1,0 +1,7 @@
+<p>Dear <%= @user.login %>.</p>
+<p>You are receiving this email because Paypal has notified us that your subscription payment has failed or been cancelled for
+ your <%= @host_plan.name %> host plan. Your current subscription will expire on <%= @end_date %></p>
+<p>Please note that your account will remain in your current host plan for another week after the expiry date, 
+ after which it will revert to the free hosting plan.</p>
+<p>Also note that all your photos will be freely available to all our members once your account is reverted to the free hosting plan.</p>
+<%= @sig %>

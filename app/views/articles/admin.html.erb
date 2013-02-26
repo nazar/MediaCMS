@@ -1,0 +1,11 @@
+<% @page_title = 'Articles Waiting Approval' %>
+<%= start_tabnav :account %>
+  <h2>Unapproved Articles</h2>
+  <div class="step">
+    <ul>
+      <% for article in @articles %>
+        <li><%= link_to article.title, :controller => '/articles', :action => :view, :id => article.id %></li>
+      <% end %>
+    </ul>
+  </div>
+<%= end_tabnav %>

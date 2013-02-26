@@ -1,0 +1,16 @@
+<table cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="head">Name</td>
+    <td class="even"><%= text_field('collection', 'name') %></td>
+  </tr>
+  <tr>
+    <td class="head">Description</td>
+    <td class="even"><%= markup_area('collection', 'description') %></td>
+  </tr>
+  <% if @can_sell %>
+    <tr>
+      <td class="head">Price</td>
+      <td class="even"><%= text_field('collection', 'price') %> Credits</td>
+    </tr>
+  <% end %>
+</table>

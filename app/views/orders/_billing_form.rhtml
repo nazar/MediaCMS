@@ -1,0 +1,47 @@
+<%= error_messages_for 'order' %>
+<%= error_messages_for 'creditcard' %>
+<p>Please note that we do not store credit card details on <%= Configuration.site_name %>. Your credit card details will be disposed safely after this transaction is completed.</p>
+<table id="account_cap" cellpadding="0px" cellspacing="0">
+  <tr> 
+    <td class="odd">Credit Card Number</td>
+    <td class="even"><%= text_field 'order', :cc_number %></td>
+  </tr>
+  <tr> 
+    <td class="odd">Name on Card</td>
+    <td class="even">
+      First Name <%= text_field 'order', :cc_first_name %> <br /> 
+      Last Name <%= text_field 'order', :cc_last_name %>
+    </td>
+  </tr>
+  <tr> 
+    <td class="odd">Expiry Date</td>
+    <td class="even">
+      Month <%= select 'order', :exp_month, [1,2,3,4,5,6,7,8,9,10,11,12].map {|o| [o.to_s, o.to_s]} %>          
+      Year <%= select 'order', :exp_year, [2007,2008,2009,2010,2011,2012].map {|o| [o.to_s, o.to_s]} %>
+    </td>
+  </tr>
+  <tr> 
+    <td class="odd">Billing Address 1</td>
+    <td class="even"><%= text_field 'order', :address_1 %></td>
+  </tr>
+  <tr> 
+    <td class="odd">Billing Address 2</td>
+    <td class="even"><%= text_field 'order', :address_2 %></td>
+  </tr>
+  <tr> 
+    <td class="odd">City</td>
+    <td class="even"><%= text_field 'order', :city %></td>
+  </tr>
+  <tr> 
+    <td class="odd">County / State</td>
+    <td class="even"><%= text_field 'order', :state %></td>
+  </tr>
+  <tr> 
+    <td class="odd">Postcode / Zipcode</td>
+    <td class="even"><%= text_field 'order', :zip %></td>
+  </tr>
+  <tr> 
+    <td class="odd">Country</td>
+    <td class="even"><%= country_select 'order', :country, ['United Kingdom', 'United States'] %></td>
+  </tr>
+</table>

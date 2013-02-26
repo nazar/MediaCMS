@@ -1,0 +1,39 @@
+<a id="friend-<%=user.id%>"></a>
+<table class="outer" style="border-bottom-width: 0px;" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+  <tr>
+  	<td class="odd" rowspan="2" valign="top" width="20%">
+  	  <img class="comUserImg" src="<%=User.avatar_path(user)%>" alt="Avatar">
+      <div class="comUserStat"><span class="comUserStatCaption">name: </span><%=link_to (h user.login), {:controller => 'account', :action => :about, :id => h(user.login)}%></div>
+	  	<div class="comUserStat"><span class="comUserStatCaption">Joined: </span><%=user.created_at.to_date.to_formatted_s(:long)%></div>
+		</td>
+    <td colspan="2" class="odd">
+      <div class="comText"><%=h friend.comments%></div>
+      <br clear="all">
+		</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="odd" valign="bottom" height="5%">
+      <div style="padding: 5px; float: right; margin-top: 10px;">
+        <small>
+    	    Posted <%= date_ago(friend.created_at)+' ago' %>
+        </small>
+      </div>      
+    </td>
+  </tr>
+
+  <tr>
+    <td class="foot" width="20%">&nbsp;</td>
+    <td colspan="2" class="foot">
+      <div align="right">
+        <% if current_user &&  current_user.admin %>
+          <%= link_to( image_tag("/images/forums/p_delete-a.png",:style=>"margin: 0px; width: 65px; height: 21px;", :alt=>"Delete", :align=>"middle"),
+                      {:controller => 'friends', :action => :delete, :id => friend.id }, 
+                      :confirm => 'Are you sure?', :post => true) %>     
+          <a href="" title="Delete"></a>  
+        <% end %>     
+    </div>
+    </td>
+  </tr>
+</tbody></table><br clear="all">

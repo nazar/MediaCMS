@@ -1,0 +1,14 @@
+<div class="block_title"><h2>Viewing all Clubs & Groups</h2></div>
+<small><%= "Go to page:" +  pagination_links(@club_pages) if @club_pages.page_count > 1 %></small>
+<div class="step">
+  <%= render :partial => 'clubs/member_of_clubs', :locals => {:clubs => @clubs} %>
+</div>
+<small><%= "Go to page:" +  pagination_links(@club_pages) if @club_pages.page_count > 1 %></small>
+<% if @tags.length > 0 %>
+  <div class="block_title"><h2>Popular Club Tags</h2></div>
+  <div id = 'tags' class="step">
+    <% for tag in @tags %>
+      <%= render_club_tag_cloud(tag, @min_count, @max_count) %>
+    <% end %>
+  </div>
+<% end %>  

@@ -1,0 +1,7 @@
+<p>Dear <%= @user.pretty_name %>,</p>
+<p>You are receiving this email because you are a member of <a href="<%= Configuration.site_url %>"><%= Configuration.site_name %></a></p>
+<p>A new news item with title <strong><%= @news_item.title %></strong> has just been <a href="<%= Configuration.site_url %>/news/show/<%=@news_item.id%>">published on <%= Configuration.site_name %></a></p>
+<p>To disable future newsletters click on: <a href="<%= @no_notify %>"><%= @no_notify %></a><p>
+<p>You can manage all your email notifications from your Control Panel -> Notifications.</p>
+<%= @body %>
+<%= @sig %>   

@@ -1,0 +1,25 @@
+<%= javascript_include_tag 'fastinit' %>   
+<%= javascript_include_tag 'tablesort' %>   
+<%= stylesheet_link_tag 'sortable' %>
+<table class="outer sortable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="head">Article</td>
+    <td class="head sortfirstdesc">Added</td>
+    <td class="head">Approved</td>
+    <td class="head">Status</td>
+    <td class="head number">Reads</td>
+    <td class="head number">Cmnts</td>
+    <td class="head number">Rating</td>
+  </tr>
+  <% for article in user.articles %>
+    <tr>
+      <td><%= link_to h(article.title), :controller => 'articles', :action => :view, :id => article.id %></td>
+      <td><%= article.created_at.to_date.to_formatted_s if article.created_at %></td>
+      <td><%= article.approved_date.to_date.to_formatted_s if article.approved_date %></td>
+      <td><%= article.status %></td>
+      <td><%= article.reads_count %></td>
+      <td><%= article.comments_count %></td>
+      <td><%= "#{article.average_rating}/5" if article.ratings_count > 0 %></td>
+    </tr>
+  <% end %>
+</table>

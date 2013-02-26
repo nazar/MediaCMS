@@ -1,0 +1,31 @@
+<table cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left" valign="top" width="48%">
+      <div class="collect_header">
+        <h3 class="in_title">Media in this Collection</h3>&nbsp;
+        <label><%= check_box_tag 'all_in', '1', false, :onclick => "CheckAllBoxesByClass('all_in','.in_collection');" %> select all</label>
+      </div>
+      <%= collection_members(members) %>
+    </td>
+    <td align="center" valign="middle" style="padding: 50px 4px 0 4px;">
+     <p>
+       <%= submit_tag '>>', :name => 'remove_all', :title => 'Remove All' %><br/>
+       <%= submit_tag '>',  :name => 'remove', :title => 'Remove Selected' %>
+     </p>
+     <p>
+       <%= submit_tag '<',  :name => 'add', :title => 'Add Selected' %><br/>
+       <%= submit_tag '<<', :name => 'add_all', :title => 'add All' %>
+     </p>
+    </td>
+    <td align="left" valign="top" width="48%">
+      <div class="collect_header">
+        <h3 class="in_title">Media not in this Collection</h3>&nbsp;
+        <label><%= check_box_tag 'all_out', '1', false, :onclick => "CheckAllBoxesByClass('all_out','.out_collection');" %> select all</label>
+      </div>  
+      <%= will_paginate @medias %>
+      <div class="clearfix"><%= media_for_collection(medias) %></div>
+      <%= will_paginate @medias %>
+    </td>
+  </tr>
+</table>
+<%= javascript_tag("jQuery('a.photo_link').attach(Popup);") %>

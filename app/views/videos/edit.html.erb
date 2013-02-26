@@ -1,0 +1,12 @@
+<h1>Editing <%= link_to @media.title, video_view_path(@media.id, @media.safe_title) %></h1>
+<div class="step">
+<div align="center"><%= render_video_view(@media) %></div><br>
+  <% form_tag :action => 'update', :id => @media do %>
+    <div class="step">
+      <%= render :partial => 'medias/media_form' %>
+      <%= submit_tag 'Save' %>
+    </div>
+  <% end %>
+  <br />
+  <%= render :partial => '/maps/markers', :locals => {:markable => @media, :data_url => "/videos/markers/#{@media.id}"} %>
+</div>

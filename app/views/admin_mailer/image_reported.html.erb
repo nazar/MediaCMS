@@ -1,0 +1,8 @@
+<p>Hi Admin.</p>
+<p>An image has been reported by one of our users.</p>
+<p>
+  Image ID : <a href=<%="#{@domain}/photos/details/#{@photo.id}"%>><%= @photo.id %></a>
+  Image Title: <a href=<%="#{@domain}/photos/details/#{@photo.id}"%>><%= @photo.title %></a>
+  Image Report Console: <a href=<%="#{@domain}/admin/report_images/#{@photo.id}"%>><%= @photo.title %></a>
+</p>
+

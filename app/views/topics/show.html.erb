@@ -1,0 +1,46 @@
+<div class="crumbs clearfix">
+ <strong>
+   <%= link_to "Forums", home_path %>
+   <%= link_to h(@forum.name), forum_url(:id=>@forum) %>
+ </strong>
+</div>
+<div class="crumb clearfix">
+  <strong>
+  <span style="float: left; text-align: left;">
+    <a id="threadtop"></a><img src="/images/forums/down-a.png" style="margin: 0px; width: 17px; height: 17px;" alt="" align="middle">&nbsp;
+    <a href="#threadbottom">Bottom</a>&nbsp;&nbsp;<img src="/images/forums/left-a.png" style="margin: 0px; width: 17px; height: 17px;" alt="" align="middle">&nbsp;
+    <a href="<%=prev_topic_path(:forum_id=>@forum, :topic_id=>@topic)%>">Previous Topic</a>&nbsp;&nbsp;<img src="/images/forums/right-a.png" style="margin: 0px; width: 17px; height: 17px;" alt="" align="middle">&nbsp;
+    <a href="<%=next_topic_path(:forum_id=>@forum, :topic_id=>@topic)%>">Next Topic</a>
+  </span>
+  <span style="float: right; text-align: right;">
+    <a href="<%=reply_post_path(@forum, @topic, @last_post)%>"><img src="/images/forums/t_reply-a.png"  alt="Post Reply" align="middle"></a>&nbsp;
+    <a href="<%=new_topic_path(:forum_id=>@forum)%>"><img src="/images/forums/t_new-a.png" alt="New Topic" align="middle"></a>
+  </span>
+  </strong>
+</div>
+<div class="block_title"><h2>Viewing Topic: <%= @topic.title %></h2></div>
+<%= will_paginate @posts %>
+<% for post in @posts do %>
+  <%= render :partial => '/posts/post', 
+             :locals => {:forum => @forum, :topic => @topic, :post => post, :post_count => @posts.index(post)+1} %>
+<% end %>
+<div id="last_post"></div>
+<%= will_paginate @posts %>
+<div class="crumb clearfix">
+  <strong>
+  <div style="float: left; text-align: left;">
+  	<a id="threadbottom"></a><img src="/images/forums/up-a.png" style="margin: 0px; width: 17px; height: 17px;" alt="" align="middle">&nbsp;
+    <a href="#threadtop">Top</a>&nbsp;&nbsp;<img src="/images/forums/left-a.png" style="margin: 0px; width: 17px; height: 17px;" alt="" align="middle">&nbsp;
+    <a href="<%=prev_topic_url(:forum_id=>@forum, :topic_id=>@topic)%>">Previous Topic</a>&nbsp;&nbsp;<img src="/images/forums/right-a.png" style="margin: 0px; width: 17px; height: 17px;" alt="" align="middle">&nbsp;
+    <a href="<%=next_topic_url(:forum_id=>@forum, :topic_id=>@topic)%>">Next Topic</a>
+  </div>
+  </strong>
+</div>
+<br />
+<div style="padding: 5px; float: left; text-align: left;">
+  <a href="<%=reply_post_url(:forum_id=>@forum, :topic_id=>@topic, :post_id=>@last_post)%>"><img src="/images/forums/t_reply-a.png" alt="Post Reply" align="middle"></a>&nbsp;
+  <a href="<%=new_topic_url(:forum_id=>@forum)%>"><img src="/images/forums/t_new-a.png" alt="New Topic" align="middle"></a>
+</div>
+<p><br clear="all"></p>
+<%= render :partial => '/posts/quick_reply', :locals => {:forum => @forum, :topic => @topic}%>
+<%= javascript_tag("jQuery('a.reply_link').attach(RemoteReplyBlindShow);") %>

@@ -1,0 +1,16 @@
+<%= h2_title("#{@news_item.itemable.name} : #{@news_item.title}") %>
+<table>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="right"><small>Posted by <%=@news_item.user.login%> on <%=@news_item.created_at.to_formatted_s(:long)%></small></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div class="step">
+        <p><%=@news_item.formatted_body%></p>
+        <p><%=@news_item.formatted_extra%></p>
+      </div>
+    </td>
+  </tr>
+</table>
+<%= render :partial => 'comments/show_comments', :locals => {:model => @news_item} %>

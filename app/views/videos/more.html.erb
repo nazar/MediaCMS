@@ -1,0 +1,5 @@
+<div class="block_title"><h2><%= @page_title -%></h2></div>
+<%= will_paginate @videos -%>
+<div class='step'>
+  <%= render_video_block(@videos) -%>
+</div>

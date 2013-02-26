@@ -1,0 +1,17 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>Notifications</h2></div>
+  <div class="step">
+    <p>This page displayed the types of email notifications you will receive.</p>
+  </div>
+  <div class="block_title"><h2>My Notifications</h2></div>
+  <div class="step">
+    <% form_tag '/notifications/update' do  %>
+      <% for note in current_user.notifications %>
+        <% unless note.not_valid_notification_for_user(current_user) %>
+          <%= check_box_tag("note[#{note.id}]", note.id, note.enabled) %> <%= hidden_field_tag("note[#{note.id}]", 0) %> <%= note.notifiable_type %> <%= note.event %> - <%= Notification.event_descriptions[note.event.to_sym] %><br />
+        <% end %>  
+        <% end %>
+    <p><%= submit_tag('Update Notification Options') %></p>  
+    <% end %>
+</div>
+<%= end_tabnav %>

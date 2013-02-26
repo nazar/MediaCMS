@@ -1,0 +1,14 @@
+<div class="description">
+  <%= @category.description%>
+</div>
+<p>Contains <%= @category.photos.count %> photos.</p>
+<div class="photoBlock">
+</div>
+<p><%= debug(@category) %></p>
+<% #admin functions %>
+<% if logged_in? and current_user.admin? %> 
+   <%= link_to 'Edit', :action => 'edit', :id => @category %> | 
+   <%= link_to 'Create category', :action => 'create' %> | 
+<% end %>   
+
+<%= link_to 'View List', :action => 'list' %>

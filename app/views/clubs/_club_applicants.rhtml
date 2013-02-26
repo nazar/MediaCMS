@@ -1,0 +1,30 @@
+<% if club.applying_club_members.length > 0 %>
+  <table class="outer" cellpadding="0" cellspacing="0">
+    <tr>
+      <td class="head">&nbsp;</td>      
+      <td class="head">Applicant</td>      
+      <td class="head">Application Date</td>      
+    </tr>
+    <% for member in club.applying_club_members %>
+      <tr class="<%= cycle('even','odd') %>">
+        <td>
+          <%= link_to_remote image_tag('approve.gif'),    
+                                           {:url => {:action => 'approve_membership', :id => member.id}},
+                                           {:class => 'no_underline', :title => 'Approve Membership'} %>            
+          <%= link_to_remote image_tag('delete.gif'),    
+                                           {:url => {:action => 'decline_membership', :id => member.id}},
+                                           {:class => 'no_underline', :title => 'Decline Membership'} %>            
+        </td>
+        <td><%= "<a href='/account/about/#{member.user.login_safe}'>#{member.user.pretty_name}</a>" %></td>
+        <td><%= "#{date_ago(member.created_at)} ago" %></td>
+      </tr>
+      <% if member.application.length > 0 %>
+        <tr>
+          <td class="<%= cycle('even','odd') %>" colspan="3"><%= "#{member.markup_application}" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+<% else %>
+  <p>No applications yet.</p>
+<% end %>

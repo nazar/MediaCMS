@@ -1,0 +1,2 @@
+<%= feed_title_block('Syndicated News', feed_syndicated_all_url, {:pic_lens => false, :rss_icon => false}) %>
+<%= render :partial => 'rss_feed_verbose_block', :locals => {:feeds => @vfeeds} unless @vfeeds.blank? %>

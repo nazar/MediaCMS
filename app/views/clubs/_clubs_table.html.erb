@@ -1,0 +1,9 @@
+<div class="step">
+  <% unless @clubs.blank? -%>
+    <%= will_paginate(@clubs) %>
+    <%= render :partial => 'clubs/member_of_clubs', :locals => {:clubs => @clubs} %>
+    <%= will_paginate(@clubs) %>
+  <% else -%>
+    No clubs yet. Be the first to <%= link_to 'create', club_my_path  %> a club.
+  <% end -%>
+</div>

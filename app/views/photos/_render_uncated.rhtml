@@ -1,0 +1,8 @@
+<div id="uncated_photos">
+  <% for photo in current_user.photos.unsorted %>
+    <div class="listPhotosUncat" id="photo_div_<%=photo.id%>">
+      <%= render :partial => '/photos/photo_update', :locals => { :photo => photo, 
+                                             :select_options =>  indented_categories_select([Category.first_category.id])}%>
+    </div>
+  <% end %>
+</div>

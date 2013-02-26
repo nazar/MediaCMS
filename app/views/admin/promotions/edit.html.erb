@@ -1,0 +1,59 @@
+<%= javascript_include_tag :defaults %>
+<h2>Editing promotion</h2>
+<div class="step">
+  <% form_tag :action => 'update', :id => @promotion do %>
+    <%= render :partial => 'form' %>
+    <%= submit_tag 'Edit' %>
+  <% end %>
+</div>
+<%= link_to 'Back', :action => 'list' %> | 
+<%= link_to 'Delete Promotion', { :action => 'destroy', :id => @promotion }, :confirm => 'Are you sure?', :post => true %> | 
+<%= link_to 'Generate Ebay listing', {:action => 'ebay_listing', :id => @promotion} %> 
+
+<h2>Link to emails</h2>
+<div class="step">
+  <div id="new-email">
+    <h3>Add an email</h3>
+    <% form_remote_for :promotion_email,
+                       PromotionEmail.new,
+                       :url => "/admin/promotions/new_email/#{@promotion.id}",
+                       :html => { :id => 'promotion-email-form' } do |f| %>
+      <label for="promotion_email_email">email:</label><br />
+      <%= f.text_field 'email' %><br />
+      <label for="promotion_email_sale_value">sale value:</label><br />
+      <%= f.text_field 'sale_value' %><br />
+      <p><%= submit_tag 'Add Email' %></p>
+    <% end %>
+  </div>
+  <h3>Existing Emails</h3>
+  <table id="emails">
+    <tr>
+      <th>Email</th>
+      <th>Claimed On</th>
+      <th>Created</th>
+      <th>Value</th>
+      <th>Action</th>
+    </tr>
+    <% for promotion_email in @promotion.promotion_emails %>
+      <%= render :partial => '/admin/promotions/email_row', 
+                 :locals => {:promotion_email => promotion_email} %>
+    <% end %>
+  </table>
+</div>
+
+<% if @promotion.promotion_users.count > 0 %>
+  <h2>Users on promotion</h2>
+  <div class="step">
+    <table>
+       <tr>
+         <th>User</th>
+         <th>Date</th>
+       </tr>
+       <% for promotion_user in @promotion.users %>
+         <%= render :partial => 'user_row', :locals => {:promotion_user => promotion_user} %>
+       <% end %>
+    </table>
+  </div>
+<% end %>
+
+

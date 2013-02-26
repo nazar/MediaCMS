@@ -1,0 +1,21 @@
+<p>Dear <%= @user.login %>.</p>
+<p>You are receiving this email because you have submitted a purchase order for Credits for your <%= Configuration.site_name %> account. Please keep this email for your records.</p>
+<table>
+  <tr>
+    <th>Order Number</th>
+    <td><%= @order.id %></td>
+  </tr>
+  <tr>
+    <th>Order Date</th>
+    <td><%= @order.created_at %></td>
+  </tr>
+  <tr>
+    <th>Order Value</th>
+    <td><%= number_to_currency(@order.total,{:unit => '&pound;'}) %></td>
+  </tr>
+</table>
+<p>We will shortly process your purchase order by mailing an invoice to your given billing address.</p>
+<p>You will be notified once your account has been credited with your purchase</p>
+<p>Please contact <a href="mailto:<%= Configuration.site_admin %>"><%= Configuration.site_name %> Admin</a> if we can further assist you.</p>
+<p>Many thanks for your purchase and for supporting <%= Configuration.site_name %> and our photographers.</p>
+<%= @sig %>   

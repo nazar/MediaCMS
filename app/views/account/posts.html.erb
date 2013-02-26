@@ -1,0 +1,16 @@
+<% @page_title = 'My Comments' %>
+<%= start_tabnav :account %>
+<div id="comment">
+  <div class="block_title"><h2>My Comments</h2></div>
+  <div class="step">
+    <% num = 0 %>
+    <% for comment in mycomments %>
+      <% num += 1 %>
+      <%= render :partial => 'comments/comment', :locals => {:comment => comment, :num => num} %>
+    <% end %>
+  </div>
+</div>  
+<%= end_tabnav %>
+
+
+

@@ -1,0 +1,6 @@
+<p>Dear <%= @user.login %>.</p>
+<p>You are receiving this email because you have just bought Credits for your <%= Configuration.site_name %> account.
+Please keep this email for your records.</p>
+<p>Our payment gateway has just confirmed your payment and <%= pluralize(@order.total,'Credit') %> were transferred to your account .</p>
+<p>Many thanks for your purchase and for supporting <%= Configuration.site_name %> and our photographers.</p>
+<%= @sig %>   

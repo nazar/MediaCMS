@@ -1,0 +1,5 @@
+<% @photo = photo %>
+<div class="thumbnail">
+  <%= link_to(renderThumbnail(photo), {:controller => 'photos', :action => 'details', :id => @photo.id}) %><br>
+  <small>views:<%=photo.views_count%> comments:<%=photo.comments_count%> downs:<%=photo.downloads%></small> 
+</div>

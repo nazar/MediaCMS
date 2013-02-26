@@ -1,0 +1,15 @@
+<div class="block_title"><h2><%= "Managing #{link_to(@club.name, club_path(@club))} Forums" %></h2></div>
+<div class="step">
+  Manage your club's public and private forums on this page.
+</div>
+<div id="club_forums">
+  <div class="block_title"><h2>Club Forums</h2></div>
+  <div class="step" id="club_forums">
+    <p><%= link_to 'Create', club_forum_new_path(@club) %> a new forum for this club.</p>
+    <% if @club.forums.length > 0 %>
+      <%= render :partial => '/clubs/club_forums_list', :locals => {:forums => @club.forums} %>
+    <% else %>
+      <p>No club forums defined yet.</p>
+    <% end %>  
+  </div> 
+</div>

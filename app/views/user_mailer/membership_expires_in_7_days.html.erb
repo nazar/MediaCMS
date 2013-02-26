@@ -1,0 +1,5 @@
+<p>Dear <%= @user.pretty_name %>.</p>
+<p>You are receiving this email because your <%= Configuration.site_name %> membership is due to expire in 7 days.</p>
+<p>Renew or select your membership plan at the <%= link_to 'hosting page', "#{@domain}/account/account" %> after logging in with your username name and password.</p>
+<p>Please note that your account will revert to a free account once it expires. Your photos will be deleted if your collection exceeds the free account disk space limit.</p>
+<%= @sig %>   

@@ -1,0 +1,10 @@
+<div class="block_title"><h2><%= @page_title %></h2></div>
+<div class="step">
+  <% form_tag club_news_new_path(@club) do -%>
+    <%= render :partial => 'news_item_form' %>
+    <p>
+      <%= submit_tag 'Create new News Item' %>
+      <%= submit_tag 'Cancel', :name => 'cancel' %>
+    </p>
+  <% end -%>
+</div>

@@ -1,0 +1,24 @@
+<p>Dear <%= @user.login %>.</p>
+<p>You are receiving this email because you have just bought Credits for your <%= Configuration.site_name %> account.
+Please keep this email for your records.</p>
+<table>
+  <tr>
+    <th>Order Number</th>
+    <td><%= @order.id %></td>
+  </tr>
+  <tr>
+    <th>Order Date</th>
+    <td><%= @order.created_at %></td>
+  </tr>
+  <tr>
+    <th>Order Value</th>
+    <td><%= number_to_currency(@order.total,{:unit => '&pound;'}) %></td>
+  </tr>
+</table>
+<p>These credits should be available in your account as soon as our system is notified by Paypal. This is often
+instantaneous but rare delays have been know to happen.</p>
+<p>You will receive a separate <strong>Order completion</strong> email when your payment has been confirmed by Paypal and Credits are available for use.</p>
+<p>Please contact <a href="mailto:<%= Configuration.site_admin %>"><%= Configuration.site_name %> Admin</a> if your account has not been credit an hour
+ after your credit purchase.</p>
+<p>Many thanks for your purchase and for supporting <%= Configuration.site_name %> and our photographers.</p>
+<%= @sig %>   

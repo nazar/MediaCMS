@@ -1,0 +1,7 @@
+<table border="0" cellspacing="0" cellpadding="0" class="site_header">
+  <tr>
+    <td rowspan="3"><%= link_to image_tag('/images/pf.png'), {:controller => '/TopPage', :action => 'index'}, :class => 'no_underline' %></td>
+  </tr>
+  <tr><td align="right"><%= render :partial => '/orders/cart_block' %></td></tr>
+  <tr><td style="vertical-align: bottom;"><%= render :partial => '/search/search_box' %></td></tr>
+</table>

@@ -1,0 +1,50 @@
+<% @page_title = "#{Configuration.site_name} Adminstration" %>
+
+<div id="content">
+  <h2><%= Configuration.site_name -%> Adminstration</h2>
+  <div class="step">
+  <h3>Manage</h3>
+    <ul>
+      <li><%= link_to 'Site Configuration', :controller => 'configurations' -%></li>
+   </ul>
+   <ul>
+     <li><%= link_to 'Static Pages', :controller => 'pages' -%></li>
+     <li><%= link_to 'Navigation Menu Types', :controller => 'menus' -%></li>
+     <li><%= link_to 'Navigation Menu Items', :controller => 'menu_items' -%></li>
+   </ul>
+   <% if Configuration.queue_new_photos || Configuration.queue_new_videos || Configuration.queue_new_audios-%>
+     <ul>
+       <li><%= link_to 'Upload Approval Queue', :controller => 'approval_queues' -%> </li>
+       <li><%= link_to 'Upload Approval Rejection Reasons', :controller => 'rejection_reasons' -%> </li>
+     </ul> 
+   <% end -%>
+    <ul>
+      <li><%= link_to 'Accounts', :controller => 'accounts' -%></li>
+      <li><%= link_to 'Article Categories', :controller => 'article_categories' -%></li>
+      <% if Configuration.bad_word_filter -%>
+        <li><%= link_to 'Bad Word Filter', :controller => 'bad_words' -%></li>
+      <% end -%>  
+      <li><%= link_to 'Ban List', :controller => 'bans' -%></li>
+      <li><%= link_to 'Categories', :controller => 'categories' -%></li>
+      <li><%= link_to 'Comments', :controller => 'comments' -%></li>
+      <li><%= link_to 'Comments - Suspected Spam', :controller => 'comments', :action => :spam -%></li>
+      <li><%= link_to 'Crawlers & Spam Logs', :controller => 'protector' -%></li>
+      <li><%= link_to 'Forums', :controller => 'forums' -%></li>
+      <li><%= link_to 'Hosting Plans', :controller => 'host_plans' -%></li>
+      <li><%= link_to 'Misc', :controller => 'misc' -%></li>
+      <li><%= link_to 'Our Standard Licenses', :controller => 'licenses' -%></li>   
+      <li><%= link_to 'Pending Orders', :controller => 'orders', :action => :pending -%></li>   
+      <% if Configuration.multiple_resolution_prices -%> <li>
+        <%= link_to 'Photo Resolution Prices', :controller => 'photo_resolution_prices' -%> </li>
+      <% end -%>
+      <li><%= link_to 'Report Image Type Management', :controller => 'report_image_types' -%></li>
+      <li><%= link_to 'Reported Image Management', :controller => 'report_images' -%></li>
+      <li><%= link_to 'News Items', :controller => 'news_items' -%></li>
+      <li><%= link_to 'News Topics', :controller => 'news_topics' -%></li>
+      <li><%= link_to 'RSS Feeds', :controller => 'rss_feeds' -%></li>
+      <li><%= link_to 'Server Tasks', :controller => 'server_tasks' -%></li>
+      <li><%= link_to 'Server Task Logs', :controller => 'server_task_logs' -%></li>
+      <li><%= link_to 'User Administration', :controller => 'users' -%></li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="block_title"><h2>Viewing All Audio Files <%= link_to 'Tagged', :action => :audios %> <%= @tag.name %></h2></div>
+<div class="step">
+  <% if @audios_count == 1 %>
+    There is <%= @audios_count -%> tagged audio file.
+  <% else %>
+    There are <%= @audios_count -%> tagged audio files.
+    <strong><%= link_to "View all audio files in #{@tag.name}.", :action => :all_audios, :id => @tag.name %></strong>
+  <% end %>
+</div>
+<% if @audios_count > 0 %>
+  <%= feed_title_block("Latest Audio Files #{link_to 'Tagged', :action => :audios} #{@tag.name}", {:controller => 'feed', :action => :latest_audio_in_tag, :id => @tag.name}, {:auto_rss => true}) %>
+  <div class="step clearfix">
+    <%= render_audio_block(Audio.most_recent_in_tag(@tag)) %>
+  </div>
+  <% top_rated_audios = Audio.top_rated_in_tag(@tag) %>
+  <% if top_rated_audios.length > 0 %>
+    <%= feed_title_block("Top Rated Audio Files #{link_to 'Tagged', :action => :audios} #{@tag.name}", {:controller => 'feed', :action => :top_audio_in_tag, :id => @tag.name}, {:auto_rss => true}) %>
+    <div class="step clearfix">
+      <%= render_audio_block(top_rated_audios) %>
+    </div>
+  <% end %>
+  <%= render :partial => 'audios/hook_listener' %>
+<% end %>

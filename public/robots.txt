@@ -1,0 +1,8 @@
+# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
+
+User-agent: *
+Disallow: /links/vote
+Disallow: /photos/preview
+Disallow: /login
+Disallow: /account/
+Disallow: /rating/

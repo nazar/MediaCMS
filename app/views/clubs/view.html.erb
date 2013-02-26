@@ -1,0 +1,113 @@
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => 'club_news', :id => @club.id}, {:title => "#{@club.name} News"})) %>
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => :club_georss, :id => @club.id}, {:title => "#{@club.name} GeoRSS Feed"})) %>
+<div class="block_title"><h2>Club <%= @club.name %></h2></div>
+<div class="step">
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <td class="head" width="20%">Club Founder</td>
+      <td class="even"><%= @club.user.pretty_name %></td>
+    </tr>
+    <tr>
+      <td class="head">Founded</td>
+      <td class="even"><%= "#{date_ago(@club.created_at)} ago." %></td>
+    </tr>
+    <tr>
+      <td class="head">Membership Policy</td>
+      <td class="even"><%= @club.type_desc %></td>
+    </tr>
+    <% if @club.free %>
+      <tr>
+        <td class="head">Membership</td>
+        <td class="even">
+          <% form_remote_tag :url => "/clubs/apply/#{@club.id}" do %>
+            <%= submit_tag 'Join Now' %>
+          <% end %>
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td class="head">Membership</td>
+        <td class="even"><a href="/clubs/view/<%=@club.id%>#apply">Apply to Join Now</a></td>
+      </tr>
+    <% end %>
+    <% if @club_admin  %>
+      <tr>
+        <td class="head">Club Admin Links</td>
+        <td class="even"><%= club_admin_links(@club) %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td class="odd" colspan="2"><%= @club.format_desc %></td>
+    </tr>
+  </table>
+</div>
+<% unless @club.free %>
+  <div class="block_title"><h2>Club Membership Application</h2></div>
+  <div class="step">
+    <a id="apply"></a>
+    <% form_remote_tag :url => "/clubs/apply/#{@club.id}" do %>
+      <table class="outer" cellpadding="0" cellspacing="2">
+        <tr>
+          <td class="head" width="20%">Application notes or<br />comments to owner</td>
+          <td class="even"><%= markup_area('club_member','application', {}, {:style=>'height:150px;'}) %></td>
+        </tr>
+      </table>
+      <p><%= submit_tag 'Apply Now.' %></p>
+    <% end %>
+  </div>
+<% end %>
+<% unless @best_photos.blank? %>
+  <%= feed_title_block('Top Club Member Photos', {:controller => 'feed', :action => :top_club_photos, :id => @club.id}, {:auto_rss => true}) %>
+  <%= render :partial => 'photos/show_small_pictures', :locals => {:photos => random_select(@best_photos, Configuration.photos_per_page) } %>
+<% end %>
+<% unless @club.photo_markers_count.blank?%>
+  <div class="block_title">
+    <div class="feed"><%= link_to image_tag('georss.png'), {:controller => '/feed', :action => :club_georss, :id => @club.id}, {:class => 'no_underline'} %></div>
+    <h2>Google Map Markers from all Club Members</h2>
+  </div>
+  <div class="step">
+    <%= render :partial => '/maps/map_viewer', 
+               :locals => {:data_url => "/clubs/markers/#{@club.id}",
+                           :height => '300px'} %>
+  </div>  
+<% end  %>
+<% if @club.news_items.length > 0 %>
+  <div class="block_title">
+    <div class="feed"  >
+        <%= link_to(image_tag('rss.gif'), {:controller => 'feed', 
+                                          :action => :club_news,
+                                          :id => @club.id},
+                                         {:class => 'no_underline'}) %>
+    </div>
+    <h2>Club News</h2>
+  </div>  
+  <div class="step">
+    <% for news_item in @club.news_items %>
+      <%= render :partial => 'news/news_item', :locals => {:news_item => news_item, :link => false} %>
+    <% end %>
+  </div>
+<% end %>
+<% if @latest_photos.length > 0 %>
+  <%= feed_title_block('Latest Club Photos', {:controller => 'feed', :action => :latest_club_photos, :id => @club.id}, {:auto_rss => true}) %>
+  <%= render :partial => 'photos/show_small_pictures', :locals => {:photos => random_select(@latest_photos, Configuration.photos_per_page) } %>
+<% end %>
+<% if @club.collections_count > 0 %>
+  <div class="block_title"><h2>Latest Club Photo Collections</h2></div>
+  <div class="step">
+    <% for collection in @club.collections(6)  %>
+      <%= render :partial => 'collections/collection_snapshot', :locals => {:collection => collection} %>
+    <% end  %>
+  <br clear="both" />  
+  </div>  
+<% end %>
+<% if @forums.length > 0 %>
+  <div class="block_title"><h2>Club Forums</h2></div>
+  <div class="step">
+    <%= render :partial => '/forums/forum_list_block', :locals => {:forums => @forums} %>  
+  </div>
+  <% end %>
+<div class="block_title"><h2>Club Members</h2></div>
+<div class="step" id="club_members">
+  <%= render :partial => 'clubs/club_members', 
+             :locals => {:club_members => @club.active_club_members} %>   
+</div>

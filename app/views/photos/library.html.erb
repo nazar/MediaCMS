@@ -1,0 +1,33 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>My Photo Library</h2></div>
+  <div class="step">
+    <p>This page lists all your purchased Photos and Collections. Any free photos or collections that were recently downloaded are also listed here.</p>
+  </div>
+  <div class="block_title"><h2>My Photo Library</h2></div>
+  <small><%= will_paginate @lightboxes, {:param_name => 'lightbox_page'} %></small>
+  <% if @lightboxes.length > 0 %>
+    <div class="step">
+      <% for lightbox in @lightboxes %>
+        <%= render :partial => '/photos/library_picture', :locals => {:lightbox => lightbox} %>
+      <% end %>
+      <br clear="all">
+    </div>
+  <% end %>
+  <small><%= will_paginate @lightboxes, {:param_name => 'lightbox_page'} %></small>
+  <div class="block_title"><h2>My Collections Library</h2></div>
+  <small><%= will_paginate @collections, {:param_name => 'collection_page'} %></small>
+  <% if @collections.length > 0 %>
+    <div class="step">
+      <% for library in @collections %>
+        <%= render :partial => '/photos/library_collection_picture', :locals => {:library => library}   %>
+      <% end %>
+      <br clear="all">
+    </div>
+  <% end %>
+  <small><%= will_paginate @collections, {:param_name => 'collection_page'} %></small>
+  <% unless (@lightboxes.length > 0) || (@collections.length > 0) || (@licenses.length > 0)  %>
+    <div class="step">
+      <p>No items in your collection</p>
+    </div>
+  <% end %>
+<%= end_tabnav %>

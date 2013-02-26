@@ -1,0 +1,25 @@
+<div id="disk_space">
+  <div align="left">
+    <div align="center">
+      Your account has a capacity of <%= user.host_plan.disk_space %> MB.
+      You have used <%= number_to_human_size user.disk_space_used %> in <%= link_to pluralize(user.total_files_count,'files'), :controller => 'account', :action => :files %>.
+    </div>
+  </div>
+  <br />
+  <% used_space = 100.0 * ((user.disk_space_used ).to_f / (user.host_plan.disk_space_bytes ).to_f) %>
+  <% used_space = used_space.to_i %>
+  <div align="center" class="small"><%=100-used_space%>% free</div>
+  <table cellspacing="0" cellpadding="0" class="outer">
+    <tr>
+      <td width="<%=used_space%>%" style="background-color:#CF6E5E;"></td>
+      <td width="<%=100-used_space%>%" style="background-color:#86CF5E; height:15px;" align="center"></td>
+    </tr>
+  </table>
+  <% if user.disk_space_used > user.host_plan.disk_space_bytes %>
+    <div align="left">
+      <h4 style="color: red">
+        You have exceeded your disk capacity. Please either delete some photos or <%= link_to 'upgrade', :controller => 'account', :action => :account %> your account to upload more photos.
+      </h4>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,28 @@
+<div class="block_title"><h2>Contact Us</h2></div>
+<div class="step">
+  <p>Please use the contact form bellow if you need to contact us.</p>
+  <p>Please note that this form should not be used for contacting us regarding support issues
+  as these should be posted to our <a href="/forum/1">Support Forum</a> instead.</p>
+  <p><br /></p>
+  <% form_tag '/pages/contact_us' do -%>
+    <table cellpadding="0" cellspacing="0" class="outer">
+      <tr>
+        <td class="head">Your Name</td>
+        <td class="even"><%= text_field_tag 'name',nil, :size => 25 %></td>
+      </tr>
+      <tr>
+        <td class="head">Your Email</td>
+        <td class="even"><%= text_field_tag 'email', nil, :size => 25 %></td>
+      </tr>
+      <tr>
+        <td class="head">Subject</td>
+        <td class="even"><%= text_field_tag 'subject', nil, :size => 60 %></td>
+      </tr>
+      <tr>
+        <td class="head">Message</td>
+        <td class="even"><%= text_area_tag 'message', nil, :size => '45x10' %></td>
+      </tr>
+    </table>
+    <p><%= submit_tag 'Send Email' %></p>
+  <% end %>
+</div>

@@ -1,0 +1,3 @@
+row_id = "report_row_#{@report.id}"
+#replace current row with expanded row
+page.replace row_id, :partial => '/admin/report_images/report_row_full', :locals => {:report => @report}

@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag 'article' %>
+<% @page_title = "Viewing Article #{h @article.title}" %>
+<a id="back_to_top"></a>
+<div class="step">
+  <% body, revision = @article.approved_body %>
+  <%= render :partial => '/articles/article_container', 
+             :locals => {:article => @article, :body => body, :revision => revision} %>
+</div>
+<% if @article.rateable? %>
+  <div class="block_title"><h2>Article Rating</h2></div>
+  <div class="step">
+    <div id="star-ratings-block"> <%= render :partial => "rating/rating", :locals => { :rateable => @article } %> </div>
+  </div>
+<% end %>
+<% if @article.commentable? %>
+  <%= render :partial => 'comments/show_comments', :locals => {:model => @article} %>
+<% end %>  
+<% render :partial => '/articles/syntax_highlight' %>

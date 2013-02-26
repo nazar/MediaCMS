@@ -1,0 +1,12 @@
+<%= start_tabnav :account %>
+    <h2><%= @page_title %></h2>
+    <div class="step">
+      <p>This page displays all your submitted links.</p>
+    </div>
+    <% if @links.length > 0 %>
+      <h2>Links I've Submitted</h2>
+      <div class="step">
+        <%= render :partial => '/links/links_list', :locals => {:links => @links} %>
+      </div>
+    <% end %>
+<%= end_tabnav %>    

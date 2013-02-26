@@ -1,0 +1,11 @@
+<%= feed_title_block("All Audio Files #{link_to 'Tagged', :action => :audios } #{@tag.name}", {:controller => 'feed', :action => :all_audio_in_tag, :id => @tag.name}, {:auto_rss => true}) %>
+<% if @tag.taggings.count > 0 %>
+  <small><%= will_paginate @medias %></small>
+  <div class="step clearfix">
+    <%= render_audio_block(@medias) %>
+  </div>
+  <small><%= will_paginate @medias %></small>
+  <%= render :partial => 'audios/hook_listener' %>
+<% else %>
+  <h3>There are no audio files tagged with <%=@tag.name%>.</h3>
+<% end %>

@@ -1,0 +1,16 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>My favourite photos</h2></div>
+  <small><%= will_paginate @photos %></small>
+  <div class="step clearfix media">
+    <% if @photos.length > 0 %>
+      <% for photo in @photos %>
+        <div class="listPhotos">
+          <%= render :partial => 'photos/small_picture', :locals => { :photo => photo} %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="step_text"><h3>No photos added to your favourites list</h3></div>
+    <% end %>
+  </div>
+  <small><%= will_paginate @photos %></small>
+<%= end_tabnav %>

@@ -1,0 +1,13 @@
+<div class="block_title"><h2><%= @title %></h2></div>
+<% unless @blogs.blank? %>
+  <%= will_paginate @blogs %>
+  <div class="step clearfix">
+    <% for blog in @blogs %>
+      <%= render :partial => '/blogs/blog_summary', 
+                 :locals => {:blog => blog} %>
+    <% end %>
+  </div>
+  <%= will_paginate @blogs %>
+<% else-%>
+  <div class="step">No blog entries found</div>
+<% end %>

@@ -1,0 +1,12 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>My favourite audio files</h2></div>
+  <small><%= will_paginate @media %></small>
+  <div class="step clearfix media">
+    <% if @media.length > 0 %>
+      <%= render_audio_block(@media) %>
+    <% else %>
+      <div class="step_text"><h3>No audio files added to your favourites list</h3></div>
+    <% end %>
+  </div>
+  <small><%= will_paginate @media %></small>
+<%= end_tabnav %>

@@ -1,0 +1,9 @@
+<tr id="item-<%=item.id%>" class="<%= cycle('even','odd') -%>">
+  <td><%= item.type_desc %></td>
+  <td>
+    <%= render_order_item_description_column(item) %>
+  </td>
+  <td><input type="text" name="item[<%=item.id%>]" value="<%=item.qty%>" size="2"></td>
+  <td align="right"><%= item.value %></td>
+  <td align="right"><strong><%= item.value * item.qty %></strong></td>
+</tr>

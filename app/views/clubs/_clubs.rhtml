@@ -1,0 +1,24 @@
+<% if clubs.length > 0 %>
+  <table class="outer" cellpadding="0" cellspacing="0" id="clubs_edit">
+    <tr class="head">
+      <td class="nosort" width="30px">&nbsp;</td>
+      <td class="sortfirstasc">Club</td>
+      <td>Type</td>
+      <td>Club Description Excerpt</td>
+    </tr>
+    <% for club in clubs %>
+      <tr>
+        <td>
+          <%= link_to image_tag('delete.png'), club_delete_path(club), :confirm => "Delete club #{club.name}?" %>
+          <%= link_to image_tag('edit.png'), club_edit_path(club) %>
+        </td>
+        <td><%= link_to club.name, club_view_path(club) %></td>
+        <td><%= club.type_desc %></td>
+        <td><%= truncate(club.description, 50) %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= javascript_tag("SortableTable.init('clubs_edit');") %>
+<% else %>
+    No clubs created yet.
+<% end %>

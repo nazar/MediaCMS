@@ -1,0 +1,6 @@
+<%= feed_title_block(@page_title, @feed.url, {:pic_lens => false}) %>
+<%= will_paginate @feed_items -%>
+<div class="step">
+  <%= render :partial => 'rss_feed_verbose_items', :locals => {:items => @feed_items} %>
+</div>
+<%= will_paginate @feed_items -%>

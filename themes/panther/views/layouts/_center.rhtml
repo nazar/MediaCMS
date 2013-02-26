@@ -1,0 +1,41 @@
+<table width="100%"  style="height:100%" border="0" cellspacing="0" cellpadding="0" class="blocks">
+  <tr>
+    <td><table width="100%"  border="0" cellspacing="0" cellpadding="0" >
+      <tr>
+        <td class="cornerTL">&nbsp;</td>
+        <td class="cornerTC">&nbsp;</td>
+        <td class="cornerTR">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+  <td class="cornerCL">&nbsp;</td>
+  <td class="cornerCC">
+		<div>
+			<div class="blockTitle"><%= @contentTitle %></div>
+			<div class="blockContent">
+			  <%= yield %>
+        <%= yield :center %>
+			</div>
+       </div>
+		</td>
+         <td class="cornerCR">&nbsp;</td>
+     </tr>
+    </table></td>
+  </tr>
+   <tr>
+    <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="cornerBL">&nbsp;</td>
+        <td class="cornerBC">&nbsp;</td>
+        <td class="cornerBR">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr> 
+</table>
+
+
+

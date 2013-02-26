@@ -1,0 +1,19 @@
+<% width  ||= '100%' %>
+<% height ||= '250px' %>
+<% data_url ||= nil %>
+<% add_extra_header_content("<script src=\"http://maps.google.com/maps?file=api&amp;v=2&amp;key=#{Configuration.googlemap_key}\" type=\"text/javascript\"></script>") -%>
+<div align="right"><small>Click on the Satellite button to get a better view</small></div>
+<div id="google_map" style="width:<%=width%>; height:<%=height%>;"></div>
+<% javascript_tag do %>
+  var mapObj = Object;
+  function loadMap() {
+    if (mapObj = new GoogleSmallMap('google_map')) {
+      mapObj.setupMap();
+      mapObj.queryMarkerData('<%=data_url%>');
+    }
+  }
+<% end %>
+<%=  javascript_tag('addEvent(window, "load", loadMap);') -%>
+<br />
+<div style="float:right" class="small" align="right">Double click on map to zoom.</div>
+<noscript><h3>This page requires a browser with JavaScript support.</h3></noscript>

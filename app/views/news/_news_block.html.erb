@@ -1,0 +1,7 @@
+<% unless news.blank? -%>
+  <div class="step">
+    <% for news_item in news %>
+      <p><%= render :partial => '/news/news_item', :locals => {:news_item => news_item, :link => true}%></p>
+    <% end %>
+  </div>
+<% end -%>

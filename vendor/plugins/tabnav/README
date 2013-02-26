@@ -1,0 +1,17 @@
+Tabnav
+==============
+
+This plugin allows you to easily generate tabbed navigations 
+
+Plugin Installation: 
+
+[code]
+cd <your rails app>
+ruby script/plugin install svn://svn.seesaw.it/tabnav
+[/code]	
+
+Generation of Wizard skeleton:
+
+[code]
+ruby script/generate tabnav MAin
+[/code]

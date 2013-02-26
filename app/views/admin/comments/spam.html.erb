@@ -1,0 +1,9 @@
+<% form_tag '/admin/comments/process_spam', {:id => 'remove_spam'} do %>
+  <div id="spam">
+    <%= render :partial => '/admin/comments/comments', 
+               :locals => {:comments => @spam, 
+                           :script => "onclick=\"CheckAllCheckboxes('remove_spam','select_all');\""} %>
+
+  </div>
+  <p><%= select_tag 'option', ['delete','ham'].map {|o| "<option>#{o}</option>"} %> <%= submit_tag('Process') %></p>    
+<% end %>  

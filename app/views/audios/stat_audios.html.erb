@@ -1,0 +1,34 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>My Recent Audio Files</h2></div>
+  <div class="step clearix media">
+    <% unless @recent.blank? %>
+      <%= render_audio_block(@recent) %>
+    <% else %>
+      <div class="step_text">You haven't uploaded any audio files yet.</div>
+    <% end %>
+  </div>
+  <div class="block_title"><h2>My Top Rated Audio Files</h2></div>
+  <div class="step clearfix media">
+    <% unless @top_rated.blank? %>
+      <%= render_audio_block(@top_rated) %>
+    <% else %>
+      <div class="step_text">Videos not rated yet.</div>
+    <% end %>
+  </div>
+  <div class="block_title"><h2>My Popular Audio Files</h2></div>
+  <div class="step clearfix media">
+    <% unless @most_popular.blank? %>
+      <%= render_audio_block(@most_popular) %>
+    <% else %>
+      <div class="step_text">Audio files not viewed yet.</div>
+    <% end %>
+  </div>
+  <div class="block_title"><h2>My Most Talked About Audio Files</h2></div>
+  <div class="step clearfix media">
+    <% unless @talked_about.blank? %>
+      <%= render_audio_block(@talked_about) %>
+    <% else %>
+      <div class="step_text">No comments have been made on your audi files yet.</div>
+    <% end %>
+  </div>
+<% end_tabnav %>

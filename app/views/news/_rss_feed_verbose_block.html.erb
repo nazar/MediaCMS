@@ -1,0 +1,8 @@
+<% for feed in feeds do %>
+  <% unless feed.rss_feed_items.blank? -%>
+    <%= feed_title_link_block(feed.name, link_to('view all', syndicated_history_path(feed.id)), feed.url, {:auto_rss => true, :pic_lens => false}) %>
+    <div class="step clearfix">
+      <%= render :partial => 'rss_feed_verbose_items', :locals => {:items => feed.rss_feed_items.ordered[0..(feed.limit_items.to_i > 0 ? feed.limit_items : 10)]} %>
+    </div>
+  <% end -%>
+<% end %>

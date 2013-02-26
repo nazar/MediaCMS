@@ -1,0 +1,46 @@
+<% body, rev = @article.latest_body %>
+<%= javascript_include_tag "fckeditor/fckeditor" %>
+<%= error_messages_for 'article' %>
+<% form_tag '/articles/save_article' do %>
+  <table class="outer" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="150px" class="head">Category</td>
+      <td class="even"><%= select('article','article_category_id',ArticleCategory.find(:all, :order => 'name').map{|a| [a.name, a.id]}) %></td>
+    </tr>
+    <tr>
+      <td class="head">Title</td>
+      <td class="odd"><%= text_field('article','title') %></td>
+    </tr>
+    <tr>
+      <td class="head">Body</td>
+      <td class="even">
+      <div id="<%= fckeditor_div_id('article', 'body') %>">
+        <%= fckeditor_textarea("article", "latest_body[0]", :field_override => 'body', :toolbarSet => 'Simple', :width => '100%', :height => '300px') %>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="head">Tags</td>
+      <td class="odd"><textarea rows="5" id="article_tags" name="article_tags" style="width:100%"><%=@article.tags.collect{|t| t.name}.join(" ")%></textarea></td>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+      <td class="head">Misc</td>
+      <td class="even">
+        <div><%= check_box('article','active') %> Article is active</div><br />
+        <div><%= check_box('article','commentable') %> Enable commenting on this article</div>
+        <div><%= check_box('article','rateable') %> Enable ratings on this article</div>
+        <div><%= check_box('article','diggable') %> Enable Digg button</div>
+        <div><%= check_box('article','bookmarkable') %> Enable bookmarks</div>
+      </td>
+    </tr>    
+    <tr>
+      <td class="head">&nbsp;</td>
+      <td class="odd">
+        <%= hidden_field('article','id') %>
+        <%= submit_tag('Save Article') %>
+      </td>
+    </tr>
+  </table>
+<% end %>  

@@ -1,0 +1,13 @@
+<div class="block_title"><h2>Collections</h2></div>
+<div class="step">
+  <p>This page lists all available photographic collections and displays latest photo collections first.</p>
+</div>
+<div class="block_title"><h2>Viewing All Collections</h2></div>
+<small><%= will_paginate @collections  %></small>
+<div class="step clearfix">
+  <% for collection in @collections %>
+    <%= render :partial => 'collections/collection_snapshot', 
+               :locals => {:collection => collection} unless collection.collections_items.blank? %>
+  <% end %>
+</div>
+<small><%= will_paginate @collections  %></small>

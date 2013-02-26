@@ -1,0 +1,4 @@
+page.visual_effect :toggle_blind, "photo_row_#{@queue.id}", :duration => 1
+page.delay(1) do
+  page.remove "photo_row_#{@queue.id}"
+end

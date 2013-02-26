@@ -1,0 +1,7 @@
+<div class="block_title"><h2>Personal Space Usage</h2></div>
+<div class="step">
+  <div align="center" style="padding-top:5px;">
+    <%= render :partial => '/account/disk_space', :locals => {:user => current_user} %>
+    <small><%= link_to_remote 'recalculate disk space', :url => {:action => :recalc_space} %></small>
+  </div>
+</div>

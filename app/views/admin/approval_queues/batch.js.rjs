@@ -1,0 +1,5 @@
+@items.each do |item|
+  page.visual_effect :toggle_blind, "photo_row_#{item}", :duration => 0.5
+  page.remove "photo_row_#{item}"
+end
+#TODO clear all check boxes

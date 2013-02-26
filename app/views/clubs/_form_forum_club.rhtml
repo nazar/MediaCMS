@@ -1,0 +1,3 @@
+<%= render :partial => '/admin/forums/form' %>
+<h2>Forum Access</h2>
+<%= select 'forum', 'access_level', Forum.access_level_types.sort.collect{|a| [a.last, a.first]} %>

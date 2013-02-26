@@ -1,0 +1,10 @@
+<h2>Viewing Reported Image Details</h2>
+<div class="step">
+	<p><%= render_view(@report.photo) %></p>
+	Report Type: <%= @report.report_image_type.report_type if @report.report_image_type %><br />
+	Reported By: <%= @report.reporter ? @report.reporter.pretty_name :  "Anonymous" %><br />
+	Reported   : <%= date_ago(@report.created_at) %> ago<br />
+	<% if @report.description %>
+	  <p><%= render :partial => '/admin/report_images/view_report_description', :locals => {:report => @report} %></p>
+  <% end %>
+</div>

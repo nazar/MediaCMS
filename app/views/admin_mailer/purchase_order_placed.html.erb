@@ -1,0 +1,9 @@
+Hi Admin.
+
+<p>A member has placed the following Purchase Order:</p>
+<p>
+  Company Name   : <%= @user.company %> <br />
+  Purchase Order : <%= @order.purchase_order %> <br />
+  Billing Address: <%= @order.address %>
+</p>
+<p>This order is displayed in the <a href="/admin/orders/pending">Pending Orders</a> section of the Administration Dashboard.</p>

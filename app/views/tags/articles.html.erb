@@ -1,0 +1,14 @@
+<% @page_title = "Viewing Articles Taged with #{@tag.name}" %>
+<div class="block_title"><h2>Articles tagged with <%= @tag.name %></h2></div>
+<% if @tag.taggings.count > 0 %>
+  <div class="step">
+    <ul>
+      <% for article in @articles %>
+        <li id="article"><%= link_to article.title, article_view_url(:id => article.id, :title => article.title) %></li>
+      <% end %>
+    </ul>
+    <div style="clear:both"></div>
+  </div>
+<% else %>
+  <h3>There are no articles tagged with <%=@tag.name%>.</h3>
+<% end %>

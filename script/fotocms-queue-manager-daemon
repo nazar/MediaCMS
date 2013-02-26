@@ -1,0 +1,9 @@
+#!/opt/ruby-enterprise/bin/ruby
+require 'rubygems'
+require 'daemons'
+
+script= File.join(File.expand_path(File.dirname(__FILE__)), 'fotocms-queue-manager')
+tmp   = File.join(File.expand_path(File.dirname(__FILE__)), '..', 'tmp')
+
+Daemons.run script,
+  {:app_name => 'fotoscms-queue-manager', :dir_mode   => :normal, :dir  => tmp, :log_output  => true}

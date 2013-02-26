@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+<channel>
+<copyright>Copyright (c) 1998-2009 Digital Photograph Review</copyright>
+<language>en-us</language>
+<title>News: Digital Photography Review (dpreview.com)</title>
+<description>Digital Photography Review, Latest digital camera news, camera reviews, galleries, technology and comparisons.</description>
+<link>http://www.dpreview.com/</link>
+<lastBuildDate>Tue, 17 Nov 2009 19:36:00 GMT</lastBuildDate>
+<image>
+<title>Digital Photography Review (dpreview.com)</title>
+<description>http://www.dpreview.com/</description>
+<url>http://a.img-dpreview.com/images/dprlogo_white_free.gif</url>
+<link>http://www.dpreview.com/</link>
+</image>
+<item>
+<title>Bryce Bayer honored for key digital camera technology</title>
+<pubDate>Tue, 17 Nov 2009 15:45:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111701brycebayerhonor.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0809/kodak_ccd.gif" width="100" height="47" hspace="8" align="right"">]]>Bryce Bayer, inventor of the color filter array used to determine color in virtually every modern digital camera has been given the UK Royal Photographic Society&apos;s Progress Award. Commonly known as the Bayer filter or Bayer pattern, his invention of a pattern of red, green and blue filters allows a light (but not color) sensitive sensor to record a broad range of colors in similar proportions to the sensitivity of the human eye. The work, conducted while working for Kodak, was patented in 1975 and originally described a system intended for recording video.</description>
+<guid>http://www.dpreview.com/news/0911/09111701brycebayerhonor.asp</guid>
+</item>
+<item>
+<title>Just posted! Nikon D300S in-depth review</title>
+<pubDate>Mon, 16 Nov 2009 16:41:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111603nikond300sreview.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/images/nikon_d300s.gif" width="120" height="90" hspace="8" align="right"">]]>Just Posted: Our in-depth review of the D300S. By adding 720p HD video recording with contrast-detection AF and upping the continuous shooting rate to 7 frames per second, Nikon has made only subtle changes for its latest flagship APS-C DSLR, the D300S. However, its predecessor was an excellent camera and one that has proven hard to beat. So, has Nikon done enough to face up to Canon&apos;s rather impressive EOS 7D? Read our 30 page review to find out.</description>
+<guid>http://www.dpreview.com/news/0911/09111603nikond300sreview.asp</guid>
+</item>
+<item>
+<title>Zeiss launches ZF.2 lenses with CPUs for Nikon</title>
+<pubDate>Mon, 16 Nov 2009 14:27:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111602carlzeisszf2.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/zeiss/zf2.gif" width="120" height="83" hspace="8" align="right"">]]>Carl Zeiss is upgrading eight of its F-mount lenses by adding an electronic interface (CPU), allowing full support of automatic exposure modes and the inclusion of lens-related data to EXIF. Priced between &amp;euro;545 and &amp;euro;1,386, six of the new Nikon-mount ZF.2 series lenses will be available from the end of this month: 18mm/f3.5, 21mm/f2.8, 35mm/f2, 50mm/f1.4, 50mm/f2 and 85mm/f1.4, while the Distagon T* 28mm/f2 and macro Planar T* 100mm/f2 will be introduced in Spring 2010. A reworked version of the Distagon T* 28mm/f2 will then follow in other mounts.</description>
+<guid>http://www.dpreview.com/news/0911/09111602carlzeisszf2.asp</guid>
+</item>
+<item>
+<title>Casio adds back-lit CMOS for EX-FH25 and EX-FC150</title>
+<pubDate>Mon, 16 Nov 2009 10:45:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111601casiofc150fh25.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/images/casio_exfh25.gif" width="120" height="103" hspace="8" align="right"">]]>Casio Japan has released two digital cameras that see the addition of 10MP back-illuminated CMOS sensors to existing models in the Exilim line-up. The Exilim EX- FH25 and EX-FC150 follow the EX-FH20 superzoom and EX-FC100 compact respectively, sharing similar features such as image stabilization, burst shooting rates of up to 40fps and movies at 1000fps.</description>
+<guid>http://www.dpreview.com/news/0911/09111601casiofc150fh25.asp</guid>
+</item>
+<item>
+<title>Panasonic introduces tripod adaptor for Lumix GF1</title>
+<pubDate>Fri, 13 Nov 2009 11:00:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111302panasonicdmwta1.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/dmwta1.gif" width="120" height="104" hspace="8" align="right"">]]>Panasonic has introduced the DMW-TA1 tripod adaptor for its Lumix DMC-GF1 Micro Four Thirds camera. The design of the adaptor makes it easier to use tripods when large-diameter lenses such as Lumix G Vario 45-200mm or the HD 14-140mm are attached to the camera.</description>
+<guid>http://www.dpreview.com/news/0911/09111302panasonicdmwta1.asp</guid>
+</item>
+<item>
+<title>Canon releases EOS-1D Mark IV White Paper</title>
+<pubDate>Fri, 13 Nov 2009 10:42:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111301canoneos1dmkivwhitepaper.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/images/canon_eos1dmkiv.gif" width="128" height="130" hspace="8" align="right"">]]>Canon has released a &apos;White Paper&apos; of its recently released EOS-1D Mark IV pro DSLR containing in-depth details of the camera features. It additionally covers comparison to predecessors and an overview of compatible software and accessories. All Canon white papers, including the one for EOS-1D Mark IV, are available for free download from their website.</description>
+<guid>http://www.dpreview.com/news/0911/09111301canoneos1dmkivwhitepaper.asp</guid>
+</item>
+<item>
+<title>Bibble Labs releases Bibble 5 Preview v3</title>
+<pubDate>Thu, 12 Nov 2009 18:33:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111204bibble5beta.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/logos/bibble-front.gif" width="67" height="74" hspace="8" align="right"">]]>Bibble labs has released a preview version 3 of its Bibble 5 RAW workflow software. This latest version extends support to 50 new cameras and offers faster RAW file conversion, selective non-destructive editing tools and better photo organization options than its previous versions. It is available for immediate download from the Bibble Labs website.</description>
+<guid>http://www.dpreview.com/news/0911/09111204bibble5beta.asp</guid>
+</item>
+<item>
+<title>Leica S2 samples gallery</title>
+<pubDate>Thu, 12 Nov 2009 13:48:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111203leicas2gallery.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/leicas2_gallery.jpg" width="100" height="150" hspace="8" align="right"">]]>Just added: Our gallery of images from a pre-production Leica S2. Just recently Leica announced a delay in production of its new S2 autofocus medium format DSLR which will now be available from December. However, we already have our hands on a pre-production model and took it out into the gray London autumn for some snapshots. So here are a selection of images using both the APO-TELE-ELMAR-S 1:3.5/180 and the SUMMARIT-S 1:2.5/70 ASPH lenses. There is a mixture of camera JPEGs and RAW conversions.</description>
+<guid>http://www.dpreview.com/news/0911/09111203leicas2gallery.asp</guid>
+</item>
+<item>
+<title>Sigma 70-300mm F4-5.6 DG OS for Sony and Pentax</title>
+<pubDate>Thu, 12 Nov 2009 10:51:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111202sigma70300sonypentax.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0909/Sigma/70-300mm-F4-5-6-DG-OS.gif" width="120" height="69" hspace="8" align="right"">]]>Sigma Japan has announced the availability of its 70-300mm F4-5.6 DG OS image-stabilized telephoto zoom lens in Sony and Pentax mounts. The lens is suitable for use on both APS-C and full frame DSLRs. Priced at 59,000 yen, the Sony version will start shipping from November 27, 2009 followed by the Pentax version from the first week of December 2009.</description>
+<guid>http://www.dpreview.com/news/0911/09111202sigma70300sonypentax.asp</guid>
+</item>
+<item>
+<title>Eye-Fi adds FTP support</title>
+<pubDate>Thu, 12 Nov 2009 10:12:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111201eye-fiftpsupport.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0801/eyefi.gif" width="120" height="50" hspace="8" align="right"">]]>Eye-Fi has announced the addition of FTP support for its Share Video, Explore Video and Pro memory cards. With this service, users can now upload photos and videos directly to their personal FTP servers using either FTP or FTPS protocols. Currently offering support only to JPEG files and videos, the new FTP feature is listed along with other online sharing options in the Eye-Fi Manager.</description>
+<guid>http://www.dpreview.com/news/0911/09111201eye-fiftpsupport.asp</guid>
+</item>
+<item>
+<title>Canon EF 100mm F2.8 L IS USM Macro review</title>
+<pubDate>Wed, 11 Nov 2009 09:57:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111103canon100macroreview.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/lensreviews/canon_100_2p8_is_usm_c16/images/canon_100l_sm.gif" width="120" height="67" hspace="8" vspace="5" align="right"">]]>Just posted! Our lens review of the Canon EF 100mm F2.8 L IS USM. A few months ago Canon announced a new optical image stabilisation technology, dubbed &apos;Hybrid IS&apos;, that promises greater effectiveness at close distances for which conventional IS systems tend to be ineffective. The first lens to feature this has duly arrived in the shape of Canon&apos;s latest 100mm Macro, which alongside image stabilisation has also gained the added attraction of the premium &apos;L&apos; designation. We take a close look to see if it&apos;s worth the premium over the older EF 100mm F2.8 USM Macro, which remains in Canon&apos;s range.</description>
+<guid>http://www.dpreview.com/news/0911/09111103canon100macroreview.asp</guid>
+</item>
+<item>
+<title>Ricoh GXR A12 and S10 preview samples galleries</title>
+<pubDate>Tue, 10 Nov 2009 10:55:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111002ricohgxrgallery.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/ricohgallery.jpg" width="100" height="133" hspace="8" align="right"">]]>Just Added: Our samples galleries of the Ricoh GXR camera system. We&apos;ve been given a chance to get out and about with both the lens modules the company announced this morning. So here are a selection of Beta samples from both the A12 APS-C 50mm equiv. prime and the S10 1/1.7&amp;quot; 24-72mm zoom modules. We&apos;ve prepared 52 shots taken at a range of ISOs, apertures and (where appropriate) focal lengths, including a mixture of camera JPEGs and RAW conversions.</description>
+<guid>http://www.dpreview.com/news/0911/09111002ricohgxrgallery.asp</guid>
+</item>
+<item>
+<title>Ricoh GXR interchangeable unit camera, previewed</title>
+<pubDate>Tue, 10 Nov 2009 06:00:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09111001ricohgxr.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/images/ricoh_gxr_s10.gif" width="120" height="83" hspace="8" align="right"">]]>After several weeks of rumors Ricoh has unveiled its first digital system camera, the GRX. The system takes a novel approach by offering interchangeable slide mount &apos;lens units&apos; - sealed modules containing both optics and sensor, meaning it can switch from a large (APS-C) 12 MP CMOS with a fast prime lens to a tiny 10 MP CCD (with a 24-70mm lens). We&apos;ve had a pre-production GXR system in the office for a week and have produced an in-depth hands-on preview which you&apos;ll find after the link. We&apos;ve also taken lots of pictures with both lens modules so look out a little later today for an extensive gallery of samples.</description>
+<guid>http://www.dpreview.com/news/0911/09111001ricohgxr.asp</guid>
+</item>
+<item>
+<title>Pentax Europe corrects online store stories</title>
+<pubDate>Mon, 09 Nov 2009 11:33:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110901digitalriverpentax.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/pentaxlogo.gif" width="100" height="24" hspace="8" align="right"">]]>Pentax Europe has said its forthcoming online store will provide wider access to accessories, rather than cameras as previously reported. The move will allow the company to directly sell a wider range of products to consumers in UK, Germany France, Switzerland and Hungary. A statement from the company corrects an earlier press release from online shopping specialist Digital River about an online store that will be established before the end of the year. Pentax has struggled to achieve widespread distribution of its full product range in some European markets in recent years.</description>
+<guid>http://www.dpreview.com/news/0911/09110901digitalriverpentax.asp</guid>
+</item>
+<item>
+<title>Just posted: Our Canon EOS 7D review</title>
+<pubDate>Fri, 06 Nov 2009 16:59:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110603canoneos7dreview.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/images/canon_eos7d.gif" width="120" height="94" hspace="8" align="right"">]]>Just Posted: Our in-depth review of the Canon EOS 7D. With a new 18 MP sensor, a 100% viewfinder, weather-sealed body, a new 19 point AF system and Dual Digic 4 imaging processors the EOS 7D is clearly aiming for the top spot in the semi-pro/enthusiast bracket of the market. What does the competition have to say about that? How does the camera fare in our studio tests? Read our in-depth review and find out.</description>
+<guid>http://www.dpreview.com/news/0911/09110603canoneos7dreview.asp</guid>
+</item>
+<item>
+<title>Adobe releases Photoshop.com app for Android</title>
+<pubDate>Fri, 06 Nov 2009 16:39:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110602photoshopmobileandroid.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0809/adobelogo.gif" width="78" height="104" hspace="8" align="right"">]]>Adobe has introduced Photoshop.com Mobile as an application for mobile phones running the Android operating system. It enables users to view, edit and apply effects to images. Once edited, images can be uploaded to the user&apos;s Photoshop.com account for sharing or back-up purposes. Currently available only in the US and Canada, the application is available as a free download from the Android Market.</description>
+<guid>http://www.dpreview.com/news/0911/09110602photoshopmobileandroid.asp</guid>
+</item>
+<item>
+<title>Rebates and Discounts round-up for the holiday season</title>
+<pubDate>Fri, 06 Nov 2009 10:26:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110601rebatesroundup.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/gift.jpg" width="120" height="88" hspace="8" align="right"">]]>To make your pockets a little lighter this holiday season, we have put together a list of rebates and discounts available from leading digital camera and lens manufacturers. So, before you shell out money for your gifts make sure to go through the list of available promotions. We will update this article regularly over the holiday season.</description>
+<guid>http://www.dpreview.com/news/0911/09110601rebatesroundup.asp</guid>
+</item>
+<item>
+<title>Sony updates firmware for A380, A330 and A230 DSLRs</title>
+<pubDate>Thu, 05 Nov 2009 17:00:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110504sonyfirmware.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/images/sony_dslra380.gif" width="120" height="91" hspace="8" align="right"">]]>Sony has released firmware v1.10 for its DSLR-A380, DSLR-A330 and DSLR-A230 digital SLRs. The latest firmware for all three cameras locks exposure on the focused subject, when the metering mode is set to Center Weighted or Spot. The firmware is available for immediate download from Sony&apos;s website.</description>
+<guid>http://www.dpreview.com/news/0911/09110504sonyfirmware.asp</guid>
+</item>
+<item>
+<title>Leica X1 preview samples gallery</title>
+<pubDate>Thu, 05 Nov 2009 11:48:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110503leicax1gallery.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/x1preview.jpg" width="120" height="90" hspace="8" align="right"">]]>Just Posted: Our preview samples gallery from the Leica X1. We&apos;ve had a fully functional sample of Leica&apos;s high-end large-sensor compact for a few days now, just long enough to grab a few sample shots to give you an initial impression of the image quality attainable at a range of ISO settings and apertures.</description>
+<guid>http://www.dpreview.com/news/0911/09110503leicax1gallery.asp</guid>
+</item>
+<item>
+<title>Canon issues EOS 7D firmware update</title>
+<pubDate>Thu, 05 Nov 2009 10:01:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110502canon7d.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/images/canon_eos7d.gif" width="120" height="94" hspace="8" align="right"">]]>Canon has posted a firmware update for its EOS 7D digital SLR that corrects the previously reported problem where traces of a preceding frame may be visible in images captured in continuous shooting mode. The firmware is available for immediate download from Canon&apos;s website.</description>
+<guid>http://www.dpreview.com/news/0911/09110502canon7d.asp</guid>
+</item>
+<item>
+<title>Olympus launches E-P2 Micro Four Thirds camera</title>
+<pubDate>Thu, 05 Nov 2009 06:00:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110501olympusep2.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/images/oly_ep2.gif" width="120" height="70" hspace="8" align="right"">]]>Olympus has announced the E-P2 just five months after the launch of its first Micro Four-Thirds camera, the E-P1. It&apos;s a minor upgrade with the addition of a port for a new high resolution electronic viewfinder (or external microphone), two new Art filters and a pearlescent black finish. It also gains AF tracking and includes a new i-Enhance &apos;colour boosting&apos; function. Available from January 2010, the E-P2 with VF-2 electronic viewfinder and either 17mm pancake or 14-42mm zoom lens will sell for a suggested retail price of $1099.99.</description>
+<guid>http://www.dpreview.com/news/0911/09110501olympusep2.asp</guid>
+</item>
+<item>
+<title>Olympus announces two Micro Four Thirds lenses</title>
+<pubDate>Thu, 05 Nov 2009 15:48:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110500mftlenses.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/olympus/lens/lenses.gif" width="120" height="98" hspace="8" align="right"">]]>Olympus has announced two Micro Four Thirds lenses and published an updated &apos;roadmap&apos; of lenses it plans to introduce. The latest lenses are the M.Zuiko Digital ED 9-18mm F4.0-5.6 wideangle and the M.Zuiko Digital ED 14-150mm F4.0-5.6 superzoom, both of which will be available in the first half of 2010. The roadmap mirrors aspects of the company&apos;s Four Thirds lineup, promising a fisheye, wideangle and telephoto macro primes and a super-telephoto zoom.</description>
+<guid>http://www.dpreview.com/news/0911/09110500mftlenses.asp</guid>
+</item>
+<item>
+<title>Wanted: Web development engineer</title>
+<pubDate>Tue, 03 Nov 2009 15:42:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110302webdevjobad.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/images/dpr_justlogo.gif" width="80" height="57" hspace="8" align="right"">]]>Dpreview.com is recruiting again. We&apos;ve got grand ideas and grander ambitions but achieving them will really require another web development engineer. This is an opportunity to join our growing web development team as they enhance the web&apos;s foremost camera resource.</description>
+<guid>http://www.dpreview.com/news/0911/09110302webdevjobad.asp</guid>
+</item>
+<item>
+<title>Kodak creates print and share app for iPhone</title>
+<pubDate>Tue, 03 Nov 2009 12:24:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110301kodakpicflickapp.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/kodalpicflick.gif" width="60" height="111" hspace="8" align="right"">]]>Kodak has introduced the Pic Flick print and share application for Apple&apos;s iPhone and iPod Touch. Currently available only in the US, the free app allows users to wirelessly print images from their iPhone and iPod Touch on Kodak&apos;s recently released Wi-Fi-enabled ESP 5250 All-in-One printer or upload them on the Easyshare W820 and W1020 wireless digital frames.</description>
+<guid>http://www.dpreview.com/news/0911/09110301kodakpicflickapp.asp</guid>
+</item>
+<item>
+<title>Kata announces the 'Dream Bag Challenge'</title>
+<pubDate>Mon, 02 Nov 2009 16:30:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110202katadreamchallenge.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/kata/katalogo1.gif" width="120" height="91" hspace="8" align="right"">]]>Camera bag maker Kata has launched the &apos;Dream Bag Challenge&apos; with the opportunity to win the perfect camera bag. The person submitting the best &apos;dream&apos; camera bag design will win their bag, packed with $5000 worth of photographic gear including a Canon EOS 5D Mark II body + two lenses, a Gitzo tripod kit and a Metz flash. Winners of the second and third prize categories will win a Kata bag packed with gear worth $4000 and $3000 respectively. Entries close on March 1st, 2010.</description>
+<guid>http://www.dpreview.com/news/0911/09110202katadreamchallenge.asp</guid>
+</item>
+<item>
+<title>Carl Zeiss launches Distagon T* 2/35 lens for Canon</title>
+<pubDate>Mon, 02 Nov 2009 10:33:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0911/09110201carlzeiss35mmcanon.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0911/carlzeiss35/35distagon.gif" width="120" height="97" hspace="8" align="right"">]]>Carl Zeiss has launched the Distagon T* 2/35 ZE wide-angle lens in Canon EF mount, for both analog and digital EOS SLRs. This manual focus lens, with its large f2 aperture, is made up of 9 elements in 7 groups. Previously available in ZF (Nikon), ZK (Pentax) and ZS (M42 screw mount), the ZE mount version will start shipping from November 16 for a retail price of US $870.</description>
+<guid>http://www.dpreview.com/news/0911/09110201carlzeiss35mmcanon.asp</guid>
+</item>
+<item>
+<title>Canon camera profits rise despite falling sales</title>
+<pubDate>Fri, 30 Oct 2009 09:30:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0910/09103001canonq3profitsrise.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/images/canon_eos500d.gif" width="120" height="101" hspace="8" align="right"">]]>The strong Yen has resulted in fifth consecutive quarter of falling sales income for Canon&apos;s camera division, compared to the same period in previous years. Despite this, the company&apos;s operating profit and profit margin increased, prompting the company to improve its forecast for the next quarter. Total sales for the division fell 8.3% to &amp;yen;229 bn ($2,545m) once currency effects have been taken into account, though they actually grew 6.2% in the currencies they were sold in.</description>
+<guid>http://www.dpreview.com/news/0910/09103001canonq3profitsrise.asp</guid>
+</item>
+<item>
+<title>Kodak Consumer Digital Imaging sees sales fall</title>
+<pubDate>Thu, 29 Oct 2009 17:51:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0910/09102902kodakthirdquarter.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0809/kodak_ccd.gif" width="100" height="47" hspace="8" align="right"">]]>Kodak has reported that its business division that includes digital cameras suffered a 49% fall in sales (compared to the same period last year) in the third quarter of 2009. &amp;quot;Continued declines in consumer spending have had significant impacts in the company&apos;s digital camera and digital picture frame businesses,&amp;quot; it said. The sales drop has primarily been due to a decline of approximately $157 million in intellectual property royalty revenues, the company said.</description>
+<guid>http://www.dpreview.com/news/0910/09102902kodakthirdquarter.asp</guid>
+</item>
+<item>
+<title>Nikon releases 'Learn and  Explore' app for iPhone</title>
+<pubDate>Thu, 29 Oct 2009 17:48:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0910/09102901nikoniphoneapp.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/news/0910/nikon/nikonapp.gif" width="60" height="113" hspace="8" align="right"">]]>Nikon has introduced the &apos;Learn &amp;amp; Explore&apos; app for Apple&apos;s iPhone in collaboration with the &apos;interactive agency&apos; Molecular. Currently available only to US customers, the app gives photo enthusiasts access to images, video lectures and audio commentary from the company&apos;s website and enables them to read and bookmark articles from the Nikon World magazine. It is available for download from the Apple App Store.</description>
+<guid>http://www.dpreview.com/news/0910/09102901nikoniphoneapp.asp</guid>
+</item>
+<item>
+<title>Panasonic announces digital photo competition</title>
+<pubDate>Wed, 28 Oct 2009 12:12:00 GMT</pubDate>
+<link>http://www.dpreview.com/news/0910/09102803panacompetition.asp</link>
+<comments>http://forums.dpreview.com/forums/forum.asp?forum=1000</comments>
+<description><![CDATA[<img src="http://a.img-dpreview.com/reviews/logos/panasonic.gif" width="90" height="18" hspace="8" align="right"">]]>Panasonic&apos;s eighth annual online LUMIX Award digital photo competition is now open for entries. Participants can submit one image per month under this year&apos;s theme &apos;Visualize music&apos;. Each month a winner will be chosen and awarded a DMC-ZX1 digital compact. The overall winner for the single best digital photo will receive a DMC-GF1 Micro Four-Thirds camera along with tickets to see the Blue Man Group performance theatre troupe, while two runner-ups will receive a DMC-FZ38 compact. Entries can be up to 1200x1600 pixels and must be smaller than 2MB. The competition is only open to European entrants and runs until April 30 2010.</description>
+<guid>http://www.dpreview.com/news/0910/09102803panacompetition.asp</guid>
+</item>
+</channel>
+</rss>

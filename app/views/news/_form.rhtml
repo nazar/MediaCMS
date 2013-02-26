@@ -1,0 +1,21 @@
+<table cellspacing="0">
+  <tr>
+    <td class="head" width="20%">News Title</td>
+    <td class="even"><%= text_field('news_item', 'title') %></td>
+  </tr>
+  <tr>
+    <td class="head">News Story</td>
+    <td class="even">
+      <div class="small">Use the &lt;spotlight&gt;&lt;/spotlight&gt; markup to enclose your spotlight text.</div>
+      <%= markup_area('news_item','body') %>
+    </td>
+  </tr>
+  <tr>
+    <td class="head">Article is Visible?</td>
+    <td class="even"><%= check_box 'news_item','active' %> News article is visible</td>
+  </tr>
+  <tr>
+    <td class="head">Mailing List</td>
+    <td class="even"><%= check_box_tag 'mail_members',1,true %> Email News to all club members?</td>
+  </tr>
+</table>

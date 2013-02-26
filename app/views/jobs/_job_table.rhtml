@@ -1,0 +1,16 @@
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td class="head">Job</td>
+    <td class="head">Status</td>
+    <td class="head">Created</td>
+    <td class="head">Job Position</td>
+  </tr>
+  <% for job in jobs %>
+    <tr class="<%= cycle('even','odd') -%>">
+      <td><%= job.job_title -%></td>
+      <td><%= job.state.humanize -%></td>
+      <td><%= time_ago_in_words job.created_at -%> ago</td>
+      <td><%= job.position -%></td>
+    </tr>
+  <% end %>
+</table>

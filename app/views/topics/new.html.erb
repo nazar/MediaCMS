@@ -1,0 +1,8 @@
+<div class="crumbs" style="margin-top:1.1em;">
+ <strong><%= link_to "Forums", home_path %> <%= link_to h(@forum.name), forum_url(:id=>@forum) %></strong> 
+</div>
+<br />
+<form name="forumform" id="forumform" action="<%=create_topic_url(:forum_id=>@forum)%>" method="post">
+  <%= render :partial => '/posts/post_form', :locals => {:forum => @forum, :topic => @topic, :post => @post } %>
+</form>
+                                                         

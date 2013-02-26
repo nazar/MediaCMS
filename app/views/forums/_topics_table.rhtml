@@ -1,0 +1,28 @@
+<table align="center" border="0" cellpadding="6" cellspacing="0">
+  <tr class="head" align="left">
+    <td width="5%">&nbsp;</td>
+    <td>&nbsp;<strong>Topics</strong></td>
+    <td align="center" nowrap="nowrap" width="10%"><strong>Posted</strong></td>
+    <td align="center" nowrap="nowrap" width="5%"><strong>Replies</strong></td>
+    <td align="center" nowrap="nowrap" width="5%"><strong>Views</strong></td>
+    <td align="center" nowrap="nowrap" width="15%"><strong>Updated</strong></td>
+  </tr>
+  <% for topic in topics %>
+    <tr class="forum">
+      <td class="first even" align="center" width="4%"><img src="/images/forums/folder-a.gif" style="margin: 0px; width: 18px; height: 12px;" alt="" align="middle" /></td>
+      <td class="even">
+        <div class="post"><%= link_to h(topic.title), topic_path(topic.forum_id, topic.id) %></div>
+        <div class="small">by <%= link_to h(topic.user.pretty_name), user_about_path(topic.user.login) %></div>
+      </td>
+      <td class="even posted" align="center" valign="middle"><%= date_ago(topic.created_at) + ' ago' %></td>
+      <td class="even replies" align="center" valign="middle"><%= topic.posts_count%></td>
+      <td class="even views" align="center" valign="middle"><%= topic.hits%></td>
+      <td class="even last updated" align="right" valign="middle">
+        <% if topic.replied_by %>
+          <%= date_ago(topic.replied_at) + ' ago' if topic.replied_at %><br />
+          by: <%= link_to h(topic.replied_by_user.login), user_about_path(topic.replied_by_user.login) if topic.replied_by %>
+          <a href="<%=topic_url(:forum_id=>topic.forum,:topic_id=>topic)%><%="#post#{topic.last_post_id}"%>"><img src="/images/forums/document-a.gif" title="Go to last post" style="margin: 0px; width: 16px; height: 16px;" alt="" align="middle" /></a>
+        <% end %>
+      </td>
+    </tr>  <% end %>
+</table>

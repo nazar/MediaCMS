@@ -1,0 +1,12 @@
+<% @page_title = 'Submit an Article' %>
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>Submit an Article</h2></div>
+  <div class="step">
+    <p>Want to describe a photographic technique? Photograph Photoshop Techniques?</p>
+    <p>Write an article and file it under the relevant article category. We will review your submission and send a notification when your article has been approved and published.</p>
+  </div> 
+  <br/>
+  <div class="step">
+    <%= render :partial => '/articles/form', :locals => {:user => current_user} %>
+  </div>
+<%= end_tabnav %>

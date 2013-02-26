@@ -1,0 +1,2 @@
+page.visual_effect :toggle_blind, 'extra', :duration => 0.5
+page.replace_html 'extra', ''

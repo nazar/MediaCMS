@@ -1,0 +1,1 @@
+jQuery('a.photo_link').attach(AjaxPopup);

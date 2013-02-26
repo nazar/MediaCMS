@@ -1,0 +1,2 @@
+xml.instruct!
+render_photo_feed(@collection, xml, {:title => @title, :description => @description, :page => @page, :url => @rss_link} )

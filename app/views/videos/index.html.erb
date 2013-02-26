@@ -1,0 +1,9 @@
+<% cache('videos') do %>
+  <%= render_center_block('Latest', render_lastest_videos) %>
+  <%= render_center_block('Popular', render_latest_top_videos) %>
+  <%= render_center_block('Most Viewed', render_most_viewed_videos) %>
+  <%= render_center_block('Most Voted', render_most_voted_videos) %>
+  <%= render_center_block('Most Talked About', render_most_talked_about_videos) %>
+  <%= render_center_block('Favourite', render_most_favourites_videos) %>
+  <% render_center_block('Best Selling', render_best_selling_videos) %>
+<% end %>

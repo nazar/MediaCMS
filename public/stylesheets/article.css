@@ -1,0 +1,13 @@
+.articleTitle {
+  margin-bottom: 2px;
+  margin-bottom: 5px;
+  font-size:larger;
+  font-weight: bold;
+  border-bottom: 1px solid silver;    
+}
+
+#diggButton {
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom : 2px;  
+}

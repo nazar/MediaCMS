@@ -1,0 +1,7 @@
+<div class="thumbnail">
+  <div align="center">
+    <%= link_to render_video_splash(video, {:class => 'collect_photo'}), video_view_path(video.id, video.safe_title)  %>
+  </div>
+  <div align="center" style="clear:both"><small><%= link_to video.short_title, video_view_path(video.id, video.safe_title) %></small></div>
+</div>
+<h3 class="no_show"><%=video.description%></h3>

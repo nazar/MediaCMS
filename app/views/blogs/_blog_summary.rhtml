@@ -1,0 +1,19 @@
+<% blog_link = "<a href='/blogs/show/#{blog.id}'>#{h blog.title}</a>" %>
+<% read_more = "<a href='/blogs/show/#{blog.id}'>read full blog</a>" %>
+<% user      = user ? user.login : blog.user.login %>
+<table>
+  <tr>
+    <td class="underline blogTitle"><%= blog_link %> - <a href="/blogs/by/<%=user%>">by <%=user%></a> </td>
+    <td class="underline small_summary">
+      Posted <%= date_ago(blog.created_at) %> ago
+        <%= " and read #{pluralize(blog.blog_read,'time')}" if blog.blog_read > 0 %>
+    </td>
+  </tr>
+  <tr>
+    <td><small><%= read_more %></small></td>
+    <td class="small_summary"><%= "<a href='/blogs/show/#{blog.id}#comments'>#{pluralize(blog.comments_count,'Comment')}</a>" if blog.comments_count > 0 %></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div class="blogBody"><%= blog.spotlight %></div></td>
+  </tr>
+</table>

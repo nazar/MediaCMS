@@ -1,0 +1,118 @@
+<table id="viewmedia" cellpadding="0" cellspacing="5">
+  <tr>
+    <td class="major">
+      <table cellpadding="0" cellspacing="5" id="photo_table">
+        <tr><td><h1><%= h @media.title -%></h1></td></tr>
+        <tr><td align="center">
+          <div class="clearfix"><%= render_view(@media) -%></div>
+          <%= media_action_links(@media, :can_edit => @can_edit) %>
+          <div id="extra" style="display:none;">&nbsp;</div>
+        </td></tr>
+        <% unless @media.description.blank? %>
+          <tr>
+            <td><h2>Description</h2><%= @media.formatted_description -%></td>
+          </tr>
+        <% end %>
+      </table>
+    </td>
+    <td class="minor">
+      <table cellpadding="0">
+        <tr>
+          <td class="major">
+            <h2>Image Information</h2>
+            <%= render :partial => 'medias/media_info', :object => @media %>
+            <% if @media.tags.count > 0 %>
+              <h2>Top Tags</h2>
+              <% object_tag_cloud(@media, %w(tags1 tags2 tags3 tags4 tags5 tags6), {:limit => 15}) do |tag, css_class| %>
+                <%= link_to tag.name, {:controller => '/tags', :action => :photo, :id => tag.name}, {:class => css_class} -%>
+              <% end %>
+            <% end %>
+          </td>
+          <td class="pad">
+            <h2>Statistics</h2>
+            <%= render :partial => '/medias/media_stats', :object => @media %>
+            <% if Setup.color_analysis_module %>
+              <h2>Swatch</h2>
+              <div id="swatches">
+                <div class="swatch_container clearfix">
+                  <% render_swatch(@media, :limit => 9) do |container, member| -%>
+                    <%= link_to container, :action => :by_color, :id => @media.id, :color => member.id -%>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      <% if @adv_resolution || @adv_lic %>
+        <% form_tag photo_view_path(@media, @media.title.to_permalink), :id => 'buy' do %>
+          <% if @adv_resolution -%>
+            <h2>Pricing &amp; Licensing</h2>
+            <div>
+              <table id="resolutions" cellpadding="0" cellspacing="0">
+                <tr>
+                  <th colspan="2">Resolution</th>
+                  <th style="text-align: right">Price</th>
+                </tr>
+                <%= render_resolution_prices(PhotoResolutionPrice.photo_resolutions(@media), {:selected => @res_price}) -%>
+              </table>
+            </div>
+          <% end -%>
+          <% if @adv_lic %>
+            <div>
+              <table id="licenses" cellpadding="0" cellspacing="0">
+                <tr>
+                  <th colspan="2">Licenses</th>
+                  <th style="text-align: right">Additional Price</th>
+                </tr>
+                <%= render_license_prices(MediaLicensePrice.media_user_licenses(@media), {:selected => @licenses}) %>
+              </table>
+            </div>
+          <% end %>
+          <div>
+            <table id="total" cellpadding="0" cellspacing="0">
+              <tr>
+                <th>Total Credits:&nbsp;</th>
+                <td id="total_value"><%= @price -%></td>
+              </tr>
+              <tr>
+                <td id="update"><%= submit_tag('Update prices', :name => 'update') -%></td>
+                <td colspan="2" id="buy"><%= submit_tag 'Buy', :name => 'submit_buy' -%></td>
+              </tr>
+            </table>
+          </div>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <% if @media.markers.length > 0%>
+        <div><h2>Where in the World?</h2></div>
+        <div class="step">
+          <%= render :partial => '/maps/map_small_viewer', :locals => {:data_url => "/photos/photo_markers/#{@media.id}"} %>
+        </div>
+      <% end %>
+      <h2>Ratings and Comments</h2>
+      <div id="star-ratings-block"><%= render :partial => "rating/rating", :locals => { :rateable => @media } -%></div>
+      <%= render :partial => 'comments/show_comments', :locals => {:model => @media} %>
+    </td>
+    <td>
+      <h2>How to Buy</h2>
+      <p>You must be a registered user and your account must contain enough Credits to purchase this photo. <a href="/account/login">Login or Register</a> an account.</p>
+      <% unless @media.collections.blank? %>
+        <h2><%= media_collections_title(@media.collections) %></h2>
+        <%= render_media_collection_thumbnails(@media, :limit => 8) %>
+      <% end %>
+      <% unless @photos_by_swatch.blank? %>
+        <h2>Similar Media by <%= link_to 'Palette', photo_more_by_swatch_path(@media) %></h2>
+        <%= render_medias_as_thumbnails(@photos_by_swatch, :limit => 8) %>
+      <% end %>
+      <% unless @photos_by_tag.blank? %>
+        <h2>Media with Similar Context</h2>
+        <%= render_medias_as_thumbnails(@photos_by_tag, :limit => 8) %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<%= javascript_tag("jQuery('.options').attach(FormSelectionOnChange, {form: '#buy', hide: '#update', spinner: '#total_value', update: '#total_value'});") %>

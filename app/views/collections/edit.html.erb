@@ -1,0 +1,15 @@
+<%= error_messages_for "collection" %>
+<h2>Editing Collection <%= link_to @collection.name, collections_path(@collection) %></h2>
+<h3>Properties</h3>
+<div class="step">
+  <% form_for collections_path(@collection) do -%>
+    <%= render :partial => 'collections/form' %>
+    <%= submit_tag 'Update Properties' %>
+  <% end -%>
+</div>
+<h3>Media</h3>
+<div class="step">
+  <% form_tag collections_members_path(@collection) do -%>
+    <%= render :partial => 'collections/edit_members', :locals => {:members => @members, :medias => @medias} %>
+  <% end -%>
+</div>

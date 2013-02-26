@@ -1,0 +1,32 @@
+<%= error_messages_for 'account' %>
+
+<!--[form:account]-->
+<p><label for="account_name">Name</label><br/>
+<%= text_field 'account', 'name'  %></p>
+
+<% if Account.count > 0 %>
+  <p><label for="account_name">Sub-account of</label><br/>
+  <%= select 'account', 'parent_id', 
+              Account.find(:all).collect{ |m| [m.name, m.id] },
+              { :include_blank => true }  %></p>
+<% end %>           
+
+<p><label for="account_code">Code</label><br/>
+<%= text_field 'account', 'code'  %></p>
+
+<p><label for="account_open_balance">Open balance</label><br/>
+<%= text_field 'account', 'open_balance'  %></p>
+
+<p><label for="account_open_balance_date">Open balance date</label><br/>
+<%= datetime_select 'account', 'open_balance_date'  %></p>
+
+<p><label for="account_status">Status</label><br/>
+<select id="account_status" name="account[status]"><option value="false">False</option><option value="true" selected>True</option></select></p>
+
+<p><label for="account_description">Description</label><br/>
+<%= text_area 'account', 'description'  %></p>
+
+<p><label for="account_balance">Balance</label><br/>
+<%= text_field 'account', 'balance'  %></p>
+<!--[eoform:account]-->
+

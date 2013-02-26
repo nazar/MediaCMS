@@ -1,0 +1,8 @@
+<table class="media_info" cellpadding="0" cellspacing="0">
+  <%= media_info_row('Price:', media_info.price) %>
+  <%= media_info_row('By:', "#{media_info.user.pretty_name}<br />#{link_to('about', user_about_path(media_info.user.login))} | #{link_to('videos', user_videos_path(media_info.user.login))}") %>
+  <%= media_info_row('Category:', render_category_links(media_info.categories, {:action => 'videos'})) %>
+  <%= media_info_row('Resolution:', "#{media_info.width}x#{media_info.height} px") %>
+  <%= media_info_row('Length:', "#{media_info.duration.to_i.to_time_stamp}") %>
+  <%= media_info_row('Format:', media_info.orig_file_ext) %>
+</table>

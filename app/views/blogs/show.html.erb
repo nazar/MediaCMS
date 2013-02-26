@@ -1,0 +1,6 @@
+<% @page_title = "Viewing Blog #{h @blog.title}" %>
+<div class="step">
+<%= render :partial => '/blogs/blog_details', 
+           :locals => {:blog => @blog} %>
+</div>
+<%= render :partial => 'comments/show_comments', :locals => {:model => @blog} %>

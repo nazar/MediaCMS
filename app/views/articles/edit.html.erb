@@ -1,0 +1,6 @@
+<% @page_title = 'Editing Article' %>
+<div class="block_title"><h2>Editing Article <%= @article.title %></h2></div>
+<br/>
+<div class="step">
+  <%= render :partial => '/articles/form', :locals => {:user => current_user} %>
+</div>

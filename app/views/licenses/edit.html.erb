@@ -1,0 +1,8 @@
+<div class="block_title"><h2>Edit License</h2></div>
+<%= error_messages_for 'license' %>
+<div class="step">
+  <% form_tag 'edit'  do %>
+    <%= render :partial => 'licenses/form' %>
+    <p><%= submit_tag 'Save License' %></p>
+  <% end -%>
+</div>

@@ -1,0 +1,6 @@
+<% javascript_tag do %>
+  function playerReady(obj) {
+    player = document.getElementById(obj.id);
+    player.addModelListener('STATE','videoPlayerListner');
+  }
+<% end -%>

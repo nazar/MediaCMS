@@ -1,0 +1,4 @@
+<form name="forumform" id="forumform" action="<%=create_topic_url(:forum_id=>@forum)%>" method="post">
+  <%= render :partial => 'posts/post_form', :locals => {:forum => forum, :topic => topic, :post => @post} %>
+  <%= javascript_tag("jQuery('#cancel').attach(RemoteUpdateBlindClose, {update: '#new_topic_block'});") %>
+</form>

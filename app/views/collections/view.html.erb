@@ -1,0 +1,61 @@
+<div class="block_title"><h2>Viewing Collection <%= @collection.name %> by <%= @collection.user.pretty_name %></h2></div>
+<span id="back_to_top">&nbsp;</span>
+<div class="step">
+    <table cellspacing="0">
+      <tr>
+        <td class="head" width="135px">Collection</td>
+        <td class="even"><%= @collection.name %></td>
+      </tr>
+      <tr>
+        <td class="head">Photographer</td>
+        <td class="even"><%= link_to @collection.user.pretty_name, :controller => 'account', :action => :about, :id => @collection.user.login  %></td>
+      </tr>
+      <tr>
+        <td class="head">Photos</td>
+        <td class="even"><%= @collection.collection_items_count %></td>
+      </tr>
+      <tr>
+        <td class="head">Download Size</td>
+        <td class="even"><%= number_to_human_size(@collection.collection_size) %></td>
+      </tr>
+      <tr>
+        <td class="head">Price</td>
+        <td class="even"><%= @collection.price && @collection.price > 0 ? pluralize(@collection.price,'Credit') : 'Free' %></td>
+      </tr>
+      <tr>
+        <td class="head">Action</td>
+        <td class="even">
+          <%= collection_action_links(@collection) %>
+        </td>
+      </tr>
+      <tr>
+        <td class="odd" colspan="2"><%= @collection.markup_description %></td>
+      </tr>
+    </table>
+</div>
+<%= feed_title_block("Collection Photos", {:controller => 'feed', :action => :collection_photos, :id => @collection.id}, {:auto_rss => true}) %>
+<small><%= will_paginate @collection_items %></small>
+<div class="step clearfix">
+  <% for item in @collection_items %>
+    <div class="listPhotos">
+    <%= render :partial => 'photos/small_picture', :locals => {:photo => item.photo} %>
+    </div>
+  <% end %>
+</div>
+<small><%= will_paginate @collection_items  %></small>
+<div class="block_title"><h2>Collection Rating</h2></div>
+<div class="step">
+  <div id="star-ratings-block"> <%= render :partial => "rating/rating", :locals => { :rateable => @collection } %> </div>
+</div>
+<% if @collection.photo_markers_count > 0 %>
+  <div class="block_title">
+    <div class="feed"><%= link_to image_tag('georss.png'), {:controller => '/feed', :action => :collection_georss, :id => @collection.id}, {:class => 'no_underline'} %></div>
+    <h2>Google Map Markers in this Collection</h2>
+  </div>
+  <div class="step">
+    <%= render :partial => '/maps/map_viewer',
+               :locals => {:data_url => "/collections/markers/#{@collection.id}",
+                           :height => '300px'} %>
+  </div>
+<% end %>
+<%= render :partial => 'comments/show_comments', :locals => {:model => @collection} %>

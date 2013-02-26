@@ -1,0 +1,29 @@
+<%= error_messages_for 'news_item' %>
+
+<!--[form:news_item]-->
+<p><label for="news_item_title">Title</label><br/>
+<%= text_field 'news_item', 'title'  %></p>
+
+<p><label for="news_item_topic_id">News Topic</label><br/>
+<%= select 'news_item', 'itemable_id', @news_topics.collect {|t| [t.name, t.id]}  %></p>
+
+<p><label for="news_item_user_id">News Author</label><br/>
+<%= select 'news_item', 'user_id', @users.collect {|u| [u.login, u.id]}  %></p>
+
+<p><label for="news_item_body">Body</label><br/>
+<%= markup_area 'news_item', 'body'  %></p>
+
+<p><label for="news_item_extra">Extra</label><br/>
+<%= markup_area 'news_item', 'extra'  %></p>
+
+<p><label for="news_item_active">Active</label><br/>
+<%= check_box 'news_item', 'active', {}, '1', '0'  %></p>
+
+<p><label for="news_item_expire_article">Auto Expire Article</label><br/>
+<%= check_box 'news_item', 'expire_item', {}, '1', '0'  %></p>
+
+<p><label for="news_item_expire_date">Expires</label><br/>
+<%= datetime_select 'news_item', 'expire_date'  %></p>
+
+<!--[eoform:news_item]-->
+

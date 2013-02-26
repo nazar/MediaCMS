@@ -1,0 +1,5 @@
+<% form_tag "/photos/admin_unapprove/#{@photo.id}" do %>
+  <p>Reason for un-approval.<br />
+  <%= text_area_tag 'reason', nil, {:size => '46x6'} %></p>
+  <p><%= submit_tag('Un-approve') %></p>
+<% end %>

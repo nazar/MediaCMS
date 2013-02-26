@@ -1,0 +1,7 @@
+require 'rubygems'
+require 'active_support'
+require 'action_view'
+require 'tabnav_core_extensions'
+require 'tab'
+require 'tabnav'
+require 'application_helper_extension'

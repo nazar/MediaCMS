@@ -1,0 +1,28 @@
+tr.head {background-color: #ededed; }
+tr.head td {border-bottom: 1px solid silver}
+tr.rowodd {
+	background-color: #eeeeee;
+}
+
+tr.roweven {
+	background-color: #fefefe;
+}
+
+tr.rowodd td, tr.roweven td {padding: 2px}
+
+.sortcol {
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: right center; 
+}
+
+td.sortasc, td.sortdesc {padding: 5px 15px 5px 5px !important;}
+
+.sortasc {
+	background-color: #cccccc;
+	background-image: url(/images/up.gif);
+}
+.sortdesc {
+	background-color: #dddddd;
+	background-image: url(/images/down.gif);
+}

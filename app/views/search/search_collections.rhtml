@@ -1,0 +1,13 @@
+<div class="block_title"><h2><%= @title %></h2></div>
+<% unless @collections.blank? %>
+  <%= will_paginate @collections %>
+  <div class="step clearfix">
+    <% for collection in @collections %>
+      <%= render :partial => '/collections/collection_snapshot', 
+                 :locals => {:collection => collection} if collection.collections_items && (collection.collections_items.length > 0) %>
+    <% end %>
+  </div>
+  <%= will_paginate @collections %>
+<% else -%>
+  <div class="step">No collections found</div>
+<% end %>

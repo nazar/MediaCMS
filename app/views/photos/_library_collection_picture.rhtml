@@ -1,0 +1,9 @@
+<% if library.link.collections_items.first %>
+  <div class="listPhotosCollection">
+    <div class="small" align="center"><%= "#{library.link.name} (#{library.link.collections_items.size})"  %></div>
+    <div align="center"><div align="center" class="collect_photo"><%= link_to renderThumbnail(library.link.collections_items.first.photo), 
+      {:controller => 'collections', :action => :view, :id => library.link.id}, {:class => 'no_underline'} %></div></div>
+    <div align="center" class="small"><%= link_to 'download collection', collection_download_path(library.link_id) %></div>
+    <div class="small" align="center">downloaded:<%=library.downloaded%>. Bought:<%=date_ago(library.created_at)%> ago</div>
+  </div>      
+<% end %>  

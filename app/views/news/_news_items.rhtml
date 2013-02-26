@@ -1,0 +1,26 @@
+<% if news_items.length > 0 %>
+  <table class="outer" cellpadding="0" cellspacing="0" id="club_news_list">
+    <tr class="head">
+      <td class="nosort" width="50px">&nbsp;</td>
+      <td>News Item Title</td>
+      <td class="date-au sortfirstdesc">Date Published</td>
+      <td>Status</td>
+    </tr>
+    <% for news_item in news_items %>
+      <tr>
+        <td>
+          <%= link_to image_tag('delete.png'), {:action => 'delete_news_item', :id => news_item.id},
+                      :confirm => "Delete news item #{news_item.title}?", :title => 'Delete Club News Item' -%>
+          <%= extra_buttons(1, news_item) %>
+          <%= link_to image_tag('edit.png'), {:action => 'edit_news_item', :id => news_item.id}, :title => 'Edit Club News Item' %>     
+        </td>
+        <td><%= link_to_remote news_item.title, :url => {:action => 'edit_news_item', :id => news_item.id} %></td>
+        <td><%= news_item.created_at.english_date %></td>
+        <td><%= news_item.status_desc %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= javascript_tag("SortableTable.init('club_news_list');") %>
+<% else %>
+    No club news created yet.
+<% end %>

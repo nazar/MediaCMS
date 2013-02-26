@@ -1,0 +1,47 @@
+#links h3 {
+  margin: 0;
+  padding: 0;    
+}
+
+.smallest, .smallest a {
+  color: #999999;    
+}
+
+.rank {
+  background-image: url('/images/vote.png');
+  float:left;
+  margin-right: 5px;
+  width: 54px;
+  height: 71px;
+}
+
+.rank a {
+  border-bottom: 0px;    
+}
+
+.votes {
+  padding-top: 13px;
+  text-align: center;
+  font-weight: bolder;    
+  font-size: large;
+}
+
+.do_vote {
+  padding-top: 23px;
+  text-align: center;  
+}
+
+.link {
+  padding-bottom: 25px;    
+}
+
+.controls {
+  margin-left: 60px;  
+  clear: both;    
+  height: 10px;
+}
+
+.controls * {
+  vertical-align: top;
+  border-bottom: 0px;    
+}

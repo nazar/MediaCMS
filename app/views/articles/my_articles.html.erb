@@ -1,0 +1,15 @@
+<% @page_title = 'My Articles' %>
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>Articles</h2></div>
+  <div class="step">
+    <p>This page lists all your submitted articles.</p>
+  </div>
+  <div class="block_title"><h2>My Articles</h2></div>
+  <div class="step">
+    <% if @grapher.articles.length > 0 %>
+      <%= render :partial => '/articles/list_my_articles', :locals => {:user => @grapher} %>
+    <% else %>
+      <p>No articles yet.</p>
+    <% end %>
+  </div>
+<%= end_tabnav %>

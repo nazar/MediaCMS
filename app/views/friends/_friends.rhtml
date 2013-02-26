@@ -1,0 +1,18 @@
+<% session[:return_to] = request.request_uri %>
+<div class="block_title"><h2>My Contacts</h2></div>
+<div class="step">
+  <p><div><span style="float:left;"><strong>I have <%= pluralize(user.friends.count,'contact') -%></strong>.</span>
+     <% if current_user && (current_user.id != user.id) %> 
+     <span style="float:right;">
+       <strong>
+         <%= link_to "Add #{user.pretty_name} to my contacts", {:controller => 'friends', :action => :new, :id => user.login}, 
+                                              :class => 'lbOn' %>
+       </strong>
+     </span>
+     <% end %>      
+  </div><br clear="all"><br /></p>
+  <% for friend in user.friends %>
+    <%= render :partial => '/friends/friend_row',
+               :locals => {:user => friend.my_friend, :friend => friend} %>
+  <% end %>
+</div>

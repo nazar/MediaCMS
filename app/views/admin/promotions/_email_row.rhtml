@@ -1,0 +1,11 @@
+    <tr id="email-<%=promotion_email.id%>">
+      <td><%= promotion_email.email %></td>
+      <td><%= promotion_email.claimed_date %></td>
+      <td><%= promotion_email.created_at %></td>
+      <td><%= promotion_email.sale_value %></td>
+      <td><%= link_to_remote 'delete',
+                             :url => { :controller => '/admin/promotions',
+                                       :action => 'delete_email', 
+                                       :id => promotion_email.id},
+                             :confirm => 'Are you sure?', :post => true %></td>
+    </tr>

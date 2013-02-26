@@ -1,0 +1,14 @@
+<div class="block_title"><h2>Welcome to <%= Configuration.site_name %></h2></div>
+<div class="step">
+  <h3>Buy and Sell Photos</h3>
+  <p>Unlike many other commercial photo libraries, we do not charge a sales commission on photo sales. </p>
+  <p><%= Configuration.site_name %> offers three levels of membership: Free, Professional and Premium. Look at the table below to see which package best serves your requirements.</p>
+  <p>Free and Professional accounts enable members to sell photos at a fixed price whilst Premium members get increased storage capacity and the ability to set price levels per photograph plus a host of other features.</p>
+</div>
+<%= render :partial => '/account/hosting_plans' %>
+<div class="block_title"><h2>How to Buy and Sell Your Photos</h2></div>
+<div class="step">
+  <p>All photo sales are handled by an internal currency called a Credit. A Credit can either be bought or sold. We sell one credit at &pound;1 and buy credits at 0.90 pence per credit. Basically 90% of the total value of sales goes direct to the photographer. <%= Configuration.site_name %> retains 10% of all sales to cover processing fees.</p>
+  <p>An example: 10 Credits are bought at &pound;10, which can be used to buy 10 Credits worth of photos. A photographer who sells 10 Credits worth of photos can then convert these 10 Credits to &pound;9. </p>
+  <p>In order to buy photos a client must have sufficient Credits in their <%= Configuration.site_name %> account. Credits can be bought using our Paypal facility by logging in and clicking on the My Account -&gt; Accounting page. </p>
+</div>

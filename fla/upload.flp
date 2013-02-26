@@ -1,0 +1,4 @@
+﻿<flash_project name="upload" version="1">
+    <project_file path="./MultipleUpload.as" filetype="as" />
+    <project_file path="./multipleUpload.fla" filetype="fla" profile="" def_file="true" />
+</flash_project>

@@ -1,0 +1,12 @@
+<h1>Editing photo</h1>
+<div class="step">
+<div align="center"><%= render_view(@media) %></div><br>
+  <% form_tag :action => 'update', :id => @media do %>
+    <div class="step">
+      <%= render :partial => 'form' %>
+      <%= submit_tag 'Save' %>
+    </div> 
+  <% end %>
+  <br />
+  <%= render :partial => '/maps/markers', :locals => {:markable => @media, :data_url => "/photos/photo_markers/#{@media.id}"} %>
+</div>

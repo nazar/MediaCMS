@@ -1,0 +1,7 @@
+<% cache('more_photos') do %>
+  <%= render_title_link_block('Most Viewed Photos',    render_most_viewed,       :more_link => {:controller => 'photos', :action => :more_viewed}) -%>
+  <%= render_title_link_block('Most Voted Photos',     render_most_voted,        :more_link => {:controller => 'photos', :action => :more_votes}) -%>
+  <%= render_title_link_block('Most Discussed Photos', render_most_talked_about, :more_link => {:controller => 'photos', :action => :more_discussed}) -%>
+  <%= render_title_link_block('Favourite Photos',      render_most_favourites,   :more_link => {:controller => 'photos', :action => :more_favourites}) -%>
+  <%= render_title_link_block('Best Selling Photos',   render_best_selling,      :more_link => {:controller => 'photos', :action => :more_sellers}) -%>
+<% end %>

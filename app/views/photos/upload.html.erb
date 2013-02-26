@@ -1,0 +1,27 @@
+<%= start_tabnav :account %>
+<%= render :partial => '/medias/disk_space' %>
+<div class="block_title"><h2>Step 1 - Upload Photos</h2></div>
+<div class="step">
+  <p>Click the Browse button to select your photos.</p>
+  <p>You can upload multiple files when Browsing by selecting more than one file to upload from the same folder.</p>
+  <p><strong>Only <%= Configuration.supported_image_types %> files can be uploaded.</strong></p>
+  <div align="center"><%= render :partial => 'shared/upload', :locals => {:upload_action => '/photos/upload_photo/'} %></div>
+</div>
+<%= render :partial => '/medias/upload_job_list', :locals => {:jobs => @jobs}  %>
+<div class="block_title"><h2>Step 2 - Press F5 to view and Categorise Your Uploaded Photos</h2></div>
+<% form_tag({:action => 'categorise'},{:id => 'catUploads'}) do -%>
+  <div class="step clearfix">
+    <p>All uploaded and un-categorised photos will be listed here.
+       These photos will not be visible until they have been categorised. 
+       Press the refresh button on your browser or the F5 key to display any newly uploaded photos</p>
+    <p><input type="checkbox" id="toggle" name="toggle" checked="checked" onclick="CheckAllCheckboxes('catUploads','toggle');"> Mark all photos to save.</p>
+    <%= render :partial => '/photos/render_uncated' %>
+  </div>
+  <div class="block_title"><h2>Step 3 - Save Photo Details</h2></div>
+  <div class="step">
+    <p>Once all photo titles, descriptions, tags and categories are set press the <strong>Save Uploaded Photos</strong> button to finally save these. Please remember that the more information you provide on your photos (title, description and tags) the easier it will be to find your photos.</p>
+     <%= submit_tag "Save Uploaded Photos" %>
+  </div>
+<% end %>
+
+<%= end_tabnav %>

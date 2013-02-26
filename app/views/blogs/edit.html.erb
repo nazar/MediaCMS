@@ -1,0 +1,8 @@
+<% @page_title = 'Editing my Blog' %>
+<div class="block_title"><h2>Edit Blog</h2></div>
+<div class="step">
+  <form action="/blogs/add/<%=@blog.id%>" method="post">
+    <%= render :partial => '/blogs/form' %>
+    <%= submit_tag "Update" %>
+  </form>
+</div>

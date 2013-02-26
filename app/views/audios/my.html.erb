@@ -1,0 +1,22 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>My Audio Files - Listing most recent files first</h2></div>
+  <p><strong><%= link_to 'View audio files by statistics (most viewed, commented etc...)', :action => 'stat_audios' %></strong></p>
+  <small><%= will_paginate @media %></small>
+  <div class="step clearfix media">
+    <% if @media.length > 0 %>
+      <%= render_audio_block(@media) %>
+      <%= render :partial => 'audios/hook_listener' %>
+    <% else %>
+      <div class="step_text">You haven't uploaded any audio files yet.</div>
+    <% end %>
+  </div>
+  <% if (current_user.audio_markers_count > 0) && (params[:page].to_i < 2)%>
+    <div class="block_title"><h2>My Audio Markers</h2></div>
+    <div class="step clearfix">
+      <%= render :partial => '/maps/map_viewer',
+                 :locals => {:data_url => "/audios/user_markers/#{current_user.id}",
+                             :height => '290px'} %>
+    </div>
+  <% end %>
+  <small><%= will_paginate @media %></small>
+<%= end_tabnav %>

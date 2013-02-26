@@ -1,0 +1,304 @@
+table.rounded_block {
+  border-top : 0px solid #FFFFFF; 
+  border-left : 2px solid #FFFFFF; 
+  border-right: 0px solid #FFFFFF;
+  border-bottom: 4px solid #FFFFFF;
+  background-color: #BDC49A;
+  margin-bottom: -6px;
+}
+
+
+.header_content {
+  height: 50px;  
+}
+
+table.maintable {height:500px;background-color : #ffffff;border-left: 5px solid #FFFFFF;border-right: 5px solid #FFFFFF;}
+table.toptable {background-color: #FFFFFF; border-left: 11px solid #FFFFFF;border-right: 11px solid #FFFFFF;border-top: 8px solid #FFFFFF;border-bottom: 5px solid #FFFFFF;}
+table.tooltable {background-color: #FFFFFF; padding-bottom: 4px; }
+/*div {font-size: 12px;}*/
+
+div#content {text-align: left; padding-left: 3px; padding-right: 0px;}
+
+#content input, #content select, #content textarea {
+  border: 1px solid silver;
+}
+
+.styleSite {font-family: Arial, Helvetica, sans-serif;font-size: 450%;color: #FFFF00;font-weight: bold;text-align: left}
+.styleTitle {font-family: Arial, Helvetica, sans-serif;font-size: 100%;color: #CEEE73;font-weight: bold;font-style: italic;padding-right: 220px}
+
+a {color: #000000; text-decoration: none; background-color: transparent; border-bottom: 1px dotted #AB9608;}
+a:hover {color: #4F7A06;}
+.no_underline {border-bottom: 0px;} 
+img.no_underline {border-bottom: 0px;}
+
+strong a {
+  background-image: url(/images/link.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  padding-left: 17px;
+  padding-top: 2px;
+  padding-bottom: 0px;
+  border-bottom: none;
+}
+
+.site_header a img {
+  border: none;
+}
+
+td#headerbanner {width: 100%; background-image: url(/images/h_bg.gif); vertical-align: middle; text-align:center;background-repeat: repeat-x}
+
+td#footerbar {padding: 8px;text-align: center;background-color: #CCCFBC;color: #4F7A06;border-right: 15px solid #FFFFFF;border-left: 15px solid #FFFFFF;border-top: 15px solid #FFFFFF;border-bottom: 15px solid #FFFFFF;}
+td#footerbar a{color: #4F7A06;}
+
+td#toolleft{ text-align: right; padding-left:8px;} 
+td#toolright{ text-align: left; padding-right:10px;} 
+
+td.toolmiddle { background-image: url(/images/tool_back.jpg); text-align: right; padding-bottom: 10px; background-color: #CCCFBC;}
+td.toolleftmiddle {background-image: url(/images/tool_back.jpg); text-align: left; padding-bottom: 10px; background-color: #CCCFBC;}
+#footer_table td.toolleftmiddle  {text-align: center; padding-top: 10px;}
+#footer_table a {border-bottom: none;}
+td.toolmiddle a {color: #4F7A06; padding-right: 5px; margin-top: 5px;}
+
+#matrix {
+  color: #4C322E;  
+}
+
+
+.description {
+  margin-top:15px;
+  padding: 5px;
+  border: solid silver 1px;
+}
+
+.padded {
+  padding: 10px;
+  margin: auto;  
+}
+
+
+.mainBL {
+  background-image: url(/images/box_bottom.jpg);width: 165px; border-bottom: 3px solid #ffffff;
+  background-repeat: no-repeat;background-position: center;border-left:5px solid #FFFFFF;border-right:2px solid #FFFFFF;
+  height: 14px !important;
+  height: 7px;
+}
+  
+
+#comment p.commentdetails {
+  background: url(/images/bl4.gif) no-repeat 10px 1em;
+  line-height: 16px;
+  margin: 0;
+  padding: 10px 30px 10px 28px;
+  position: relative;
+}
+
+#comment li  {
+  border: 1px silver;
+  border-style: solid;
+  margin: 10px;
+  padding: 10px 0 10px 25px;
+  list-style-type: none;  
+}
+
+#comment .commentdetails cite {
+  font-style: normal;
+}
+
+#comment .commenttext p {
+  margin: .8em 0;
+  padding: 0 10px;
+}
+
+#signup td.even {
+  padding: 5px;
+  border-bottom: 1px dashed silver;
+}   
+
+#signup td.odd {
+  padding: 10px;
+  border-bottom: 1px dashed silver;
+}   
+
+#plan_table td.even {
+  border-bottom: 1px dashed silver;
+}
+
+#plan_table td.head {
+  border-bottom: 1px dashed silver;  
+}
+
+ .tooltable #account_tabnav {
+  border-bottom: 0px solid black; 
+  padding-top: 4px;   
+ }
+ 
+.toolmiddle #account_tabnav a.active {
+  border-bottom: 1px solid black; }
+  
+.category a {font: 0.9em/1.3em "bitstream vera sans", verdana, sans-serif; border-bottom: none;}
+
+
+a.underline {
+  border-bottom: 1px solid silver;
+  vertical-align: inherit;
+}
+
+.underline {
+  border-bottom: 1px solid silver;
+  vertical-align: middle;
+}
+
+.overline {
+  border-top: 1px solid silver;
+  vertical-align: middle;     
+}
+
+.blogTitle {
+  padding-bottom: 3px;
+  font-size:larger;
+  font-weight: bold;
+}
+
+.blogTitle a {
+  border-bottom: none;
+}
+
+.blogBody {
+  padding-top: 2px;
+  padding-bottom: 20px;
+}
+
+.crumb {
+  padding-top: 10px;
+}
+.crumb img {
+  vertical-align: middle;
+  
+}
+
+#search input,#search select {
+  border:1px solid silver;
+}
+
+
+/*.tipClassTitle { color: white; background-color: #65724E; height:18px; }
+
+.tipClassBody {background-color: #C9CEAE; padding: 5px; font: 10px Arial, Helvetica; }
+*/
+
+#tooltip {
+  width:175px;
+}
+
+#staticTipLayer {
+  width:175px;
+}
+
+#staticTipLayer .tipClassTitle a {color:white;}
+
+ 
+.closed {display: none; }
+.open {display: inherit;}
+
+.menu div {
+  border: 0px solid;
+  margin: 0px;
+  font: 12px "bitstream vera sans", verdana, sans-serif;
+}
+
+.menu span {
+  font: 1em "Lucida Console", Arial, Helvetica, sans-serif;
+}
+
+.menu .sub  a {
+  height: 10px;  
+  font-size: 11px;
+}
+
+.menu strong a {
+  border: 0;
+  background-image: none;
+  padding: 0px;
+}
+
+.boldSpan {
+  font-size: 12px; font-weight: bold; 
+}
+
+.bolderSpan {
+  font-size: 18px; font-weight: bold;
+}
+
+.no_show {
+   display: none;
+}
+
+.small {
+  font-size: smaller;
+}
+
+.smallest {
+  font-size: x-small;
+}
+
+.bold {
+  font-weight:bold;
+}
+
+.new {
+  color: red;
+  vertical-align: super  !important; 
+  vertical-align: inherit;
+  font-size: 6pt;
+}
+
+.feed {
+    float:right; padding-bottom:10px; 
+}
+
+.clear {
+  clear: both;
+}
+
+.rss_icon {
+  float:right; 
+  padding-top:15px; 
+  padding-right:17px;
+}
+
+.rss_icon img {
+  border-bottom: 0px;
+}
+
+
+.notice {
+  font-weight: bold;
+  color: red;      
+}
+
+.text_area {
+  width: 99%; 
+}
+
+.small_summary {
+  font-size: smaller;
+  text-align: right;    
+}
+
+
+#tags a {border-bottom: none;}
+
+#diggButton {margin: 7px;}
+
+/* videos */
+
+.list_uncategories_videos {
+  padding: 5px;
+  margin: 5px;
+  float:left;
+  border: solid silver 1px;
+  height: 750px;
+}
+
+
+.list_uncategories_videos textarea,  .list_uncategories_videos #video_categories, .list_uncategories_videos #video_categories, .list_uncategories_videos #video_title{width: 100%}

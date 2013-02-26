@@ -1,0 +1,10 @@
+<div class="step">
+  <h3><%= "Adding #{@user.pretty_name} to my friends list." %></h3>
+	<% form_remote_for :friend, @friend, :url => { :action => "create" } do |f| %>
+    <strong>Comments</strong><small> max 100 characters</small><br />
+    <%= f.text_area :comments, :rows => 10 %><br />
+    <%= hidden_field_tag 'me', current_user.id %>
+    <%= hidden_field_tag 'them', @user.id %>
+ 	  <%= submit_tag 'Save' -%> or <a href="javascript:;" onclick="lightbox.prototype.deactivate();">cancel</a>
+  <% end -%>
+</div>

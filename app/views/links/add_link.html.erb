@@ -1,0 +1,12 @@
+<h2>Member Link Submissions</h2>
+<div class="step">
+  <p>Member submited links are displayed on our <%= link_to 'links page', :controller => 'links' %> for our members to view, comment and rate.</p>
+  <p>All your links will be stored can be be viewed in your <%= link_to 'links library', :controller => '/links', :action => :my_links %>. You will also be able to save other member submitted links in the links library.</p>
+</div>
+<h2>Submit a New Link</h2>
+<div class="step">
+  <% form_tag do %>
+    <%= render :partial => '/links/form' %>
+    <p><%= submit_tag('Add Link') %></p>
+  <% end %>
+</div>

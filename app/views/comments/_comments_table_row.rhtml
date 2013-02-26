@@ -1,0 +1,12 @@
+      <% area = comment_to_area(comment) -%>
+      <tr class="<%= cycle('even','odd') %>">
+    		<td align="center" width="4%"><img src="/images/forums/folder-a.gif" style="margin: 0px; width: 18px; height: 12px;" alt="" align="middle" /></td>
+    		<td><%= link_to strip_tags(comment.safe_title), comment_to_controller(comment)  %></td>
+    		<td align="center" valign="middle"><%= area%></td>
+        <% if comment.user -%>
+          <td align="center" valign="middle"><%= link_to h(comment.user.login), :controller => 'account', :action => :about, :id => h(comment.user.login)%></td>
+        <% else %>  
+          <td align="center" valign="middle"><%= display_anon_user(comment) %></td>
+        <% end %>  
+        <td align="center" valign="middle"><%= date_ago(comment.created_at) + ' ago' %></td>
+    	</tr>

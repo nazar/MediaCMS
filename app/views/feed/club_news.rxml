@@ -1,0 +1,26 @@
+xml.instruct!
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
+  xml.channel do
+    xml.title "#{Configuration.site_name} #{@club.name} News"
+    xml.link url_for(:only_path => false,
+                     :controller => 'clubs', :id => @club.id)
+    xml.pubDate CGI.rfc1123_date(@news.first.created_at)
+    xml.description h("An aggregate of #{@club.name} news.")
+      @news.each do |news|
+      xml.item do
+        xml.title news.title
+        xml.link url_for(:only_path => false,
+                         :controller => 'news',
+                         :action => 'show',
+                         :id => news.id)
+        xml.description (news.formatted_body)
+        xml.pubDate CGI.rfc1123_date(news.created_at)
+        xml.guid url_for(:only_path => false,
+                         :controller => 'news',
+                         :action => 'show',
+                         :id => news.id)
+        xml.author h(news.user.pretty_name)
+      end
+    end
+  end
+end

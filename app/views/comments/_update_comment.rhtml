@@ -1,0 +1,5 @@
+<% form_tag "/comments/update/#{@comment.id}", {:id => "add_comment_#{@comment.id}"} do %>
+  <%= render :partial => 'comments/form', :locals => {:model => model} %>
+  <%= submit_tag 'Cancel', :name => 'cancel' %>
+  <%= javascript_tag("jQuery('form#add_comment_#{@comment.id}').attach(MarkupAreaFormUpdateSave);") %>
+<% end %>

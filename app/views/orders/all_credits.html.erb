@@ -1,0 +1,13 @@
+<% if current_user %>
+  <% if current_user.credit_histories.count > 0 %>
+    <div class="block_title"><h2>My Full Credit Activity History</h2></div>
+    <div class="step">
+      <%= render :partial => '/orders/credit_history_block', :locals => { :credit_histories => current_user.credit_histories, 
+                                                                          :list_limit => 0 } %>
+    </div>                                                                        
+  <% else %>
+    <div class="step">
+      <div class="block_title"><h2>No credit history for your account.</h2></div>
+    </div>
+  <% end %>
+<% end %>

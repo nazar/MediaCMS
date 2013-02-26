@@ -1,0 +1,17 @@
+<% payment_service_for @user.id, @account,
+                              :amount => @plan.monthly_fee, 
+                              :currency => 'GBP', 
+                              :service => :paypal, 
+                              :html => { :id => 'checkout', :name => 'checkout' } do |service| %>
+
+
+   <% service.customer :first_name => @user.login, :email => @user.email %>
+   <% service.subscription :user => @user, :host_plan => @plan %>
+   <% service.item_name   "#{Configuration.site_name} Hosting - #{@plan.name} plan." %>
+   <% service.tax '0.00' %> 
+
+   <% service.notify_url url_for(:only_path => false, :controller => 'orders', :action => 'ipn_notify') %>
+   <% service.return_url url_for(:only_path => false, :controller => 'orders', :action => 'ipn_return') %>
+   <% service.cancel_url url_for(:only_path => false, :controller => 'orders', :action => 'ipn_cancel') %>
+   <% service.cancel_return_url url_for(:only_path => false, :action => 'ipn_cancel') %>
+<% end %>

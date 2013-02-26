@@ -1,0 +1,65 @@
+q:before,q:after{content:'';}
+
+#doc {
+  padding-top: 5px;  
+  width: 98%;
+  min-width:450px;
+  margin:auto;
+  text-align:left;
+}
+#hd,#bd {text-align:left;}
+#ft {font-size:77%;font-family:verdana;clear:both;}
+/* self clear floated parent containers */
+#bd:after, .yui-g:after, .yui-gb:after, .yui-gc:after, .yui-gd:after, .yui-ge:after, .yui-gf:after {content:".";display:block;height:0;clear:both;visibility:hidden;}	
+#bd, .yui-g, .yui-gb, .yui-gc, .yui-gd, .yui-ge, .yui-gf {zoom:1;} /* IE */
+
+/* this block of CSS controls the tabs */
+/* primary tabs */
+.navset h3, .navset h4 {position:absolute;left:-1000em;margin:0;}
+.navset .hd li em {font-weight:bold;}
+.navset .hd li a {color:#666; border-bottom: 0px;}
+.navset .hd li.on strong, .navset .hd li.on strong a {color:#999;} /* selected tab */
+.navset .hd li.on strong {background-color:#FFFFFF;border-bottom:1px solid #FFFFFF;} /* border-color should match selected color */
+.navset .hd li.orphan, .navset .hd li.orphan a {color:#999;}
+
+/* bg images, defaults to #999 border-color on white bg */
+.navset .hd li a, .navset .hd li strong {background:#BDC49A url(/images/tr_999.gif) no-repeat top right;}
+.navset .hd li em {background:transparent url(/images/tl_999.gif) no-repeat;}
+
+/* secondary tabs */
+.navset .bd ul {background-color:#FFFFFF; border-color:#999;}
+.navset .bd li, .navset .bd li a {color:#5F6B32; border-bottom: 0px;}
+.navset li.on, .navset li.on strong {font-weight:bold;}
+.navset .bd li {border-color:#ccc;} /* pipe divider */
+
+/* end base styles */
+
+/* shared pri and sec */
+.navset {width:100%;} /* IE: width */
+.navset a {text-decoration:none;}
+.navset ul, .navset li {margin:0;padding:0;list-style:none;}
+.navset li {float:left;display:inline;}
+.navset li a:hover {text-decoration:underline;}
+.navset ul:after {clear:both;content:'.';display:block;height:0;visibility:hidden;} /* clear non-IE */
+.navset ul {zoom:1;} /* clear IE */
+
+/* primary tabs */
+.navset .hd ul {font:bold 78%/1.2em verdana;margin-bottom:-1px;padding-left:.3em;position:relative;} /* IE quirks mode: relative */
+.navset .hd li {margin-right:.33em;padding:0;}
+.navset .hd li.on strong a {cursor:default;}
+.navset .hd li a, .navset .hd li strong, .navset .hd li em {display:block;}
+.navset .hd li a, .navset .hd li strong {*display:inline-block;}  /* IE: 100% clickable */
+.navset .hd li em {font-style:normal;padding:.5em .6em;}
+.navset .hd li.orphan, .navset .hd li.orphan a, .navset .hd li.orphan em {background:transparent none;border-width:0;margin:0;}
+
+/* secondary tabs */
+.navset .bd ul {border-top-width:1px;border-top-style:solid;font:78%/1.2em verdana;margin:0;padding:.6em 0 .6em .4em;}
+.navset .bd li {border-left-style:solid;border-left-width:1px;display:inline;padding:0 1em;}
+.navset .bd li.first {padding-left:0;border:0;}
+
+
+
+
+/* self clear floated parent containers */
+#bd:after, .yui-g:after, .yui-gb:after, .yui-gc:after, .yui-gd:after, .yui-ge:after, .yui-gf:after {content:".";display:block;height:0;clear:both;visibility:hidden;}	
+#bd, .yui-g, .yui-gb, .yui-gc, .yui-gd, .yui-ge, .yui-gf {zoom:1;} /* IE */

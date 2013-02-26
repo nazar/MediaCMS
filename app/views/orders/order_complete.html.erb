@@ -1,0 +1,32 @@
+<% @page_title = "Add credits to your #{Configuration.site_name} Account" %>
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>Thank you for your order.</h2></div>
+  <div class="block_title"><h2>Order Receipt</h2></div>
+  <div class="step">
+    <p><strong>This is a record of your purchase. Please print this page for your records.</strong></p>
+    <% if !@order.transaction %>
+      <p>Please note that Paypal normally immediately notifies us of your purchase. Your account will be credited once this notification is received.</p>
+      <p>Please contact <a href="mailto:<%= Configuration.site_admin%>"><%= Configuration.site_admin %></a> with your order number if your purchased credits do not appear in your account in the next ten minutes.</p>
+    <% end %>
+    <table id="account_cap" cellpadding="0px" cellspacing="0">
+      <tr>
+        <td class="odd">Order Number</td>
+        <td class="even"><%= @order.id %></td>
+      </tr>
+      <tr>
+        <td class="odd">Order Date</td>
+        <td class="even"><%= @order.created_at.to_formatted_s(:long) %></td>
+      </tr>
+      <tr>
+        <td class="odd">Order Value</td>
+        <td class="even">&pound;<%= @order.total %> GBP</td>
+      </tr>
+      <% if @order.transaction %>
+        <tr>
+          <td class="odd">Paypal Reference</td>
+          <td class="even"><%= @order.transaction %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<%= end_tabnav %>

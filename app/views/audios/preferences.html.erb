@@ -1,0 +1,26 @@
+<%= start_tabnav :account %>
+  <%= error_messages_for 'prefs' -%>
+  <div class="block_title"><h2><%= @page_title %></h2></div>
+  <div class="step">
+    <p>Set default preferences for uploaded Audio Files</p>
+  </div>
+  <div class="block_title"><h2>My Default Audio File Preferences</h2></div>
+  <div class="step">
+    <% form_tag "/audios/preferences/#{@prefs.user_id}" do -%>
+      <p><label for="prefs_bitrate">Preview MP3 Bitrate </label><br/>
+      <%= text_field :prefs, :bitrate %> <em>i.e. 56k</em></p>
+      <p><label for="prefs_sample_length">Preview MP3 Length </label><br/>
+      <%= text_field :prefs, :sample_length %> <em>Seconds. Set 0 to preview full track</em></p>
+      <p><label for="free_full_length">Full Length Audio Preview on Free Tracks</label><br/>
+      <%= check_box_tag_1 'free_full_length', '1', Configuration.audio_free_full_preview %> <em>Free Audio Tracks Play at Full Length</em> </p>
+      <%= submit_tag 'Save Preferences' %>
+    <% end -%>
+  </div>
+  <div class="block_title"><h2>Batch Processing</h2></div>
+  <div class="step">
+    <% form_tag '/audios/recode_all_user' do -%>
+      <%= submit_tag 'Re Encode All Audio Files Using Audio Preferences' %>
+    <% end -%>  
+  </div>
+  <%= render_flash(:notice) %>
+<%= end_tabnav %>

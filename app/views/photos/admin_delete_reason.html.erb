@@ -1,0 +1,5 @@
+<% form_tag "/photos/admin_delete_photo/#{@photo.id}" do %>
+  <p>Reason for deletion.<br />
+  <%= text_area_tag 'reason', nil, {:size => '46x6'} %></p>
+  <p><%= submit_tag('Delete') %></p>
+<% end %>  

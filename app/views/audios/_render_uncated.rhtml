@@ -1,0 +1,7 @@
+<div id="uncated_videos">
+  <% for audio in audios %>
+    <div class="list_uncategories_videos" id="audio_div_<%=audio.id%>">
+      <%= render :partial => 'audios/audio_update', :locals => { :audio => audio}%>
+    </div>
+  <% end %>
+</div>

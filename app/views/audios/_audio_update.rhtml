@@ -1,0 +1,40 @@
+<div align="center" class="centervideo">
+  <%= render_audio_preview(audio) -%>
+</div>
+<p><label for="audio_title">Title</label><br/>
+  <%= render_media_title(audio) %></p>
+
+<p><label for="audio_price">Price</label><br/>
+<% if current_user.host_plan.can_set_price %>
+  <input type="text" id="audio_price" name="audio[<%=audio.id%>][price]" size="7" value="<%=audio.price%>" /> Credit(s)</p>
+<% else %>
+  <%= audio_price_options(audio) %>
+<% end %>
+
+<% if current_user.host_plan.can_sell %>
+  <p><label for="audio_license">License</label><br/>
+    <%= user_licenses_listbox "audio[#{audio.id}][license_id]",
+                              audio && audio.user ? audio.user : current_user,
+                              audio ? audio.license_id : nil  %>
+    <a href="#" onclick="window.open('/licenses/view/'+$('audio[<%=audio.id%>][license_id]').value,'License','height=600,width=600,scrollbars,resizable');return false;">info</a>
+  </p>
+<% end %>
+
+<p><label for="audio_description">Description</label><br/>
+<textarea cols="22" rows="5" id="audio_description" name="audio[<%=audio.id%>][description]"><%=audio.description%></textarea></p>
+
+<p><label for="audio_text_tags">Tags</label><br/>
+<textarea cols="22" rows="5" id="audio_text_tags" name="audio[<%=audio.id%>][text_tags]"><%=audio.tags.collect{|t| t.name}.join(" ")%></textarea></p>
+
+<p>
+  <%= render_category_select(audio, indented_categories_select, {:id => 'audio_categories', :size => 5}) -%>
+</p>
+
+<p><input type="checkbox" id="audio_upload_<%=audio.id%>" name="audio[<%=audio.id%>][audio_upload]" size="30" value="1" checked="checked" />
+<label for="audio_text_tags">Save changes and list audio file</label></p>
+
+<p>
+  <%= link_to_remote 'delete audio', :url => { :controller => 'audios',
+                                               :action => 'delete_audio', :id => audio.id},
+                                      :confirm => 'Are you sure you want to delete this audio file?', :post => true  %>
+</p>

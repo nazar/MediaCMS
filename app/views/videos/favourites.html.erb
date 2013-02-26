@@ -1,0 +1,12 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>My favourite videos</h2></div>
+  <small><%= will_paginate @videos %></small>
+  <div class="step clearfix media">
+    <% if @videos.length > 0 %>
+      <%= render_video_block(@videos) %>
+    <% else %>
+      <div class="step_text"><h3>No videos added to your favourites list</h3></div>
+    <% end %>
+  </div>
+  <small><%= will_paginate @videos %></small>
+<%= end_tabnav %>

@@ -1,0 +1,35 @@
+<div class="step">
+  <%= form_remote_tag :url => {:controller => 'maps', :action => 'add_marker', :id => markable.id}, 
+                   :html => {:id => 'items_form'},
+                   :update => 'markers_list_block',
+                   :success => "$('marker_title').value='';$('marker_long').value='';$('marker_lat').value='';editor_map.requeryMarkerData();" %>
+    <table cellpadding="0" cellspacing="4">
+      <tr>
+        <td width="35%">
+          <%= render :partial => '/maps/list', :locals => {:markable => markable} %><br />
+          <label for="marker_title" style="float:left; width:40px;">Title: </label>
+          <%= text_field_tag 'marker_title' %><br />
+          <label for="marker_long"  style="float:left; width:40px;">Long: </label><%= text_field_tag 'marker_long' %><br />
+          <label for="marker_lat"  style="float:left; width:40px;">Latt: </label><%= text_field_tag 'marker_lat' %>
+          <%= hidden_field_tag 'markable_id', markable.id %>
+          <%= hidden_field_tag 'markable_type', markable.class %>
+          <p>
+            <%= submit_tag 'Add' %>
+            <%= submit_to_remote 'remove_marker','Remove',
+                                 :url => {:controller => 'maps', :action => 'remove_marker'},
+                                 :with => 'getSelectedMarkers(markers_list)',
+                                 :update => 'markers_list_block',
+                                 :success => "editor_map.requeryMarkerData();" %>
+          </p>
+        </td>
+        <td width="65%">
+          <%= render :partial => '/maps/map_editor', :locals => {:data_url => data_url, :marker_long => 'marker_long',
+                                                     :marker_lat => 'marker_lat'} %>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+
+

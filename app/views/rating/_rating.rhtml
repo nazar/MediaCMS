@@ -1,0 +1,35 @@
+<% obj_type = rateable.class.base_class.to_s %>
+<% if rateable.ratings_count > 0 %>
+  Rated <%= number_with_precision(rateable.average_rating, 1) %>/5 Stars with <%= rateable.ratings_count%> votes.<br>
+<% end %>  
+<ul class='star-rating'>
+    <li class='current-rating' style='width:<%= (rateable.average_rating * 30).to_i -%>px;'>
+          Currently <%= number_with_precision(rateable.average_rating, 1) %>/5 Stars.
+        </li>
+    <li>
+        <%= link_to_remote( "1", {:url => { :controller => "rating", 
+            :action => "rate", :id => rateable.id, :rating => 1, :rating_type => obj_type}},
+            :class => 'one-star') %>
+    </li>
+    <li>
+        <%= link_to_remote( "2", {:url => { :controller => "rating", 
+            :action => "rate", :id => rateable.id, :rating => 2, :rating_type => obj_type}},
+            :class => 'two-stars') %>
+    </li>
+    <li>
+        <%= link_to_remote( "3", {:url => { :controller => "rating", 
+            :action => "rate", :id => rateable.id, :rating => 3, :rating_type => obj_type}},
+            :class => 'three-stars') %>
+    </li>
+    <li>
+        <%= link_to_remote( "4", {:url => { :controller => "rating", 
+            :action => "rate", :id => rateable.id, :rating => 4, :rating_type => obj_type}},
+            :class => 'four-stars') %>
+    </li>
+    <li>
+        <%= link_to_remote( "5", {:url => { :controller => "rating", 
+            :action => "rate", :id => rateable.id, :rating => 5, :rating_type => obj_type}},
+            :class => 'five-stars') %>
+    </li>
+</ul>
+<br /><small>Click on a star to add your rating.</small>

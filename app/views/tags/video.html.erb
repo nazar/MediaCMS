@@ -1,0 +1,22 @@
+<div class="block_title"><h2>Viewing Tag: <%= @tag.name %></h2></div>
+<div class="step">
+  <% if @videos_count == 1 %>
+    There is <%= @videos_count -%> tagged video.
+  <% else %>
+    There are <%= @videos_count -%> tagged videos.
+    <strong><%= link_to "View all videos in #{@tag.name}.", :action => :all_videos, :id => @tag.name %></strong>
+  <% end %>
+</div>
+<% if @videos_count > 0 %>
+  <%= feed_title_block("Latest Vidoes Tagged #{@tag.name}", {:controller => 'feed', :action => :latest_video_in_tag, :id => @tag.name}, {:auto_rss => true}) %>
+  <div class="step clearfix">
+    <%= render_video_block(Video.most_recent_in_tag(@tag)) %>
+  </div>
+  <% top_rated_videos = Video.top_rated_in_tag(@tag) %>
+  <% if top_rated_videos.length > 0 %>
+    <%= feed_title_block("Top Rated Videos Tagged #{@tag.name}", {:controller => 'feed', :action => :top_video_in_tag, :id => @tag.name}, {:auto_rss => true}) %>
+    <div class="step clearfix">
+      <%= render_video_block(top_rated_videos) %>
+    </div>
+  <% end %>
+<% end %>

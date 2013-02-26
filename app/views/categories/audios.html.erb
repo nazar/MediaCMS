@@ -1,0 +1,10 @@
+<% if @media.length > 0 %>
+  <%= feed_title_block("All Audio Files in #{link_to(@category.name, category_id_path(@category))}", {:controller => 'feed', :action => :all_audios_in_category, :id => @category.id}, {:auto_rss => true}) %>
+  <small><%= will_paginate @media %></small>
+  <div class="step clearfix">
+    <%= render_audio_block(@media) %>
+  </div>
+  <small><%=  will_paginate @media %></small>
+<% else %>
+  <h3>There are no audio files in this category.</h3>
+<% end %>

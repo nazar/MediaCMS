@@ -1,0 +1,10 @@
+<% if @media.length > 0 %>
+  <%= feed_title_block("All Videos in #{link_to(@category.name, category_id_path(@category))}", {:controller => 'feed', :action => :all_videos_in_category, :id => @category.id}, {:auto_rss => true}) %>
+  <small><%= will_paginate @media %></small>
+  <div class="step clearfix">
+    <%= render_video_block(@media) %>
+  </div>
+  <small><%=  will_paginate @media %></small>
+<% else %>
+  <h3>There are no videos in this category.</h3>
+<% end %>

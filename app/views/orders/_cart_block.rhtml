@@ -1,0 +1,8 @@
+<div id="cart_block">
+  <% count = Order.cart_items_count(session[:order_id] && (Order.count(session[:order_id])>0) ? Order.find(session[:order_id]) : nil) %>
+  <% if logged_in? && (count > 0) %>
+    <%= link_to "Cart (#{count})", orders_cart_path, :class => 'orders_cart' %>
+  <% else %>
+    <% session[:order_id] = nil %>
+  <% end %>
+</div>

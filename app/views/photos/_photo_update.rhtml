@@ -1,0 +1,47 @@
+<div align="center" class="centerPhoto">
+  <% if photo.height > photo.width %>
+    <% dims = "height=425,width=290" %>
+  <% else %>
+    <% dims = "height=410,width=560" %>
+  <% end %>
+  <%= link_to renderThumbnail(photo), {:controller => 'photos', :action => :view, :id => photo.id}, :popup => ['new_window', dims] %>
+</div>
+<p><label for="photo_title">Title</label><br/>
+<%= render_media_title(photo) %></p>
+
+<p><label for="photo_price">Price</label><br/>
+<% if current_user.host_plan.can_set_price %>
+  <input type="text" id="photo_price" name="photo[<%=photo.id%>][price]" size="7" value="<%=photo.price%>" /> Credit(s)</p>
+<% else %>
+  <%= media_price_options(photo) %>
+<% end %>
+
+<% if current_user.host_plan.can_sell %>
+  <p><label for="photo_license">License</label><br/>
+    <%= user_licenses_listbox "photo[#{photo.id}][license_id]", 
+                     photo && photo.user ? photo.user : current_user, photo ? photo.license_id : nil  %>
+    <a href="#" onclick="window.open('/licenses/view/'+$('photo[<%=photo.id%>][license_id]').value,'License','height=600,width=600,scrollbars,resizable');return false;">info</a>                  
+  </p>
+<% end %>
+
+<p><label for="photo_description">Description</label><br/>
+<textarea cols="22" rows="5" id="photo_description" name="photo[<%=photo.id%>][description]"><%=photo.description%></textarea></p>
+
+<p><label for="photo_text_tags">Tags</label><br/>
+<textarea cols="22" rows="5" id="photo_text_tags" name="photo[<%=photo.id%>][text_tags]"><%=photo.tags.collect{|t| t.name}.join(" ")%></textarea></p>
+
+<p>
+  <label for="photo_categories">Categories</label><br/>
+  <select id="photo_categories" name="categories[<%=photo.id%>][]" multiple="multiple"
+          size="5" style="width:203px;">
+    <%= select_options %>
+  </select>
+</p>
+
+<p><input type="checkbox" id="photo_upload_<%=photo.id%>" name="photo[<%=photo.id%>][photo_upload]" size="30" value="1" checked="checked" />
+<label for="photo_text_tags">Save changes and list image</label></p>
+
+<p>
+  <%= link_to_remote 'delete photo', :url => {  :action => 'delete_photo', :id => photo.id},
+                                     :confirm => 'Are you sure you want to delete this photo?', :post => true  %>
+</p>

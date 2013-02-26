@@ -1,0 +1,64 @@
+<%= javascript_include_tag 'effects' %>   
+<% if @cart %>
+  <div class="block_title"><h2>Your cart</h2></div>
+  <div class="step">
+    <table id="summary" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="head">Order Number</td>
+        <td class="even"><%= @cart.id %></td>
+      </tr>
+      <tr>
+        <td class="head">Order Date</td>
+        <td class="even"><%= @cart.created_at.to_formatted_s(:long) %></td>
+      </tr>
+      <tr>
+        <td class="head">Order Total</td>
+        <td class="even"><%= @cart.total %> Credits</td>
+      </tr>
+    </table>
+    <br />
+      <% form_remote_tag :url => {:action => 'update_cart', :id => @cart.id}, :html => {:id => 'items_form'}  do %>
+      <div class="small" align="right">Set quantity to 0 to remove items.</div>
+      <table id="cart_items" cellpadding="0" cellspacing="0">
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th style="text-align:right">Value</th>
+          <th style="text-align:right">Total</th>
+        </tr>
+        <% cnt = 0 %>
+        <% for item in @cart.order_items %>
+          <%= render :partial => '/orders/cart_items', :locals => {:item => item, :cnt => cnt} %>
+          <% cnt += 1 %>
+        <% end %>
+        <tr id="total_row">
+          <td colspan="4" align="right"><strong>Total</strong></td>
+          <td id="order_total" align="right"><strong><%= @cart.total %> Credits</strong></td>
+        </tr>
+      </table>
+      <p><%= submit_tag 'Update Cart Quantities' %></p>
+    <% end -%>
+    <noscript><h4>This page requires Javascript support. Please enable javascript support in your browser.</h4></noscript>
+</div>
+<div class="block_title"><h2>Checkout</h2></div>
+<div class="step">
+  <p>Your account contains <strong><%= pluralize(current_user.credits,'credit') %></strong>.</p>
+  <div id="not_enough_1">
+    <p>
+      <% if @cart.total > current_user.credits %>
+        You have insufficient credits in your account for this purchase. Please either remove pictures by setting the quantity to 0 or <a href="/orders/credit">add more credits to your account</a>.
+      <% else -%>
+        &nbsp;
+      <% end %>
+    </p>
+  </div>
+  <div id="not_enough">&nbsp;</div>
+  <br />
+  <form method="post" action="/orders/complete_photo_order/<%= @cart.id %>">
+    <%= submit_tag 'Purchase Items' %>
+  </form>
+</div>
+<% else %>
+  <h1>No cart found.</h1>
+<% end %>

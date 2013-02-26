@@ -1,0 +1,14 @@
+<table cellpadding="0px" cellspacing="0" class="outer" width="100%">
+  <% unless photo.exif_hash.blank? %>
+    <% photo.exif_hash.each do |key,value| %>
+      <% if value[0,2] != '..' %>
+        <tr class="<%= cycle('odd','even') -%>">
+          <td><strong><%=h key%></strong></td>
+          <td><%=h value%></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% else %>
+    No exif information for this photo
+  <% end %>
+</table>

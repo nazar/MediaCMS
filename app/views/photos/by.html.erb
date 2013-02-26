@@ -1,0 +1,14 @@
+<div class="block_title"><h2>Viewing Media by <%= h @photographer.pretty_name %></h2></div>
+<% if @photographer.photos.count > 0 %>
+  <%= feed_title_block('My Latest Photos', {:controller => 'feed', :action => :latest_member_photos, :id => @photographer.id}, {:auto_rss => true}) %>
+  <strong><a href="/photos/all_by/<%=@photographer.login%>">view all photos</a></strong>
+  <div class="step clearfix">
+    <%= render_medias_block(@latest_medias, 'latest') %>
+  </div>
+  <% unless @top_medias.blank? %>
+    <%= feed_title_block('Top Rated', {:controller => 'feed', :action => :top_member_photos, :id => @photographer.id}, {:auto_rss => true}) %>
+    <div class="step clearfix">
+      <%= render_medias_block(@top_medias, 'top') %>
+    </div>
+  <% end %>
+<% end %>

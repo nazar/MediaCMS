@@ -1,0 +1,26 @@
+<% unless forums.blank? -%>
+  <table cellpadding="0" cellspacing="0" id="club_forums_list">
+    <tr class="head">
+      <td class="nosort" width="30px">&nbsp;</td>
+      <td>Forum</td>
+      <td>Access</td>
+      <td>Last Post</td>
+      <td>Posts</td>
+      <td title="Display Position" class="sortfirstasc numeric">Position</td>
+    </tr>
+    <% for forum in forums -%>
+      <tr>
+        <td>
+          <%= link_to image_tag('delete.png'), club_forum_delete_path(forum), :confirm => 'Delete this forum?' %>
+          <%= link_to image_tag('edit.png'), club_forum_edit_path(forum) %>
+        </td>
+        <td><%= forum.name %></td>
+        <td><%= forum.access_level_to_s %></td>
+        <td><%= time_ago_in_words forum.last_posted unless forum.last_posted.blank? %></td>
+        <td><%= forum.posts_count %></td>
+        <td title="Display Position" class="sortfirstasc numeric"><%= forum.position %></td>
+      </tr>
+    <% end -%>
+  </table>
+  <%= javascript_tag("SortableTable.init('club_forums_list');") %>
+<% end -%>

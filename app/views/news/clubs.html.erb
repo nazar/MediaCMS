@@ -1,0 +1,4 @@
+<%= feed_title_link_block('All Club News', link_to('view all site news', club_news_path), feed_club_news_url, {:auto_rss => true, :title_link => false}) %>
+<% will_paginate @club_news -%>
+<%= render :partial => 'news_block', :locals => {:news => @club_news} %>
+<% will_paginate @club_news -%>

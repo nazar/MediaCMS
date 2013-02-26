@@ -1,0 +1,24 @@
+<% if licenses.length > 0 %>
+  <table class="outer" cellpadding="0" cellspacing="0" id="licenses_list">
+    <tr class="head">
+      <td class="nosort" width="30px">&nbsp;</td>
+      <td class="sortfirstasc">License</td>
+      <td>License Excerpt</td>
+      <td>Default Price</td>
+    </tr>
+    <% for license in licenses %>
+      <tr>
+        <td>
+          <%= link_to image_tag('delete.png'), license_delete_path(license), :confirm => "Delete License #{license.name}?" -%>
+          <%= link_to image_tag('edit.png'), license_edit_path(license) -%>
+        </td>
+        <td><a href="#" onclick="window.open('<%= "/licenses/view/#{license.id}" -%>','License Details','height=600,width=600,scrollbars,resizable');return false;"><%= license.name %></a></td>
+        <td><%= license.excerpt %></td>
+        <td><%= license.default_price %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= javascript_tag("SortableTable.init('licenses_list');") %>
+<% else %>
+    No licenses defined yet.
+<% end %>

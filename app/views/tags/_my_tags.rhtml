@@ -1,0 +1,7 @@
+<% if @tags.length > 0 %>
+  <% for tag in @tags %>
+    <%= render_my_tag_cloud(tag, user, @max_count) %>
+  <% end %>
+<% else %>
+  No tagged photos yet.
+<% end %>

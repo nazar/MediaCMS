@@ -1,0 +1,4 @@
+<tr class="<%= cycle('odd','even') -%>">
+  <td><%= "#{resolution_price_edit.width} x #{resolution_price_edit.height}" -%></td>
+  <td><%= text_field_tag "resolution_price[#{resolution_price_edit.id}]", resolution_price_edit.price  %></td>
+</tr>

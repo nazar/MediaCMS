@@ -1,0 +1,5 @@
+<p>Dear <%= @email.email %>.</p>
+<p>You are receiving this email because you have successfully bid on a <%= Configuration.site_name %> photo or collection on eBay and won.</p>
+<p>Please click on the following link to claim your item: <a href="<%=@link%>"><%=@link%></a></p>
+<p>Please contact <a href=<%= "#{@domain}/pages/contact_us" %>>support</a> if you require any assistance or encounter any problems.</p>
+<%= @sig %>

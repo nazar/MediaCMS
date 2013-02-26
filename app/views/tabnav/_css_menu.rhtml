@@ -1,0 +1,10 @@
+  <ul id="account_tabnav"> <% 
+    tabs.each do |tab|      
+      html_opts = {}
+      html_opts[:class] = 'active' if tab.highlighted?(params)
+      html_opts[:title] = tab.title if tab.title
+      if eval(tab.condition) -%>
+        <li><%= link_to tab.name, tab.link, html_opts -%></li> <% 
+      end 
+    end -%>
+  </ul>

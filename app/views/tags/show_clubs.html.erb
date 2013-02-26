@@ -1,0 +1,19 @@
+<% @page_title = "Viewing Clubs/Groups having tag #{@tag.name}" %>
+<div class="block_title"><h2>Viewing Tag: <%= @tag.name %></h2></div>
+<div class="step">
+  <% if @tag.taggings_count == 1 %>
+    There is <%=@tag.taggings_count%> tagged club or group.
+  <% else %>
+    There are <%=@tag.taggings_count%> tagged clubs or groups. 
+  <% end %>
+</div>
+<% if @tag.taggings_count > 0 %>
+  <% clubs = Club.clubs_tagged_with(@tag) %>
+  <% if clubs.length > 0 %> 
+    <div class="block_title"><h2>Tagged Clubs or Groups</h2></div>
+    <div class="step">
+      <%= render :partial => 'clubs/member_of_clubs', :locals => {:clubs => clubs} %>
+      <div style="clear:both"></div>
+    </div>
+  <% end %>
+<% end %>

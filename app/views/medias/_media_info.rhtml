@@ -1,0 +1,7 @@
+<table class="media_info" cellpadding="0" cellspacing="0">
+  <%= media_info_row('By:', "#{media_info.user.pretty_name}<br />#{link_to('about', user_about_path(media_info.user.login))} | #{link_to('photos', user_photos_path(media_info.user.login))}") %>
+  <%= media_info_row('Category:', render_category_links(media_info.categories)) %>
+  <% unless media_info.exif.blank? %>
+    <%= media_info_row('EXIF:', link_to('View', {:action => :full_exif, :id => media_info.id}, {:popup => ['exif_window', 'height=600,width=350,scrollbars,resizable']})) %>
+  <% end %>
+</table>

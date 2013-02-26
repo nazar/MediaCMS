@@ -1,0 +1,27 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>My Clubs & Club Memberships</h2></div>
+  <div class="step">
+    <p>This page displayed Clubs & groups you've created and any clubs or groups you are a member of.</p>
+  </div>
+  <div class="block_title"><h2>Clubs I am a Member of</h2></div>
+  <div class="step">
+    <% if @clubs_joined.length > 0 %>
+      <%= render :partial => 'clubs/member_of_clubs', :locals => {:clubs => @clubs_joined} %>
+    <% else %>
+      <p>You have't joined any clubs or groups yet</p>
+    <% end %>
+  </div>
+  <div class="block_title"><h2>Clubs I've Created</h2></div>
+  <div class="step" id="clubs">
+    <p><%= link_to 'Create', club_new_path %> a new club.</p>
+    <% if current_user.host_plan.create_club %>
+      <%= render :partial => 'clubs/clubs', :locals => {:club => @clubs} %>
+    <% else %>
+      <p>Cannot create clubs or groups. Please upgrade your <a href="/account/account">host plan</a> if you require this feature.</p>
+    <% end %>
+  </div>
+  <div class="block_title"><h2>Clubs I've been invited to.</h2></div>
+  <div class="step">
+    <p>No club invitations yet.</p>
+  </div>
+<%= end_tabnav %>

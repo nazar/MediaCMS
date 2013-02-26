@@ -1,0 +1,4 @@
+page.insert_html :bottom, 'emails',  {:partial => 'email_row',
+                                     :locals => {:promotion_email => @promotion_email}}  
+page.visual_effect :highlight, "email-#{@promotion_email.id}"
+page.form.reset 'promotion-email-form'

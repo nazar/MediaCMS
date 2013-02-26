@@ -1,0 +1,30 @@
+<p>Dear <%= @user.login %>.</p>
+<p>Thank you for registering for a <%= Configuration.site_name %> account. We have also sent an account activation email which details how to 
+activate your account. Your account must be activate otherwise you will not be able to log into <%= Configuration.site_name %></p>
+<p>In order to fully utilise <%= Configuration.site_name %> you will need to login using your username and password to access your control panel. </p>
+<h4>Your PatherFOTOS.com account details:</h4>
+<blockquote>
+  <p><strong>Username :</strong> <%= @user.login %><br />
+     <strong>Password :</strong> <%= @user.password %></p>
+</blockquote>
+<p>Once your account is activated you will be able to:</p>
+<ul>
+  <li>Access your <a href="<%=@domain%>/account">Control Panel</a></li>
+  <li>Upload photos.</li>
+  <li>Post on our support and user forums</li>
+  <li>Leave comments on other user's photos, blogs and news items</li>
+  <li>Add photographers to your recommended photographers list</li>
+  <li>Add photos to your favourites list</li>
+  <li>Download manage and buy paid (and free) high quality photos to download as many times as you want.</li>
+  <li>Create photographic collections</li>
+  <li>Sell photographic collections (not available in free account)</li>
+  <li>Join clubs and groups</li>
+  <li>Create clubs and groups (not available in free account)</li>
+  <li>Add entries to your blog (not available in free account)</li>
+  <li>Sell photos (not available in free account)</li>
+</ul>
+<p>We hope you enjoy using <%= Configuration.site_name %>. Please visit our <a href="<%=@domain%>/forums">forums</a> for any support questions or to post in general.</p>
+<p>Please contact <a href="mailto:<%=Configuration.site_admin%>"><%= Configuration.site_name %> Support</a> if you have any difficulties in either
+activating or accessing your new account.</p>
+<p>We hope you enjoy <%= Configuration.site_name %></p>
+<%= @sig %>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"  "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+  <% @description ||= "PantherFOTOS.com provides a free site where photographers can upload high resolution images for sale through our e-commerce facilities. Visitors can view, comment, rate and purchase photographer's pictures. We provide three membership plans, starting with a free plan." -%>
+  <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+  <meta name="verify-v1" content="4I4GaJiZPnMQy2SRGfQW//XoX0E3CqLB6KqqNMCRt3s=" />
+  <meta NAME="KEYWORDS" CONTENT="pictures, photography, photo, photographers, sell photos, photo sales, photo hosting" />
+  <meta NAME="DESCRIPTION" CONTENT="<%=h @description%>" />
+  <meta NAME="Author" CONTENT="MediaCMS" />
+  <meta NAME="Copyright" CONTENT="Panther Software Publishing Limited" />
+  <title><%= h @page_title %> - PantherFOTOS</title>
+  <%= stylesheet_link_tag 'scaffold', 'application', 'lightbox', 'tabnav', 'common', 'links', 'jstoolbar', 'sortable', :cache => 'c_site_css'  %>
+  <%= theme_stylesheet_link_tag 'clean' %>
+  <%= javascript_include_tag 'prototype', 'swfobject', 'menu/dmenu.js', 'jstoolbar/jstoolbar', 'tablesort', :cache => 'c_prototype' %>
+  <%= jquery_include_tag 'jquery', 'jquery.scrollTo', 'jquery.clearForm', 'lowpro.jquery', 'jquery.hoverIntent.minified', 'bgiframe_2.1.1/jquery.bgiframe.min', :cache => 'c_jquery'  %>
+  <!--[if IE]><script src="/javascripts/jquery/excanvas_0002/excanvas-compressed.js" type="text/javascript" charset="utf-8"></script><![endif]-->
+  <%= jquery_include_tag 'jquery.bt', 'behaviour.jquery', 'behaviour.markup.jquery', 'behaviour.forum.jquery', :cache => 'c_behave'  %>
+  <%= get_extra_header_content %>
+  <%= javascript_include_tag 'application', 'common', 'maps', :cache => 'c_common'  %>
+  <script type="text/javascript">var dmWorkPath = "javascripts/menu/";</script>
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+  <!--[if lte IE 6]>
+    <style type="text/css">img {behavior:url("/pngbehavior.htc");}</style>
+  <![endif]-->
+</head>
+<body class="the-main-body-class">
+<%= yield -%>
+</body>
+</html>

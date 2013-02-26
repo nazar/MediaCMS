@@ -1,0 +1,40 @@
+<div align="center" class="centervideo">
+  <%= render_video_preview(video) -%>
+</div>
+<p><label for="video_title">Title</label><br/>
+<%= render_media_title(video) %></p>
+
+<p><label for="video_price">Price</label><br/>
+<% if current_user.host_plan.can_set_price %>
+  <input type="text" id="video_price" name="video[<%=video.id%>][price]" size="7" value="<%=video.price%>" /> Credit(s)</p>
+<% else %>
+  <%= video_price_options(video) %>
+<% end %>
+
+<% if current_user.host_plan.can_sell %>
+  <p><label for="video_license">License</label><br/>
+    <%= user_licenses_listbox "video[#{video.id}][license_id]",
+                              video && video.user ? video.user : current_user,
+                              video ? video.license_id : nil  %>
+    <a href="#" onclick="window.open('/licenses/view/'+$('video[<%=video.id%>][license_id]').value,'License','height=600,width=600,scrollbars,resizable');return false;">info</a>
+  </p>
+<% end %>
+
+<p><label for="video_description">Description</label><br/>
+<textarea cols="22" rows="5" id="video_description" name="video[<%=video.id%>][description]"><%=video.description%></textarea></p>
+
+<p><label for="video_text_tags">Tags</label><br/>
+<textarea cols="22" rows="5" id="video_text_tags" name="video[<%=video.id%>][text_tags]"><%=video.tags.collect{|t| t.name}.join(" ")%></textarea></p>
+
+<p>
+  <%= render_category_select(video, indented_categories_select, {:id => 'video_categories', :size => 5}) -%>
+</p>
+
+<p><input type="checkbox" id="video_upload_<%=video.id%>" name="video[<%=video.id%>][video_upload]" size="30" value="1" checked="checked" />
+<label for="video_text_tags">Save changes and list image</label></p>
+
+<p>
+  <%= link_to_remote 'delete video', :url => { :controller => 'videos',
+                                               :action => 'delete_video', :id => video.id},
+                                      :confirm => 'Are you sure you want to delete this video?', :post => true  %>
+</p>

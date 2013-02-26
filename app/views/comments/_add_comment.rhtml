@@ -1,0 +1,10 @@
+<% form_tag '/comments/add_comment', {:id => "add_comment_#{@comment.id}"} do %>
+  <%= render :partial => 'comments/form', :locals => {:model => model} %>
+  <% javascript_tag("jQuery('form#add_comment_#{@comment.id}').attach(MarkupAreaFormPostAndScoll);") %>
+  <% if Configuration.enable_recaptcha && !current_user -%>
+   <% unless flash[:failed_msg].blank? -%><h4><%= flash[:failed_msg] %></h4><% end -%>
+    <%= recaptcha_tags :public_key => Configuration.recaptcha_public_key %>
+  <% end -%>
+  <p><%= submit_tag 'Save Comment', :name => 'save_comment' %></p>
+<% end %>
+

@@ -1,0 +1,161 @@
+<div class="block_title"><h2>Membership Options</h2></div>
+<div class="step">
+  <% free = HostPlan.find_by_name('Free') %>
+  <% pro = HostPlan.find_by_name('Professional') %>
+  <% pre = HostPlan.find_by_name('Premium') %>
+  <table class="forums" cellspacing="0" cellpadding="0" id="matrix">
+    <tr class="head">
+      <th>Features</th>
+      <th>Unregistered Users</th>
+      <th>Starter Package</th>
+      <th>Professional Package</th>
+      <th>Premium Package</th>
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Monthly fee</td>
+      <td class="free">Free</td>
+      <td class="free">Free</td>
+      <td><%= "&pound;#{pro.monthly_fee} GBP " %><br /><small>per month</small></td>
+      <td><%= "&pound;#{pre.monthly_fee} GBP" %><br /><small>per month</small></td>
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Rate Media</td>
+      <td class="free">Yes</td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Download free media</td>
+      <td></td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Purchase Credits and download licensed media</td>
+      <td></td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Leave comments on media, blogs and news items</td>
+      <td></td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Post on forums</td>
+      <td></td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Join clubs & groups</td>
+      <td></td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Artist profile and bio page showing latest and best rated media</td>
+      <td></td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Upload media</td>
+      <td></td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Photo storage capacity</td>
+      <td></td>
+      <td class="free"><%= number_to_human_size(free.disk_space_bytes) %></td>
+      <td><%= number_to_human_size(pro.disk_space_bytes) %></td>
+      <td><%= number_to_human_size(pre.disk_space_bytes) %></td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Blogging facility</td>
+      <td></td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>RSS feeds on your blogs, your latest and best rated Photos </td>
+      <td></td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Photo licensing</td>
+      <td></td>
+      <td>Creative Commons (CC) + Standard License</td>
+      <td>CC + Standard License</td>
+      <td>CC + Standard License + License Manager</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Sell media</td>
+      <td></td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Set individual media prices</td>
+      <td></td>
+      <td>All media sold for 1 Credit</td>
+      <td>All media sold for 1 Credit</td>
+      <td>Set your own price.</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Create media collections</td>
+      <td></td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>  
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Set price on media collection and  sell media collections.</td>    
+      <td></td>
+      <td class="free">Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>  
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Create clubs & groups</td>
+      <td></td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Generate club email newsletters for your own club members</td>
+      <td></td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <tr class="<%= cycle('odd','even') %>">
+      <td>Create public and private forums for your club and members</td>
+      <td></td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>    
+    </tr>
+    <% unless logged_in? -%>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4" align="center"><strong><%= link_to "Register your FREE #{Configuration.site_name} account now!", :controller => '/account', :action => :signup %></strong></td>
+      </tr>
+    <% end -%>  
+  </table>
+</div>  

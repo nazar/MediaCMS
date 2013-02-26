@@ -1,0 +1,15 @@
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => 'blogs_by', :id => @user.id}, {:title => "Blogs by #{@user.pretty_name}"})) %>
+<div class="block_title">
+  <div class="feed"><%= link_to(image_tag('rss.gif'), {:controller => 'feed', :action => :blogs_by, :id => @user.id},{:class => 'no_underline'}) %></div>
+  <h2>Blogs by <%= @user.pretty_name %></h2>
+</div>
+<% if @blogs.length > 0 %>
+  <small><%= will_paginate @blogs -%></small>
+  <div class="step">
+    <% for blog in @blogs %>
+      <%= render :partial => '/blogs/blog_summary',
+                 :locals => {:blog => blog} %>
+    <% end %>
+  </div> 
+  <small><%= will_paginate @blogs -%></small>
+<% end %>

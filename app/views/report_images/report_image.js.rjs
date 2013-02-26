@@ -1,0 +1,3 @@
+page.hide 'extra'
+page.replace_html 'extra', :partial => '/report_images/report_form_ajax'
+page.visual_effect :toggle_blind, 'extra', :duration => 0.5

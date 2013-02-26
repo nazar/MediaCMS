@@ -1,0 +1,7 @@
+<p>Dear <%= @user.pretty_name %>,</p>
+<p>You are receiving this email because a comment was made against your <%= @commented_type %>. The comment was:</p>
+<blockquote><%= @comment.formatted_body %></blockquote>
+<p>This comment can be viewed <a href="<%= @link %>">here</a></p>
+<p>To disable <%= @commented_type %> comment notification click on <a href="<%= @no_notify_link %>">this</a> link.<p>
+<p>You can manage all your email notifications from your Control Panel -> Notifications.</p>
+<%= @sig %>

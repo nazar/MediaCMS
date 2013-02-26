@@ -1,0 +1,5 @@
+<h3>Add Credits for <%= @user.pretty_name -%></h3>
+<% form_tag "/admin/users/add_credit/#{@user.id}" do -%>
+  <p>Add <%= text_field_tag('credits', '0') -%> Credits</p><br />
+  <p><%= submit_tag 'Add Credits'  -%></p>
+<% end -%>

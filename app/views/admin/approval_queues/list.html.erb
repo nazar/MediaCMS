@@ -1,0 +1,27 @@
+<h2>Media Approvals Queue</h2>
+<div class="nastep">
+  <p><%= will_paginate @media -%></p>
+  <% unless @media.blank? %>
+    <% form_tag "/admin/approval_queues/batch", {:id => "approval_queue", :name => "approval_queue"} do %>
+      <table cellspacing="1" cellpadding="1">
+        <tr>
+          <td class="head"><input type="checkbox" name="select_all" id="select_all" onclick="CheckAllCheckboxes('approval_queue','select_all');"/></td>
+                                  <td class="head">Photo</td>
+          <td class="head">Action</td>
+        </tr>
+        <%= render :partial => '/admin/approval_queues/photo_row', :collection => @media -%>
+      </table>
+      <p><%= will_paginate @media -%></p>
+      <h2>Batch Process Selected Photos</h2>
+      Action: <br />
+      <%= select_tag 'Action', ['Approve Media','Reject Media'].map {|o| "<option>#{o}</option>"} %> <br />
+      Reason For Rejection (if rejecting media):
+      <%= markup_editor_tag "action_description" -%>
+      <p><%= submit_tag "Process Selected Media" -%></p>
+    <% end -%>
+    <%= javascript_tag("Event.addBehavior({'.photo_remote': Remote });") %>
+    <%= javascript_tag("Event.addBehavior({'#approval_queue': Remote });") %>
+  <% else %>
+    <h4>No media in approvals queue</h4>
+  <% end %>
+</div>

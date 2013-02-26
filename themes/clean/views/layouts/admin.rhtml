@@ -1,0 +1,7 @@
+<% add_extra_header_content(javascript_include_tag('jstoolbar/jstoolbar', "jstoolbar/lang/jstoolbar-en") ) -%>
+<% add_extra_header_content(javascript_include_tag(:defaults)) -%>
+<% add_extra_header_content(active_scaffold_includes) -%>
+<% add_extra_header_content(stylesheet_link_tag('jstoolbar')) -%>
+<% inside_layout 'default' do %>
+  <%= yield %>
+<% end %>

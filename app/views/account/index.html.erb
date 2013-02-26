@@ -1,0 +1,59 @@
+<% @page_title = 'My Account' %>
+<%= start_tabnav :account %>
+<%= error_messages_for 'account' %>
+<div class="block_title"><h2>Registration Details</h2></div>
+<div class="step clearfix">
+  <div style="float:right; padding-right:20px;">
+    <h3>Avatar</h3>
+    <div>
+      <p style="padding-top:5px;"><img src="<%= User.avatar_path(current_user) %>" alt="Avatar"></p>
+      <% form_tag({:action => 'avatar'}, {:multipart => 'true'}) do %>
+        <label for="picture_file">Avatar File</label><br/>
+        <p><%=file_field_tag('file')%><br />
+           <small>Max size 90x90 pixels</small></p>
+        <p><%= flash[:avatar] %></p>
+        <p><%= submit_tag 'Upload Avatar' %></p>  
+      <% end  %>
+    </div>  
+    <% if current_user.host_plan.can_sell %>
+      <h3>Paypal Email Address</h3>
+      <div>
+        <% form_tag :action => 'update', :id => @account do %>
+          <p><label for="account_paypal_email">Email Address</label><br/>
+          <%= text_field 'account', 'paypal_email' %></p>
+          <p><small>This is the Paypal email address to which<br />
+          payments will be sent to when converting<br />
+          credits to cash (i.e. selling your credits to us).</small></p>
+          <p><%= submit_tag 'Update Paypal' %></p>
+        <% end -%>      
+      </div>
+    <% end %>
+  </div>
+  
+  <p><strong>Username</strong> : <%= current_user.login %> </p> 
+  <p><strong>Email Address</strong> : <%= current_user.email %> </p>  
+  <p><strong>Joined</strong> : <%= current_user.created_at.to_formatted_s(:long) %></p> 
+  <p><strong>Number of Photos</strong> : <%= current_user.photos_count %> </p>
+  <p><strong>Credits</strong> : <%= current_user.credits %> </p>
+  <p><strong>Diskspace</strong>: used <%= number_to_human_size current_user.disk_space_used %> of <%= current_user.host_plan.disk_space %> MB.</p>
+  <%= render :partial => 'password' %> 
+</div>
+<div class="block_title"><h2>Biography Details</h2></div>
+<div class="step clearfix">
+  <% form_tag :action => 'update', :id => @account do %>
+    <p><label for="photographer_name">Name</label><br/>
+    <%= text_field 'account', 'name'  %></p>
+    
+    <p><label for="photographer_bio">Bio</label><br/>
+    <%= markup_area 'account', 'bio', {:rows => 10}  %></p>
+    
+    <p><label for="photographer_country">Country</label><br/>
+    <%= country_select('account','country',['United Kingdom','United States'])%>
+    
+    <p><label for="photographer_state">County / State</label><br/> 
+    <%= text_field 'account', 'state'  %></p>  
+    <%= submit_tag 'Save Biography Details' %>
+  <% end %>
+</div>
+<%= render :partial => '/friends/friends', :locals => {:user => current_user} %>
+<%= end_tabnav %>

@@ -1,0 +1,7 @@
+<p>Dear <%= @user.login %>.</p>
+<p>You are receiving this email because <%= @member.user.login %> has applied to join <%= @club.name %>.</p>
+<% if @member.application && (@member.application.length > 0) %>
+  <p><%= @member.user.login %> has submitted the following comments:</p>
+  <%= @member.markup_application %>
+<% end %>  
+<%= @sig %>   

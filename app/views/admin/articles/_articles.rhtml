@@ -1,0 +1,21 @@
+    <table class="outer sortable">
+      <tr>
+        <td class="head">Title</td>
+        <td class="sortfirstasc head">Date</td>
+        <td class="head">Category</td>
+        <td class="head">User</td>
+      </tr>
+      <% for article in articles do %>
+      <tr>
+        <td>
+          <%= link_to_remote image_tag('approve.gif'), 
+                                      { :url => {:controller => 'articles', 
+                                      :action => :approve, :id => article.id}}, {:class=>'no_underline'} %> 
+          <%= link_to h(article.title), :controller => 'articles', :action => :view, :id => article.id -%>
+        </td>
+        <td><%= article.created_at.to_date.to_formatted_s -%></td>
+        <td><%= article.article_category.name -%></td>
+        <td><%= article.user.pretty_name -%></td>
+      </tr>
+      <% end %>
+    </table>

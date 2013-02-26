@@ -1,0 +1,13 @@
+<%= render :partial => '/admin/report_images/report_row', :locals => {:report_row => report} %>
+<tr id="report_row_desc_<%= @report.id -%>">
+	<td colspan="7">
+		<p>
+			<% if report.description -%>
+				<%= render :partial => '/admin/report_images/view_report_description', :locals => {:report => report} %>
+			<% else -%>
+				No description given
+			<% end -%> 
+		</p>
+		<%= link_to_remote 'close', :url => {:controller => '/admin/report_images', :action => :close_detail_row, :id => report.id} %>
+	</td>
+</tr>

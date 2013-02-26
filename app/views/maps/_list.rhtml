@@ -1,0 +1,14 @@
+<div id="markers_list_block">
+  <label for="markers_list">Google Map Markers:</label><br />
+  <% if markable.markers.count > 0 %>
+  <select name="markers_list" id="markers_list" size="5" multiple="multiple">
+    <%= options_for_select(markable.markers.collect{|m|
+        if m.title.length > 0
+          ["#{m.title[0,10]},long:#{m.long},lat:#{m.lat}", m.id]
+        else
+          ["long:#{m.long},lat:#{m.lat}", m.id]
+        end
+        }) %>
+  </select>  
+  <% end %>
+</div>  

@@ -1,0 +1,76 @@
+<% 
+tid = tabnav_name.underscore + '_tabnav'  #tabnav html id
+cid = tabnav_name.underscore + '_content' #content html id
+
+background = "#FFB000"
+text = "#B37B00"
+unselected_tab = "#FFEBBF"
+unselected_hover = "#FFD880"
+
+%>
+<!-- 
+    This is the partial rendering the <%=tid%>.rb file
+    here you have a sample css style to
+    be sure to move it to your .css stylesheet 
+-->
+
+<style type="text/css">
+#<%=tid%> {
+	color: #000;
+	border-bottom: 2px solid black;
+	margin: 12px 0px 0px 0px;
+	padding: 0px;
+	z-index: 1;
+	padding-left: 10px }
+
+#<%=tid%> li {
+	display: inline;
+	overflow: hidden;
+	list-style-type: none; }
+
+#<%=tid%> a, a.active {
+	color: #000000;
+	background: <%=unselected_tab%>;
+	font: bold 1em "Trebuchet MS", Arial, sans-serif;
+	border: 2px solid black;
+	padding: 2px 5px 0px 5px;
+	margin: 0;
+	text-decoration: none; }
+
+#<%=tid%> a.active {
+	background: <%=background%>;
+	border-bottom: 3px solid <%=background%>; }
+
+#<%=tid%> a:hover {
+	color: #fff;
+	background: <%=unselected_hover%>; }
+
+#<%=tid%> a:visited {
+	color: <%=text%>; }
+
+#<%=tid%> a.active:hover {
+	background: <%=background%>;
+	color: <%=unselected_tab%>; }
+
+#<%=cid%> {font: 0.9em/1.3em "bitstream vera sans", verdana, sans-serif;
+	text-align: justify;
+	background: <%=background%>;
+	padding: 20px;
+	border: 2px solid black;
+	border-top: none;
+	z-index: 2;	}
+
+</style>
+
+<!-- end stylesheet -->
+
+<ul id="<%=tid%>"> <%= "<" + "%" %> 
+  tabs.each do |tab|      
+    html_opts = {}
+    html_opts[:class] = 'active' if tab.highlighted?(params)
+    html_opts[:title] = tab.title if tab.title
+    if eval(tab.condition) <%= "-%" + ">" %>
+      <li><%= "<" + "%=" %> link_to tab.name, tab.link, html_opts <%= "-%" + ">" %></li> <%= "<" + "%" %> 
+    end 
+  end <%= "-%" + ">" %>
+</ul>

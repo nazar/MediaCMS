@@ -1,0 +1,3 @@
+page.remove "photo_div_#{@deleted_id}"
+#since we are here, render the disk free space as well
+page.recalc_space(current_user)

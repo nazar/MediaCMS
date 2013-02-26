@@ -1,0 +1,7 @@
+<div class="thumbnail">
+  <div align="center">
+    <h3 class="no_show"><%=  h photo.description%></h3>
+    <%= link_to renderThumbnail(photo, {:class => 'collect_photo'}), photo_view_path(photo.id, photo.title.to_permalink), :class => "photo_link" -%>
+    <div class="no_show"><%= h photo.description -%></div>
+  </div>
+</div>

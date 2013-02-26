@@ -1,0 +1,6 @@
+if @photos
+  xml.instruct!
+  render_photo_feed(@photos, xml,
+                   {:title => "#{h @user.pretty_name} GeoRSS Feed",
+                    :description => "GeoRSS feed for all photos by #{h @user.pretty_name}"})
+end                

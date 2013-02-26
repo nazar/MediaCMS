@@ -1,0 +1,62 @@
+<div id="post<%= post.id %>">
+<table class="outer clearfix post" align="center" border="0" cellpadding="0" cellspacing="0">
+  <tr class="head">
+    <th width="20%">&nbsp;</th>
+    <th align="left" width="75%">
+      <div class="comTitle"><%= post.title %></div>
+    </th>
+    <th align="right">
+      <div class="comTitle" style="float: right;">
+        <a href="<%= topic_path(forum, topic) %>#post<%= post.id %>">#<%= post_count %></a>
+      </div>
+    </th>
+  </tr>
+  <tr class="body">
+    <td class="even post_info" rowspan="2" valign="top" width="20%">
+      <div align="center" class="comUserRankText"><%= post.user.rank %></div>
+      <div align="center"><img class="comUserImg" src="<%= User.avatar_path(post.user_id) %>" alt=""></div>
+      <div class="comUserStat">
+        <span class="comUserStatCaption">By: </span> <%= link_to(h(post.user.login), {:controller => 'account', :action => :about, :id => h(post.user.login)}) %>
+      </div>
+      <div class="comUserStat">
+        <span class="comUserStatCaption">Joined: </span><%= post.user.created_at.to_date.to_formatted_s(:long) %></div>
+      <div class="comUserStat"><span class="comUserStatCaption">Posts: </span> <%= post.user.posts_count %></div>
+    </td>
+    <td colspan="2" class="odd">
+      <div class="comText"><%= markup_post_text(post) %></div>
+    </td>
+  </tr>
+  <tr class="body">
+    <td colspan="2" valign="bottom">
+      <div align="right">
+        <small>
+          <% if current_user && current_user.admin -%>
+            IP: <a href="http://www.whois.sc/<%= post.poster_ip %>" target="_blank"><%= post.poster_ip %></a> |
+          <% end -%>
+          Posted <%= date_ago(post.created_at)+' ago' %>
+        </small>
+      </div>
+    </td>
+  </tr>
+  <tr class="body">
+    <td class="even" width="20%">&nbsp;</td>
+    <td colspan="2" class="foot">
+      <div align="right">
+        <% if current_user %>
+          <%#TODO REMOVE markup_post_buttons(post) %>
+          <% if can_edit_post(post) -%>
+            <%= link_to(image_tag("/images/forums/p_edit-a.png", :alt=>"Edit", :align=>"middle"), edit_post_path(forum, topic, post)) %>
+          <% end -%>
+          <% if current_user.admin? %>
+            <%= link_to( image_tag("/images/forums/p_delete-a.png", :style=>"margin: 0px; width: 65px; height: 21px;", :alt=>"Delete", :align=>"middle"), delete_post_path(forum, topic, post), :confirm => 'Are you sure?', :post => true) %>
+          <% end %>&nbsp;&nbsp;
+          <%= link_to(image_tag('forums/p_reply-a.png', :alt => "Reply", :align => 'middle'), reply_post_path(forum, topic, post), {:class => 'reply_link'}) %>
+          <%= link_to(image_tag('forums/p_quote-a.png', :alt => "Reply with Quote", :align => 'middle'), quote_post_path(forum, topic, post), {:class => 'reply_link'}) %>
+        <% end %>
+        <a href="#threadtop" title="">
+          <img src="/images/forums/p_up-a.png" style="margin-left: 10px;" alt="Back to Top" align="middle"></a>
+      </div>
+    </td>
+  </tr>
+</table>
+</div>

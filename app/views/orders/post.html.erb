@@ -1,0 +1,18 @@
+<% payment_service_for @order.id, @account,
+                              :amount => @order.total, 
+                              :currency => 'GBP', 
+                              :service => @processor, 
+                              :html => { :id => 'checkout', :name => 'checkout' } do |service| %>
+
+
+   <% service.customer :first_name => @order.user.login, :email => @order.user.email %>
+   <% service.invoice @order.id %>
+   <% service.shipping '0.00' %>
+   <% service.tax '0.00' %> 
+   <% service.item_id @order.id %>
+   <% service.item_name "#{Configuration.site_name} order number #{@order.id}" %>
+
+   <% service.notify_url @notify %>
+   <% service.return_url url_for(:only_path => false, :action => 'ipn_return') %>
+   <% service.cancel_return_url url_for(:only_path => false, :action => 'ipn_cancel') %>
+<% end %>

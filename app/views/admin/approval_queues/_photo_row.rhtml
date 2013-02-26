@@ -1,0 +1,21 @@
+<tr id="photo_row_<%= photo_row.id -%>">
+  <td><%= check_box_tag "photo[#{photo_row.id}]" -%><br /></td>
+  <td>
+    <div align="center">
+      <%= content_tag(:span, media_block(photo_row.approvable), :id => "photo_#{photo_row.id}") %>
+      <%= link_to 'view', media_view_path(photo_row.approvable)  -%>
+      <p><%= link_to 'Approve Photo', {:controller => '/admin/approval_queues', :action => 'approve', :id => photo_row.id}, {:class => 'photo_remote'} -%></p>
+    </div>  
+  </td>
+  <td>
+    <% form_tag "/admin/approval_queues/reject/#{photo_row.id}", {:id => "reject_#{photo_row.id}", :class => 'photo_remote'} do %>  
+      Standard Reasons: <%= select_tag "reject_reason_select[#{photo_row.id}]", 
+        options_for_select(@reject_reasons), {:id => "reject_reason_select_#{photo_row.id}" } -%> 
+      <a href="#" onclick="new Ajax.Request('/admin/approval_queues/reason_text/<%= photo_row.id -%>?reason='+$('<%="reject_reason_select_#{photo_row.id}"%>').value, {asynchronous:true, evalScripts:true}); return false;">get reason</a>
+      <% link_to_remote 'get reason', :url => {:controller => '/admin/approval_queues', :action => :reason_text, :id => photo_row.id, 
+        :reason => "$('reject_reason_select_#{photo_row.id}').value"} -%><br /> Reason <br />
+      <%= markup_editor_tag "reject_reason[#{photo_row.id}]", nil, {:area_class => 'small-markup-editor'} -%>
+      <p><%= submit_tag "Reject Photo" -%></p>
+    <% end %>
+  </td>
+</tr>

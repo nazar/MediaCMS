@@ -1,0 +1,35 @@
+<% if forums.length > 0 %>
+  <table  cellpadding="0" cellspacing="0" border="0" >
+    <tr class="head" align="center">
+      <td width="5%">&nbsp;</td>
+      <td colspan="2" align="left" nowrap="nowrap" width="57%">Forum</td>
+      <td nowrap="nowrap" width="20%" align="left">Last Post</td>
+      <td nowrap="nowrap" width="9%">Topics</td>
+      <td nowrap="nowrap" width="9%">Posts</td>
+    </tr>
+    <% for forum in forums do %>
+      <tr class="forum">
+        <td class="even first" align="center" valign="middle"><img src="/images/forums/folder_big-a.gif" style="margin: 0px; width: 18px; height: 12px;" alt="" align="middle"></td>
+        <td colspan="2" class="odd">
+          <div id="index_forum">
+            <div class="item">
+              <a href="<%=forum_url(:id => forum.id)%>"><%=h forum.name%></a><br>
+              <span class="small"><%=h forum.description%></span>
+            </div>
+          </div>
+        </td>
+        <td class="even" valign="middle">
+          <% unless forum.posts.last.nil? -%>
+            <div class="small">
+              <div class="post"><%= link_to h(forum.posts.last.title), topic_path(forum, forum.posts.last.topic, {:anchor => "post#{forum.posts.last.id}"}) %></div>
+              <div>by <%= link_to h(forum.posts.last.user.pretty_name), user_about_path(forum.posts.last.user.login) %></div>
+              <div align="right"><%=date_ago(forum.last_posted)+' ago' if forum.last_posted%></div>
+            </div>
+          <% end -%>
+        </td>
+        <td class="even" align="center" valign="middle"><%=forum.topics_count%></td>
+        <td class="odd last" align="center" valign="middle"><%=forum.posts_count%></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

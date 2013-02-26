@@ -1,0 +1,15 @@
+<%= error_messages_for 'link' %>
+<table class="outer">
+    <tr>
+    <td class="head">Link Title</td>  
+    <td class="even"><div class="small">Please key in the title for this link</div><%= text_field 'link', 'name', {:style=>"width:100%;"} %></td>  
+  </tr>
+  <tr>
+    <td class="head">Link</td>  
+    <td class="even"><div class="small">Include http:// in all links</div><%= text_field 'link', 'link', {:style=>"width:100%;"} %></td>  
+  </tr>
+  <tr>
+    <td class="head">Description</td>  
+    <td class="even"><%= markup_area 'link', 'description' %></td>  
+  </tr>
+</table>

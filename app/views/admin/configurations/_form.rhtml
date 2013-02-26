@@ -1,0 +1,143 @@
+<h2>Branding</h2>
+<p><label for="site_name">Site Name</label><br/>
+<%= text_field_tag 'site_name', Configuration.site_name, :size => 40 %></p>                  
+<p><label for="site_domain">Site Domain Name</label><br/>
+<%= text_field_tag 'site_domain', Configuration.site_domain, :size => 40 %> <em>i.e. www.photolib.co.uk</em></p>
+<p><label for="site_admin">Site Administrator Email Address</label><br/>
+<%= text_field_tag 'site_admin', Configuration.site_admin, :size => 40 %></p> 
+<p><label for="theme">Website Theme</label><br/>
+<%= select_tag 'theme', options_for_select(Theme.find_all.collect{|theme| theme.name}, Configuration.theme)  %>
+
+
+<h2>Defaults</h2>
+<p><label for="free_license">Default Free License</label><br/>
+<%= options_by_id('free_license', 
+                  License.panther_licenses.map{|m| [m.name,m.id]}, 
+                  Configuration.free_license) %></p>
+                  
+<p><label for="standard_license">Default Standard License</label><br/>
+<%= options_by_id('standard_license', 
+                  License.panther_licenses.map{|m| [m.name,m.id]}, 
+                  Configuration.standard_license) %></p>                  
+
+<h2>Behaviour</h2>
+<p><label for="queue_new_photos">Uploaded Images Placed in For Approval Queue</label><br/>
+<%= check_box_tag_1 'queue_new_photos', '1', Configuration.queue_new_photos %> <em>When selected all uploaded photos must be approved prior to being published.</em> </p>                  
+<p><label for="queue_new_videos">Uploaded Videos Placed in For Approval Queue</label><br/>
+<%= check_box_tag_1 'queue_new_videos', '1', Configuration.queue_new_videos %> <em>When selected all uploaded videos must be approved prior to being published.</em> </p>
+<p><label for="queue_new_audios">Uploaded Audio Files Placed in For Approval Queue</label><br/>
+<%= check_box_tag_1 'queue_new_audios', '1', Configuration.queue_new_audios %> <em>When selected all uploaded audio files must be approved prior to being published.</em> </p>
+
+<p><label for="multiple_license_prices">Enable Multiple License Photo Prices</label><br/>
+<%= check_box_tag_1 'multiple_license_prices', '1', Configuration.multiple_license_prices %> <em>When selected multiple priced licenses can be set against each photo</em> </p>
+<p><label for="multiple_resolution_prices">Enable Multiple Resolution Photo Prices</label><br/>
+<%= check_box_tag_1 'multiple_resolution_prices', '1', Configuration.multiple_resolution_prices %> <em>When selected photo sizes can be defined and against which a price can be set</em> </p>
+<p><label for="anti_crawler">Rogue Crawler Protection</label><br/>
+<%= check_box_tag_1 'anti_crawler', '1', Configuration.anti_crawler %> <em>When selected bad crawlers will be stopped (does not affect search engines).</em> </p>
+<p><label for="anonymous_comments">Enable Anonymous Comments</label><br/>
+<%= check_box_tag_1 'anonymous_comments', '1', Configuration.anonymous_comments %> <em>When selected anonymous users can add comments.</em> </p>
+<p><label for="enable_recaptcha">Enable <a href="https://admin.recaptcha.net">ReCAPTCHA</a> on Comments for anonymous users</label><br/>
+<%= check_box_tag_1 'enable_recaptcha', '1', Configuration.enable_recaptcha %> <em>When selected anonymous users must solve a captcha when posting comments.</em> </p>
+<p><label for="recaptcha_public_key">ReCAPTCHA public key</label><br/>
+<%= text_field_tag 'recaptcha_public_key', Configuration.recaptcha_public_key, :size => 60 %></p>
+<p><label for="recaptcha_private_key">ReCAPTCHA private key</label><br/>
+<%= text_field_tag 'recaptcha_private_key', Configuration.recaptcha_private_key, :size => 60 %></p>
+
+<p><label for="pic_lens_support">Enable Piclens Support</label><br/>
+<%= check_box_tag_1 'pic_lens_support', '1', Configuration.pic_lens_support %> <em>Visit the <a href="http://www.piclens.com/demo/">Piclens</a> website for more information.</em> </p>
+
+<p><label for="bad_word_filter">Bad Word Filter</label><br/>
+<%= check_box_tag_1 'bad_word_filter', '1', Configuration.bad_word_filter %> <em>When selected bad words will be substituted by given replacement.</em> </p>
+<p><label for="bad_word_filter_replace">Substitute Bad Words With</label><br/>
+<%= text_field_tag 'bad_word_filter_replace', Configuration.bad_word_filter_replace %> <em>Replace bad words with this (requires <strong>Bad Word Filter</strong> to be enabled)</em> </p>                  
+<p><label for="supported_image_types">Members are allowed to upload the following image types</label><br/>
+<%= text_field_tag 'supported_image_types', Configuration.supported_image_types %> <em>separate with commas..i.e .jpeg, .jpg</em></p>    
+<p><label for="invoice_prefix">Prefix Invoice Numbers With:</label><br/>
+<%= text_field_tag 'invoice_prefix', Configuration.invoice_prefix %></p>    
+
+
+<h2>Modules</h2>
+<p><label for="module_videos">Videos</label><br/>
+<%= check_box_tag_1 'module_videos', '1', Configuration.module_videos %> <em>Enable Videos module.</em> </p>
+<p><label for="module_audios">Audio Files</label><br/>
+<%= check_box_tag_1 'module_audios', '1', Configuration.module_audios %> <em>Enable Audio Files module.</em> </p>
+<p><label for="module_forums">Forums</label><br/>
+<%= check_box_tag_1 'module_forums', '1', Configuration.module_forums %> <em>Enable Forums module.</em> </p>
+<p><label for="module_links">Photography Links</label><br/>
+<%= check_box_tag_1 'module_links', '1', Configuration.module_links %> <em>Enable Photography Links module.</em> </p>
+<p><label for="module_blogs">Blogs</label><br/>
+<%= check_box_tag_1 'module_blogs', '1', Configuration.module_blogs %> <em>Enable Photographer Blogs module.</em> </p>                  
+
+
+<h2>List Sizes</h2> 
+<p><label for="clubs_per_page">Clubs listed per page</label><br/>
+<%= text_field_tag 'clubs_per_page', Configuration.clubs_per_page %></p>                  
+<p><label for="forum_posts_per_page">Number of Forum Posts Per Page</label><br/>
+<%= text_field_tag 'forum_posts_per_page', Configuration.forum_posts_per_page %></p>                  
+<p><label for="forums_per_page">Forums Per Page</label><br/>
+<%= text_field_tag 'forums_per_page', Configuration.forums_per_page %></p>                  
+<p><label for="blogs_per_page">Blogs Per Page</label><br/>
+<%= text_field_tag 'blogs_per_page', Configuration.blogs_per_page %></p>                  
+<p><label for="photos_per_page">Photos Per Page</label><br/>
+<%= text_field_tag 'photos_per_page', Configuration.photos_per_page %></p>                  
+<p><label for="photos_in_block">Photos in Photo Related Blocks - <em>Top Photos, Recent Photos, Most Viewed....</em></label><br/>
+<%= text_field_tag 'photos_in_block', Configuration.photos_in_block %></p>                  
+<p><label for="photos_in_library_page">Photos In Collection Per Page</label><br/>
+<%= text_field_tag 'photos_in_library_page', Configuration.photos_in_library_page %></p>                  
+<p><label for="rss_page_size">Photos Per Page In RSS Feeds</label><br/>
+<%= text_field_tag 'rss_page_size', Configuration.rss_page_size %></p>
+
+<p><label for="top_days_step">Day Window Size when determining Top Media</label><br/>
+<%= text_field_tag 'top_days_step', Configuration.top_days_step %></p>
+
+<h2>Uploaded Image Resize Options & Image Branding</h2>
+<p><label for="medium_width">Image Display Size: Width</label><br/>
+<%= text_field_tag 'medium_width', Configuration.medium_width %> <em>Pixels</em></p>
+<p><label for="medium_height">Image Display Size: Height</label><br/>
+<%= text_field_tag 'medium_height', Configuration.medium_height %> <em>Pixels</em></p>
+<p><label for="thumbnail_width">Image Thumbnail: Width</label><br/>
+<%= text_field_tag 'medium_width', Configuration.thumbnail_width %> <em>Pixels</em></p>
+<p><label for="thumbnail_height">Image Thumbnail: Height</label><br/>
+<%= text_field_tag 'medium_height', Configuration.thumbnail_height %> <em>Pixels</em></p>
+
+<h2>Audio Options</h2>
+<p><label for="preview_audio_bitrate"><%= Setup.description('preview_audio_bitrate') %></label><br/>
+<%= text_field_tag 'preview_audio_bitrate', Configuration.preview_audio_bitrate %> <em>i.e. 56k</em></p>
+<p><label for="preview_audio_length"><%= Setup.description('preview_audio_length') %></label><br/>
+<%= text_field_tag 'preview_audio_length', Configuration.preview_audio_length %> <em>Seconds</em></p>
+
+
+<h2>Service & Security Keys</h2>
+<p><label for="googlemap_key">Google Map Key</label><br/>
+<%= text_field_tag 'googlemap_key', Configuration.googlemap_key, :size => 95 %></p>                  
+<p><label for="md5key">MD5 Security Key</label><br/>
+<%= text_field_tag 'md5key', Configuration.md5key, :size => 95 %></p>
+
+<h2>Payment Processing</h2>
+<p><label for="pay_invoice_us">"Invoice Us" Payment Processing</label><br/>
+<%= check_box_tag_1 'pay_invoice_us', '1', Configuration.pay_invoice_us %> <em>Allow clients to supply Purchase Order and supply invoicing address</em> </p>
+<p><label for="pay_paypal">Paypal Integration</label><br/>
+<%= check_box_tag_1 'pay_paypal', '1', Configuration.pay_paypal %> <em>Process Credit Cards & Subscriptions using the Paypal payment gateway.</em> </p>
+<p><label for="pay_worldpay">Worldpay & Future Pay Integration</label><br/>
+<%= check_box_tag_1 'pay_worldpay', '1', Configuration.pay_worldpay %> <em>Process Credit Cards & Subscriptions using the Worldpay payment gateway.</em> </p>
+<p><label for="test_payment_processing">Enable Testing of either Paypal or Worldpay</label><br/>
+<%= check_box_tag_1 'test_payment_processing', '1', Configuration.test_payment_processing %> <em>Enable during test. Disable on production.</em> </p>
+
+<h2>Payment Gateway Access</h2>
+<p><label for="paypal_email">Paypal Sales Email Address</label><br/>
+<%= text_field_tag 'paypal_email', Configuration.paypal_email %> <em>if using PayPal</em> </p>
+<p><label for="worldpay_security_key">Worldpay Installation ID</label><br/>
+<%= text_field_tag 'worldpay_security_key', Configuration.worldpay_security_key %> <em>if using WorldPay</em> </p>
+
+
+<h2>Financial and Sales Configuration</h2> 
+<p><label for="sales_comission">Sales comission on Each Photo</label><br/>
+<%= text_field_tag 'sales_comission', Configuration.sales_comission %> <em>Enter 0.15 if a rate of 15% is required</em></p>                  
+<p><label for="withdraw_fee">Credits withdrawal Fees</label><br/>
+<%= text_field_tag 'withdraw_fee', Configuration.withdraw_fee %> <em>Enter 0.15 if a rate of 15% is required</em></p>                  
+<p><label for="payment_days">Waiting Period in Days to Process Credit Payment Request</label><br/>
+<%= text_field_tag 'payment_days', Configuration.payment_days %> <em>days(s)</em></p>                  
+<p><label for="order_minimum_credit"><%= Configuration.description('order_minimum_credit') %></label><br/>
+<%= text_field_tag 'order_minimum_credit', Configuration.order_minimum_credit %> <em>credit(s)</em></p>
+<p><label for="minimum_sale_value">Minimum Credit Sale Value</label><br/>
+<%= text_field_tag 'minimum_sale_value', Configuration.minimum_sale_value %> <em>credit(s)</em></p>                  

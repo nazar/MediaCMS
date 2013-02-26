@@ -1,0 +1,7 @@
+<%= start_tabnav :account %>
+  <h2 id="header">My Collection</h2>
+  <div class="step">
+    <h4><%= link_to 'Create', :action => :new %> a new collection</h4>
+    <%= render :partial => 'collections/collection_table', :locals => {:collections => @collections} %>
+  </div>
+<% end_tabnav %>

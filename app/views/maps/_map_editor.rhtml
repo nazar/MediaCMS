@@ -1,0 +1,19 @@
+<% width  ||= '100%' -%>
+<% height ||= '240px' -%>
+<% data_url ||= nil -%>
+<% add_extra_header_content("<script src=\"http://maps.google.com/maps?file=api&amp;v=2&amp;key=#{Configuration.googlemap_key}\" type=\"text/javascript\"></script>") -%>
+<div align="right"><small>Click on the Satellite button to get a better view</small></div>
+<div id="google_map" style="width:<%=width%>; height:<%=height%>;"></div>
+<% javascript_tag do -%>
+  var editor_map = Object;
+  function loadMap() {
+    editor_map = new GoogleSmallMapEditor('google_map');
+    editor_map.setupMap();
+    editor_map.registerListener('<%=marker_long%>', '<%=marker_lat%>');
+    editor_map.queryMarkerData('<%=data_url%>');
+  }
+<% end -%>
+<%= javascript_tag('addEvent(window, "load", loadMap);') -%>
+<div class="small">Click on any point on the map to obtain long and latt coordinates.</div>
+<div style="float:right" class="small" align="right">Double click on map to zoom.</div>
+<noscript><h3>This page requires a browser with JavaScript support.</h3></noscript>

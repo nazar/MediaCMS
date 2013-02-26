@@ -1,0 +1,7 @@
+<p>Dear <%= @user.login %>.</p>
+<p>You are receiving this email because you have registered for a new account on <%= Configuration.site_name %>.</p>
+<p>In order for us to verify your email address, please follow this link:</p>
+<blockquote>
+  <p><strong>Activation Link:</strong><a href="<%=@domain%>/account/activate_email/<%=@user.token%>"><%=@domain%>/account/activate_email/<%=@user.token%></a><br />
+</blockquote>
+<%= @sig %>   

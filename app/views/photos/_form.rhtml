@@ -1,0 +1,70 @@
+<%= error_messages_for 'media' %>
+<table cellpadding="0" cellspacing="2">
+  <tr>
+    <td>
+      <p><label for="media_title">Title</label><br/>
+      <%= text_field 'media', 'title'  %></p>
+      <% if (current_user.host_plan.can_set_price) && (not @adv_resolution) %>
+        <p><label for="media_price">Price</label><br/>
+        <%= media_price_edit_options(@media) %>
+      <% end %>
+      <p><label for="media_text_tags">Tags</label><br/>
+      <%= text_area 'media', 'text_tags', :rows => 5, :cols => 30  %></p>
+      <% if current_user.host_plan.can_set_price && !@adv_lic %>
+        <p><label for="media_license">License</label><br/>
+          <%= user_licenses_listbox 'media[license_id]',
+            @media && @media.user ? @media.user : current_user, @media ? @media.license_id : nil  %>
+          <a href="#" onclick="window.open('/licenses/view/'+$('media[license_id]').value,'License','height=600,width=600,scrollbars,resizable');return false;">info</a>
+        </p>
+      <% end %>  
+    </td>
+    <td>
+      <p>
+        <label for="categories">Categories:</label><br/>
+        <select id="categories" name="categories[]" multiple="multiple"
+                size="12" style="width:250px;">
+          <%= indented_categories_select(@selected) %>
+        </select>
+      </p>
+    </td>
+  </tr>
+  <% if @adv_resolution -%>
+    <tr>
+      <td colspan="2"><p><strong>Photo Resolution Prices - <em>set price to -1 to exclude a particular license from this photo</em></strong></p></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <td>Photo Resolution</td>
+            <td>Photo Price</td>
+          </tr>
+          <%= render :partial => '/photos/resolution_price_edit', :collection => PhotoResolutionPrice.photo_resolutions(@media) %>
+        </table>
+      </td>
+    </tr>
+  <% end -%>
+  <% if @adv_lic %>
+    <tr>
+      <td colspan="2"><p><strong>Licenses and Photo Pricing - <em>set price to -1 to exclude a particular license from this photo</em></strong></p></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table cellpadding="0" cellspacing="0">
+          <tr class="head">
+            <td>License</td>
+            <td>Excerpt</td>
+            <td>Additional Price</td>
+          </tr>
+          <%= render :partial => '/licenses/license_price', :collection => MediaLicensePrice.media_user_licenses(@media) %>
+        </table>
+      </td>
+    </tr>
+  <% end %>
+  <tr> 
+    <td colspan="2">
+      <p><label for="media_description">Description</label><br/>
+      <%= markup_area 'media', 'description', :rows => 7, :cols => 60  %></p>
+    </td>
+  </tr>
+</table>

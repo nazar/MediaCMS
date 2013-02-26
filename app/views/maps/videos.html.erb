@@ -1,0 +1,10 @@
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => :video_index_georss}, {:title => "#{Configuration.site_name} GeoRSS Feed"})) %>
+<div class="block_title"><h2>Global Photo Markers</h2></div>
+<div class="step">
+  <p><%= Configuration.site_name %> groups videos geographically and is a great way to discover other videos from the same or different directors for the same geographic area.</p>
+  <p>Click on any marker to view its associated video. Double click on any area on the map to zoom in for a closer look. Try the <b>satellite</b> button for a different view of the map.</p>
+</div><br />
+<div style="float:right; padding-right:25px; padding-bottom:7px;"><%= link_to image_tag('georss.png'), {:controller => '/feed', :action => :photo_index_georss}, {:class => 'no_underline'} %></div>
+<div class="step" style="clear:both">
+  <%= render :partial => 'maps/map_viewer', :locals => {:data_url => '/videos/markers'} %>
+</div>

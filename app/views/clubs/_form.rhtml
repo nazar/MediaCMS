@@ -1,0 +1,19 @@
+<table cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="head" width="20%">Club Name</td>
+    <td class="even"><%= text_field('club', 'name') %></td>
+  </tr>
+  <tr>
+    <td class="head">Club Type</td>
+    <td class="even"><%= select('club','club_type',
+                                Club.club_types.map{|m| [m.last,m.first] }) %></td>
+  </tr>
+  <tr>
+    <td class="head">Club Description</td>
+    <td class="even"><%= markup_area('club','description') %></td>
+  </tr>
+  <tr>
+    <td class="head">Club Tags</td>
+    <td class="even"><%= text_area('club','club_tags', {:class => 'text_area', :rows => '4'}) %></td>
+  </tr>
+</table>

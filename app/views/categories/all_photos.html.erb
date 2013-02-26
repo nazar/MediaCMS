@@ -1,0 +1,14 @@
+<% if @category.members_count > 0 %>
+  <%= feed_title_block("All Photos in #{link_to(@category.name, category_id_path(@category))}", {:controller => 'feed', :action => :all_in_category, :id => @category.id}, {:auto_rss => true}) %>
+  <small><%= will_paginate @photos %></small>
+  <div class="step clearfix">
+    <% for photo in @photos %>
+      <div class="listPhotos">
+        <%= render :partial => '/photos/small_picture', :locals => { :photo => photo} %>
+      </div>
+    <% end %>
+  </div>
+  <small><%=  will_paginate @photos %></small>
+<% else %>
+  <h3>There are no photos in this category.</h3>
+<% end %>

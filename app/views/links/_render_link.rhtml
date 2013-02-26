@@ -1,0 +1,29 @@
+<div class="rank"> 
+  <div class="votes"><%= link_to link.votes_up, :action => :view, :id => link.id, :name => link.safe_name %></div>
+  <div class="do_vote"><%= link_to_remote 'vote', :url => {:controller => '/links', :action => :vote, :id => link.id} %></div> 
+</div>
+<h3><%= link_to h(link.name), :controller => 'links', :action => :view, :id => link.id, :name => link.safe_name %></h3>
+<div class="smallest">
+  Posted by: <%= link_to link.user.pretty_name, :controller => 'account', :action => :about, :id => link.user.login if link.user %> 
+  <%= date_ago(link.created_at) %> ago <%= "(#{link_to link.domain, :controller => '/links', :action => :out, :id => link.id})." %>
+  <%= "Viewed #{link.views}. Clicked: #{link.visits}" %>
+</div>
+<%= link.formatted_description %>
+<div class="small controls">
+  <%= image_tag 'linkw.png' %> <%= link_to 'View Article', {:controller => 'links', :action => :out, :id => link.id}, {:target => '_blank'} %> 
+  <% if link.comments.length > 0 %>
+    <%= image_tag 'commented.gif' %> <%= link.comments.length %>
+  <% else %>
+    <%= image_tag 'comment.png' %> 
+  <% end %>  
+  <%= link_to 'Comment', "/links/view/#{link.id}#comments" %> 
+  <% if saved %>
+    <%= image_tag 'star.png'%> Saved
+  <% else %>
+    <%= link_to_remote image_tag('star-no.png'), :url => {:controller => '/links', :action => 'favourite', :id => link.id} %> 
+    <%= link_to_remote 'Save', :url => {:controller => '/links', :action => 'favourite', :id => link.id} %> 
+  <% end %>
+  &nbsp;&nbsp;&nbsp;
+  Bookmark <%= render :partial => '/links/bookmark', :locals => {:url => link.link, :title => link.bookmark_title } %>
+
+</div>

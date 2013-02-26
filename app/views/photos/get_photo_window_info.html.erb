@@ -1,0 +1,8 @@
+<div class="google-map-popup">
+  <div class="thumbnail">
+    <div align="center">
+      <%= link_to renderThumbnail(@photo, {:class => 'collect_photo'}), photo_view_path(@photo.id, @photo.title.to_permalink), :class => "photo_link" -%>
+      <div align="center" style="clear:both"><small><%= h(@photo.short_title) %></small></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<%= javascript_include_tag 'fastinit' %>   
+<%= javascript_include_tag 'tablesort' %>   
+<%= stylesheet_link_tag 'sortable' %>
+<% @page_title = 'Viewing my Pictures' %>
+<div class="block_title"><h2>Photographers</h2></div>
+<div class="step">
+  <p>This page lists all our registered and active photographers. Click on a column to sort the photographer list.</p>
+</div>
+<div class="block_title"><h2>Active Photographers</h2></div>
+<div class="step">
+  <table class="outer sortable">
+    <tr>
+      <td class="sortfirstasc head">Photographer</td>
+      <td class="head">Country</td>
+      <td class="head">State/County</td>
+      <td class="head number">Photos</td>
+      <td class="head number">Rated Photos</td>
+      <td class="head number">Posts</td>
+    </tr>
+    <% for grapher in @photographers do %>
+    <tr>
+      <td><%= link_to grapher.pretty_name, :controller => 'account', :action => :about, :id => grapher.login -%></td>
+      <td><%= grapher.country -%></td>
+      <td><%= grapher.state -%></td>
+      <td><%= grapher.photos_count -%></td>
+      <td><%= grapher.ratings_count -%></td>      
+      <td><%= grapher.posts_count -%></td>      
+    </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <td class="underline blogTitle"><%= h blog.title %></td>
+    <td class="underline" align="right">
+      <small>Posted <%= date_ago(blog.created_at) %> 
+        ago by <%= link_to (h blog.user.login), {:action => :by, :id => blog.user.login} %>
+      </small>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="right">
+      <small>
+        <%= "Read #{pluralize(blog.blog_read,'time')}." if blog.blog_read > 0 %>
+        <%= "<a href='/blogs/show/#{blog.id}#comments'>#{pluralize(blog.comments_count,'Comment')}</a>" if blog.comments_count > 0 %>
+      </small>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><div class="blogBody"><%= blog.formatted_body %></div></td>
+  </tr>
+    <% if current_user && (current_user.id == blog.user_id) %>
+      <tr>
+        <td align="right" colspan="2">
+          <small> 
+            <a href="/blogs/edit/<%=blog.id%>">edit</a> |
+            <%= link_to 'delete', { :action => 'delete', :id => blog }, 
+                                     :confirm => 'Are you sure?', :post => true %>
+          </small>
+        </td>
+      </tr>
+    <% end %>  
+</table>

@@ -1,0 +1,5 @@
+<% for link in links do %>
+  <div id="link_<%=link.id%>" class="link"> 
+    <%= render :partial => '/links/render_link', :locals => {:link => link, :saved => link.saved} %>
+  </div>
+<% end %>

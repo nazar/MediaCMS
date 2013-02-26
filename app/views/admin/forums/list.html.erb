@@ -1,0 +1,27 @@
+<h1>Listing forums</h1>
+
+<table>
+  <tr>
+  <% for column in Forum.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for forum in @forums %>
+  <tr>
+  <% for column in Forum.content_columns %>
+    <td><%=h forum.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => forum %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => forum %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => forum }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @forum_pages.current.previous } if @forum_pages.current.previous %>
+<%= link_to 'Next page', { :page => @forum_pages.current.next } if @forum_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New forum', :action => 'new' %>

@@ -1,0 +1,9 @@
+<%= javascript_include_tag 'fastinit' %>   
+<%= javascript_include_tag 'tablesort' %>   
+<%= stylesheet_link_tag 'sortable' %>
+<div class="block_title"><h2>Unauthorised Articles</h2></div>
+<div class="step">
+  <div id="unauthorised">
+    <%= render :partial => '/articles/articles', :locals => {:article => @articles} %>
+  </div>
+</div>

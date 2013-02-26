@@ -1,0 +1,15 @@
+<div class="block_title"><h2><%= @title %></h2></div>
+<% unless @users.blank? -%>
+  <%= will_paginate @users -%>
+  <% for user in @users%>
+    <% unless user.medias.blank? -%>
+      <div class="step clearfix">
+        <%= user_title(user) %>
+        <%= render_media_search_result(user.medias[0..9]) %>
+      </div>
+    <% end -%>
+  <% end -%>
+  <%= will_paginate @users -%>
+<% else -%>
+  <div class="step">No members found</div>
+<% end -%>

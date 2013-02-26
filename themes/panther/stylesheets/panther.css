@@ -1,0 +1,56 @@
+body {color: #463E21; background: #4d4d4d}
+
+table.site_header {
+  border-top : 8px solid #FFFFFF;
+  border-left : 8px solid #FFFFFF;
+  border-right: 5px solid #FFFFFF;
+  border-bottom: 3px solid #FFFFFF;
+  background-color: #BDC49A;
+}
+
+input:hover, select:hover, textarea:hover {
+  background-color: #DCE0CA;
+}
+
+
+.mainBC {height: 0px;}
+
+.mainBR {background-image: url(/images/box_bottom.jpg);background-repeat: no-repeat;background-position: center; height: 14px;width: 165px;border-right:5px solid #FFFFFF;border-left:5px solid #FFFFFF;}
+
+.blocks {background-color: #BEC49E;}
+
+.cornerTL {background-image: url(/images/rounded/top_left.jpg); width:11px; height: 14px;background-repeat: no-repeat;}
+.cornerTC {background-image: url(/images/rounded/top_side.jpg); background-repeat: repeat-x;}
+.cornerTR {background-image: url(/images/rounded/top_right.jpg); background-repeat: no-repeat; width:14px; height: 14px;
+           border-right: 4px solid white;}
+.cornerBL {background-image: url(/images/rounded/bottom_left.jpg);height: 12px;width: 11px; /*background-repeat: no-repeat;*/}
+.cornerBC {background-image: url(/images/rounded/bottom_side.jpg);background-repeat: repeat-x; height:12px}
+.cornerBR {background-image: url(/images/rounded/bottom_right.jpg);height: 12px;width: 14px; /*background-repeat: no-repeat;*/ border-right: 4px solid white;}
+.cornerCL {background-image: url(/images/rounded/left_side.jpg);background-repeat: repeat-y; background-position: left;width: 11px;}
+/*.cornerCC {background-image: url(/images/centre_05.gif);background-repeat: repeat-x;
+background-position: top;} */
+.cornerCR {background-image: url(/images/rounded/right_side.jpg);background-repeat: repeat-y; background-position: right;width: 13px; border-right: 4px solid white; }
+
+/* top page */
+
+td#leftcolumn {background-image: url(/images/box_bg.jpg);border-left: 5px solid #FFFFFF;border-right: 2px solid #FFFFFF; border-top: 2px solid #ffffff;}
+td#leftcolumn div.blockTitle {padding: 3px; background-image: url(/images/bullet1.gif);padding-left: 25px;background-repeat: no-repeat; color: #463E21; font-weight: bold;font-size: 120%}
+
+#centercolumn {font-size: 12px;}
+#centercolumn th {background-color: #A2AD6A; color: #FFFFFF; vertical-align: middle;}
+#centercolumn .blockTitle, #bottomCcolumn .blockTitle {padding: 1px; color: #408a1c; font-weight: bold; margin-top: 0px; margin-right: 0px;  margin-left: 0px;font-size: 115%}
+#centercolumn .blockContent, #bottomCcolumn .blockContent {padding: 3px; margin-right: 0px;  margin-left: 0px; margin-bottom: 2px; line-height: 130%;}
+
+/* forums */
+.head {background-color: #B6BF8A; }
+.even {background-color: #E9EBDE; }
+.odd {background-color: #DEE1CE; }
+.foot {background-color: #C8CDAE; }
+tr.even td {background-color: #E9EBDE; }
+tr.odd td {background-color: #DEE1CE; }
+
+/* account pages */
+#account_content {
+  background-color: #727E49;
+}
+

@@ -1,0 +1,59 @@
+<% inside_layout 'head' do %>
+  <% if @category -%>
+    <script type="text/javascript"><!--
+      function toggle_menu() {
+    <%= toggle_menu_to_category(@category) %>
+      }
+      addEvent(window, "load", toggle_menu);
+      //--></script>
+  <% end %>
+  <%= render :partial => '/layouts/site_header' %>
+  <table class="maintable"  cellspacing="0">
+    <tr>
+      <td id="leftcolumn" class="rounded">
+        <% cache('categories') do %>
+          <%= render_collapse_category_block %>
+          <%= render_top_categories_block %>
+        <% end -%>  
+        <% cache('left_block') do %>
+          <%= render_top_tags_block %>
+          <%= render_top_photographers_block %>
+          <%= render_best_photographers_block %>
+          <% render_top_selling_block %>
+          <%= render_most_blogged_users_block %>
+          <%= render_busiest_forums_block %>
+          <!-- [if IE]
+          <%= render_best_viewed %>
+          <![endif]-->
+          <% end %>
+        <noscript><%= render_javascript %></noscript>
+      </td>
+      <td id="centercolumn">
+        <%= render_top_level_tab_menu %>
+        <div id="content">
+          <div>
+            <div class="blockTitle"><%= @contentTitle %></div>
+            <div class="blockContent">
+              <%= yield %>
+              <%= yield :center %>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center" valign="middle">
+        <div class="rounded footer">
+          <small>
+            Powered by <%= link_to 'MediaCMS','http://mediacms.co.uk' %> and hosted by <a href="http://panthersoftware.com">Panther Software.</a><br />Copyright Panther Software 2001-<%= Time.now.year %>
+            <a href="/pages/about_us">About us</a>. <a href="/pages/terms_of_service">Terms of Service</a>.
+            <a href="/pages/support">Support</a>. <a href="/pages/contact_us">Contact us</a>.
+          </small>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <%= javascript_include_tag 'application_behaviors' %>
+  <%= render :partial => 'shared/stats' %>
+  <%= get_footer_script %>
+<% end %>

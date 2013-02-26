@@ -1,0 +1,10 @@
+<div class="block_title"><h2>Viewing Video Tag Cloud</h2></div>
+<div class="step">
+  <p>Welcome to the <strong>Tags Cloud</strong> page. Tags listed below represent our most popular video tags. A tag's size is represented by its popularity. Hover your mouse over a tag to show how many videos are marked with that tag.</p>
+</div>
+<br />
+<div id = 'tags' class="step">
+  <% render_tag_cloud(@tags, @min_count, @max_count, %w(tags1 tags2 tags3 tags4 tags5 tags6), {:limit => 150}) do |tag, css_class| %>
+    <%= link_to tag.name, {:controller => 'tags', :action => :video, :id => tag.name}, {:class => css_class, :title => "#{tag.taggings_count} videos"} -%>
+  <% end %>
+</div>

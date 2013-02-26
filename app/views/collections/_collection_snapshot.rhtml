@@ -1,0 +1,17 @@
+<div class="listPhotosCollection">
+  <h3 class="no_show"><%= h(collection.name) %></h3>
+  <h3 class="no_show"><%= h(collection.description) %></h3>
+  <% if collection.collections_items && collection.collections_items.first %>
+    <% if collection.first_landscape_photo %>
+      <div align="center"><div align="center" class="collect_photo"><%= link_to renderThumbnail(collection.first_landscape_photo ,{:class => 'glossy iradius20'}),
+        {:controller => 'collections', :action => :view, :id => collection.id}, {:class => 'no_underline'} %></div></div>
+    <% end %>
+  <% end %>
+  <div align="center" class="small">Collection: <%= h(collection.name) %></div>
+  <div align="center" class="small">Photos: <%= collection.collections_items.size %>, Size: <%= number_to_human_size(collection.collection_size) %></div>
+  <% if collection.user.host_plan.can_sell && collection.price && collection.price > 0 %>
+    <div align="center" class="small">Price: <%= pluralize(collection.price,'Credit') %></div>
+  <% else %>
+    <div align="center" class="small">Price: Free</div>
+  <% end %>
+</div>

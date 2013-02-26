@@ -1,0 +1,13 @@
+<tr id = "report_row_<%= report_row.id -%>" >
+	<td>
+		<%= link_to 'view report',   {:controller => '/admin/report_images', :action => :view_report, :id => report_row.id}, {:class => 'view_report'} %><br />
+		<%= link_to 'delete report', {:controller => '/admin/report_images', :action => :delete_report, :id => report_row.id}, {:class => 'delete_report'} %><br />
+		<%= link_to 'delete image', {:controller => '/admin/report_images', :action => :delete_image, :id => report_row.id}, {:class => 'delete_image'} %><br />
+	</td>
+  <td><%= check_box_tag dom_id(report_row)  %></td>
+  <td><%= link_to renderThumbnail(report_row.photo), {:controller => '/admin/report_images', :action => 'view_report', :id => report_row.id}, {:class => 'photo_thumb'} %></td>
+  <td><%= report_row.report_image_type.report_type if report_row.report_image_type %></td>
+  <td><%= truncate( report_row.description, 30) %></td>
+  <td><%= date_ago(report_row.created_at) %></td>
+  <td><%= report_row.reporter ? report_row.reporter.pretty_name :  "Anonymous" %></td>
+</tr>

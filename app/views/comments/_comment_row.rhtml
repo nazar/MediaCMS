@@ -1,0 +1,24 @@
+<div id="comment-<%=comment.id%>" class="comment_outer <%= cycle('even', 'odd') %> <%= comment_owner_class(comment) -%>">
+  <%= link_to("#{counter}. #{h(comment.title)}", comment_to_controller(comment), {:class => 'comment_counter'}) %>
+  <div class="comment_inner clearfix">
+    <%= render :partial => 'comments/author_avatar', :locals => {:comment => comment} -%>
+    <div class="comment_author">
+      <% if comment.user %>
+        <%=link_to(h(comment.user.login), {:controller => 'account', :action => :about, :id => h(comment.user.login)})%>
+      <% else %>
+        <%= display_anon_user(comment) %>
+      <% end %>
+    </div>
+    <div class="comment_date"><%= comment.created_at.to_formatted_s(:long_ordinal) %></div>
+    <div class="comment_body"><%= format_red_cloth(comment.body) %></div>
+  </div>
+  <% if comment.can_edit(current_user) %>
+     <div class="markup-area-link" style="display: none;">
+      <%= link_to 'edit', edit_comment_path(comment), {:class => 'edit_comment'} -%>
+      <% if admin? %>
+        &nbsp;|&nbsp;<%= link_to 'delete', delete_comment_path(comment), {:class => 'delete_comment'} -%>&nbsp;|&nbsp;<%= link_to 'spam', spam_comment_path(comment), {:class => 'spam_comment'} %>
+        &nbsp;|&nbsp;IP: <a href="http://www.whois.sc/<%=comment.ip%>" target="_blank"><%=comment.ip%></a>
+      <% end %>
+    </div>
+  <% end %>
+</div>

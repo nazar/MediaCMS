@@ -1,0 +1,48 @@
+<table cellpadding="0px" cellspacing="0" class="outer" id="plan_table">
+  <% if plan.monthly_fee > 0 %>
+    <tr>
+      <td class="head" width="40%">Monthly fee</td>
+      <td class="even">&pound;<%= plan.monthly_fee %> GBP</td>
+    </tr>
+  <% end %>
+  <tr>
+    <td class="head" width="40%">Storage capacity</td>
+    <td class="even"><%= plan.disk_space%> MB </td>
+  </tr>
+  <tr>
+    <td class="head">Can sell photos</td>
+    <td class="even"><%= plan.can_sell ? 'Yes' : 'No'%> </td>
+  </tr>
+  <tr>
+    <td class="head">Can post in forums</td>
+    <td class="even">Yes</td>
+  </tr>
+  <tr>
+    <td class="head">Can rate photos</td>
+    <td class="even">Yes</td>
+  </tr>
+  <tr>
+    <td class="head">Can comment on photos</td>
+    <td class="even">Yes</td>
+  </tr>
+  <% if plan.can_blog %>
+    <tr>
+      <td class="head">Can blog</td>
+      <td class="even"><%= plan.can_blog ? 'Yes' : 'No'%> </td>
+    </tr>
+  <% end %>
+  <% if plan.can_sell %>
+    <tr>
+      <td class="head">Can set photo price</td>
+      <td class="even"><%= plan.can_set_price ? 'Yes. Price set by you' : "No. Price set by #{Configuration.site_name}"%> </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td class="head">Photo licenses</td>
+    <td class="even"><%= plan.license_type%> </td>
+  </tr>
+  <tr>
+    <td class="head">Clubs & Groups</td>
+    <td class="even"><%= plan.create_club ? 'Create clubs & groups for other to join' : 'Join clubs & groups'%> </td>
+  </tr>
+</table>

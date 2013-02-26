@@ -1,0 +1,9 @@
+<tr class="<%= cycle('even','odd') %>">
+  <td>
+    <%= link_to license_price.license.name, 
+		    {:controller => 'licenses', :action => :view, :id => license_price.license.id },
+				{:popup => ['License Information', 'height=600,width=600,scrollbars,resizable']} %>
+  </td>  
+  <td><%= truncate( strip_tags(license_price.license.html_description), 50 ) %></td>  
+  <td><%= text_field_tag "license[#{license_price.id}]", license_price.price  %></td>  
+</tr>

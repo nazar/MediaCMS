@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <td class="underline"><strong><%= news_title(news_item, link) %></strong></td>
+    <td class="underline" align="right"><small>Posted by <%=news_item.user.login%> <%=date_ago(news_item.created_at)%> ago</small></td>
+  </tr>
+  <tr>
+    <td colspan="2"><small><a href="/news/show/<%=news_item.id%>">read more</a></small></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div class="blogBody"><%=news_item.spotlight%></div>
+    </td>
+  </tr>  
+</table>

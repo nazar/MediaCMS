@@ -1,0 +1,12 @@
+<div class="crumbs" style="margin-top:1.1em;">
+  <strong>
+    <%= link_to "Forums", home_path %> <%= link_to h(@forum.name), forum_url(:id=>@forum) %>
+  </strong> 
+</div>
+<div class="block_title"><h2 id="new_topic">Editing - <%= h @topic.title %></h2></div>
+<br />
+<form name="forumform" id="forumform" action="<%=reply_topic_path(@forum, @topic, @post)%>" method="post">
+  <%= render :partial => '/posts/post_form', :locals => {:forum => @forum, :topic => @topic} %>
+  <%= hidden_field_tag('edit',@post.id) %>
+</form>
+                                                         

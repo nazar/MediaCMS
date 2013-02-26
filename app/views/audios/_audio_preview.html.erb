@@ -1,0 +1,7 @@
+<div class="thumbnail">
+  <div align="center">
+    <%= link_to render_audio_list(audio, {:class => 'collect_photo', :prefix => prefix}), audio_view_url(:id => audio.id, :name => audio.safe_title)  %>
+  </div>
+  <div align="center" style="clear:both"><small><%= link_to audio.short_title, audio_view_path(audio, audio.safe_title) %></small></div>
+</div>
+<h3 class="no_show"><%=audio.description%></h3>

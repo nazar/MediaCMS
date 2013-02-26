@@ -1,0 +1,24 @@
+page.remove 'total_row'
+cnt = 0
+for item in items
+  page.remove "item-#{item.id}"
+  page.insert_html :bottom, 'cart_items', {:partial => '/orders/cart_items', :locals => {:item => item, :cnt => cnt}}
+  cnt += 1
+end
+#TODO wrap up in a partial
+order_total = items[0].order.total         
+total = '<tr id="total_row"> '+
+        '<td colspan="4" class="odd" align="right"><strong>Total</strong></td> '+
+        '<td class="even" align="right"><strong><div id="order_total">'+order_total.to_s+' Credits</div></strong></td> '+
+        '</tr>'
+                  
+page.insert_html :bottom, 'cart_items', total
+page.visual_effect :highlight, 'order_total', :duration => 2
+
+if order_total > current_user.credits
+  page.replace_html 'not_enough', '<p>You have insufficient credits in your account for this purchase. Please either remove pictures by setting the quantity to 0 or <a href="/orders/credit">add more credits to your account</a>.</p>'
+  page.hide 'not_enough_1'
+else
+  page.replace_html 'not_enough', ''
+  page.hide 'not_enough_1'
+end 

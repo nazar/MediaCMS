@@ -1,0 +1,5 @@
+<div class="block_title"><h2><%= @page_title -%></h2></div>
+<%= will_paginate @audios -%>
+<div class='step'>
+  <%= render_audio_block(@audios) -%>
+</div>

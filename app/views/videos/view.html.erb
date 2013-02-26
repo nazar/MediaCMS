@@ -1,0 +1,68 @@
+<table id="viewmedia" cellpadding="0" cellspacing="5">
+  <tr>
+    <td class="major">
+      <table cellpadding="0" cellspacing="5" id="photo_table">
+        <tr><td><h1><%= h @media.title -%></h1></td></tr>
+        <tr><td align="center">
+          <div class="clearfix"><%= render_video_view(@media) -%></div>
+          <%= media_action_links(@media, :can_edit => @can_edit) %>
+          <div id="extra" style="display:none;">&nbsp;</div>
+        </td></tr>
+        <% unless @media.description.blank? %>
+          <tr>
+            <td><h2>Description</h2><%= @media.formatted_description -%></td>
+          </tr>
+        <% end %>
+      </table>
+    </td>
+    <td class="minor">
+      <table cellpadding="0">
+        <tr>
+          <td class="major">
+            <h2>Video Information</h2>
+            <%= render :partial => 'videos/media_info', :object => @media %>
+            <% if @media.tags.count > 0 %>
+              <h2>Top Tags</h2>
+              <% object_tag_cloud(@media, %w(tags1 tags2 tags3 tags4 tags5 tags6), {:limit => 15}) do |tag, css_class| %>
+                <%= link_to tag.name, {:controller => 'tags', :action => :video, :id => tag.name}, {:class => css_class} -%>
+              <% end %>
+            <% end %>
+          </td>
+          <td class="pad">
+            <h2>Statistics</h2>
+            <%= render :partial => '/medias/media_stats', :object => @media %>
+          </td>
+        </tr>
+      </table>
+      <% form_tag video_view_path(@media, @media.title.to_permalink), :id => 'buy' do %>
+        <%= render :partial => 'medias/licenses_block' %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <% if @media.markers.length > 0%>
+        <div><h2>Where in the World?</h2></div>
+        <div class="step">
+          <%= render :partial => '/maps/map_small_viewer', :locals => {:data_url => "/photos/photo_markers/#{@media.id}"} %>
+        </div>
+      <% end %>
+      <h2>Ratings and Comments</h2>
+      <div id="star-ratings-block"><%= render :partial => "rating/rating", :locals => { :rateable => @media } -%></div>
+      <%= render :partial => 'comments/show_comments', :locals => {:model => @media} %>
+    </td>
+    <td>
+      <h2>How to Buy</h2>
+      <p>You must be a registered user and your account must contain enough Credits to purchase this photo. <a href="/account/login">Login or Register</a> an account.</p>
+      <% unless @media.collections.blank? %>
+        <h2><%= media_collections_title(@media.collections) %></h2>
+        <%= render_media_collection_thumbnails(@media, :limit => 8) %>
+      <% end %>
+      <% unless @videos_by_tag.blank? %>
+        <h2>Media with Similar Context</h2>
+        <%= render_medias_as_thumbnails(@videos_by_tag, :limit => 8) %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<%= javascript_tag("jQuery('.options').attach(FormSelectionOnChange, {form: '#buy', hide: '#update', spinner: '#total_value', update: '#total_value'});") %>

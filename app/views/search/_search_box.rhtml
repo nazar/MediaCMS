@@ -1,0 +1,7 @@
+<div id="search" align="right">
+  <form action="/search" method="post">
+    Search <%= search_options_select %>
+    &nbsp;<%= text_field_tag :search, session[:search] %>
+    <%= submit_tag 'Search' %>
+  </form>
+</div>

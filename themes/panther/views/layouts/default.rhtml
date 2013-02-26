@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"  "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <% @description ||= "PantherFOTOS.com provides a free site where photographers can upload high resolution images for sale through our e-commerce facilities. Visitors can view, comment, rate and purchase photographer's pictures. We provide three membership plans, starting with a free plan." -%>
+  <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+  <meta name="verify-v1" content="4I4GaJiZPnMQy2SRGfQW//XoX0E3CqLB6KqqNMCRt3s=" />
+  <meta NAME="KEYWORDS" CONTENT="pictures, photography, photo, photographers, sell photos, photo sales, photo hosting" />
+  <meta NAME="DESCRIPTION" CONTENT="<%=@description%>" />
+  <meta NAME="Author" CONTENT="Panther Software Publishing Limited" />
+  <meta NAME="Copyright" CONTENT="Panther Software Publishing Limited" />
+  <title><%= @page_title %> - PantherFOTOS</title>
+  <%= stylesheet_link_tag 'scaffold', 'application', 'forums', 'lightbox', 'tabnav', 'common'   %>
+  <%= theme_stylesheet_link_tag 'panther' %>
+  <%= javascript_include_tag 'prototype', 'lowpro', 'behaviors', 'events', 'tipster', 'common', 'lightbox', 'swfobject', '/javascripts/menu/dmenu.js' %>
+  <%= get_extra_header_content %>
+  <!--<script type="text/javascript">var dmWorkPath = "javascripts/menu/";</script>
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script> -->
+  <!--[if lte IE 6]>
+    <script src="/javascripts/stopie6.js" type="text/javascript"></script>
+    <style type="text/css">img {behavior:url("/pngbehavior.htc");}</style>
+  <![endif]-->
+  <%= render :partial => '/layouts/tips_js' %>
+</head>
+<body>
+<% if @category %>
+  <script type="text/javascript"><!--
+    function toggle_menu() {
+      <%= toggle_menu_to_category(@category) %>
+    }
+    addEvent(window, "load", toggle_menu);
+  //--></script>
+<% end %>
+
+<div id="staticTipLayer" style="position: absolute; z-index: 10000;
+ left: 0px; top: 0px; width: 10px;">&nbsp;</div>
+
+<%= render :partial => '/layouts/site_header' %>
+
+<table class="maintable"  cellspacing="0">
+  <tr><td colspan="2"><%= render_top_level_tab_menu %></td></tr>
+  <tr>
+    <td id="leftcolumn">
+      <img src="/images/box_top.jpg" width="170" height="14">
+      <% cache('left_block') do %>
+        <%= render_collapse_category_block %>
+        <%= render_top_categories_block %>
+        <%= render_top_tags_block %>
+        <%= render_top_photographers_block %>
+        <%= render_best_photographers_block %>
+        <% render_top_selling_block %>
+        <%= render_most_blogged_users_block %>
+        <%= render_busiest_forums_block %>
+        <!-- [if IE]
+        <%= render_best_viewed %>
+        <![endif]-->
+      <% end %>
+      <noscript><%= render_javascript %></noscript>
+    </td>
+    <td id="centercolumn" rowspan="2">
+      <%= render_search_box %>
+      <div id="content">
+        <%= render :file => 'layouts/_center', :use_full_path => true %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="mainBL"></td>
+  </tr>
+</table>
+<table id="footer_table" class="tooltable" cellspacing="0" style="padding-top:5px;">
+  <tr>
+    <td id="toolleft"><img src="/images/tool_left.jpg"></td>
+    <td class="toolleftmiddle" width="100%" align="middle" valign="middle">
+      <small>
+        Designed, developed and hosted by <a href="http://www.panthersoftware.com">Panther Software.</a><br />Copyright Panther Software 2001-2007
+        <a href="/pages/about_us">About us</a>. <a href="/pages/terms_of_service">Terms of Service</a>.
+        <a href="/pages/support">Support</a>. <a href="/pages/contact_us">Contact us</a>.
+      </small>
+      <!--<div style="height:0px"><script type="text/javascript" src="http://stats.pantherfotos.com/php-stats.js.php"></script>
+      <noscript><img src="http://stats.pantherfotos.com/php-stats.php" border="0" alt=""></noscript>
+      <script src="http://static.getclicky.com/21562.js" type="text/javascript"></script>
+<noscript><p><img alt="Clicky" src="http://in.getclicky.com/21562-db3.gif" /></p></noscript></div>-->
+    </td>
+    <td id="toolright"><img src="/images/tool_right.jpg"></td>
+  </tr>
+</table>
+<script type="text/javascript">
+  _uacct = "UA-919326-2";
+  //urchinTracker();
+</script>
+</body>
+</html>

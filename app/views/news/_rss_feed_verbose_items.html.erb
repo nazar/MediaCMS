@@ -1,0 +1,6 @@
+<% for item in items %>
+  <h3 class="feed_title"><%= link_to item.title, rss_feed_item_path(item) -%></h3>
+  <div class="right small"><%= "Comments: #{item.comments_count}, Views: #{item.views_count}" %></div>
+  <% unless item.published.blank? -%><div class="left small">Published <%= time_ago_in_words item.published %> ago</div><% end -%>
+  <div class="feed_content clearfix"><%= item.summary << '   ' << '<em>' << link_to('read more', rss_feed_item_path(item)) << '</em>' -%></div>
+<% end %>

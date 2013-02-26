@@ -1,0 +1,7 @@
+<div class="step">
+  <div class="block_title underline"><h2><%= link_to @rss_item.title, @rss_item.url, :target => '_blank' -%></h2></div>
+  <% unless @rss_item.published.blank? -%><div class="right small">Published <%= time_ago_in_words @rss_item.published -%> ago</div><% end -%>  
+  <div class="left small"><%= link_to 'Full article link', @rss_item.url, :target => '_blank' %></div>
+  <div class="feed_content"><%= @rss_item.content_or_summary %></div>
+</div>
+<%= render :partial => 'comments/show_comments', :locals => {:model => @rss_item} %>

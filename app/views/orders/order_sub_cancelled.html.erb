@@ -1,0 +1,8 @@
+<% @page_title = "#{Configuration.site_name} Subscription Cancelled" %>
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>Your subscription was cancelled.</h2></div>
+  <div class="step">
+    <p>You will shortly receive an email confirmation regarding your host plan cancellation.</p>
+    <p>Please contact <a href="mailto:<%= Configuration.site_admin%>"><%= Configuration.site_admin %></a> with your username if your cancelled host plan does not update in your account in the next ten minutes.</p>
+  </div>
+<%= end_tabnav %>

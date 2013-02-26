@@ -1,0 +1,23 @@
+<% @page_title = 'Login Page' %>
+<div class="block_title"><h2>Login to <%= Configuration.site_name %></h2></div>
+<div class="step">
+<% if not current_user %>
+ <% form_tag do %>
+   <% if flash[:notice] %><div class="notice"><%= flash[:notice] %></div><% end %>
+   <p><label for="login">Login</label><br/>
+   <%= text_field_tag 'login' %></p>
+
+   <p><label for="password">Password</label><br/>
+   <%= password_field_tag 'password' %></p>
+
+   <p><label for="remember_me">Remember me:</label>
+   <%= check_box_tag 'remember_me' %></p>
+
+   <p><%= submit_tag 'Log in' %></p>
+ <% end %>
+ <p><strong><%= link_to 'Lost your password?', {:action => :lost_password} %></strong></p>
+ <p>Not registered? Sign up for a <a href="/account/signup">free account now</a>!</p>
+<% else %>
+  <p>Already logged in</p>   
+<% end %>
+</div>

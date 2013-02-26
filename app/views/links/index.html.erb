@@ -1,0 +1,17 @@
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => :popular_links_feed}, {:title => 'Popular Photography Links'})) %>
+<div class="block_title">
+  <div class="feed"><%= link_to(image_tag('rss.gif'), {:controller => 'feed', :action => :popular_links_feed},{:class => 'no_underline'}) %></div>
+  <h2>Photography Links</h2> - <a href="/links/add_link">Submit a Photography Related Link</a>
+</div>    
+<div class="step">
+  <p>The Links page lists user submitted links, which can be viewed, voted on and commented. Links with higher votes are displayed first.</p>
+</div>
+<% if @links.length > 0 %>
+  <div class="block_title"><h2>Popular Links</h2></div>
+  <small><%= will_paginate @links -%></small>
+  <div class="step" id="links">
+    <%= render :partial => '/links/links_list', :locals => {:links => @links} %>
+  </div>
+  <br />
+  <small><%= will_paginate @links -%></small>
+<% end %>

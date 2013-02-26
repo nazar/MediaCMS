@@ -1,0 +1,98 @@
+<%= start_tabnav :account %>
+<%= error_messages_for :user, :order %>
+<div class="block_title"><h2>Your Accounting Page</h2></div>
+<br>
+<div class="block_title"><h2>My Credits</h2></div>
+<div class="step">
+  <p><strong>You have <%= current_user.credits %> Credits in your account.</strong></p>
+  <% form_tag('/order/sell_credit')  do %>
+  <table id="account_cap" cellpadding="0px" cellspacing="0">
+    <tr class="even">
+      <td colspan="2" class="odd">We buy 1 Credit at 0.90 pence. <em>Minimum sale is 20 Credits = &pound;18.</em></td>
+    </tr>
+    <tr>
+      <td class="odd"><strong>Credits To sell</strong></td>
+      <td class="even"><input type="text" name="sale" id="sale" size="5"> Credits</td>
+    </tr>
+    <tr>
+      <td class="even" colspan="2">
+        <p><strong>Please note that the minimum amount of credits to sell is 20.</strong></p>
+        <p>Credit payments will be made to your Paypal email address. Please insure that you have supplied your
+        Paypal email address prior to selling credits. The Paypal payments email can be configured in your
+        <a href="/account">Account's -> My Details</a> page.</p>
+        <p>All credit withrawl requests take 14 business days to process.</p>
+      </td>
+    </tr>
+    <tr class="odd">
+      <td colspan="2" align="center"><%= submit_tag 'Sell Credits' %></td>
+    </tr>
+  </table>
+  <% end %>
+</div>
+<% if Configuration.pay_paypal or Configuration.pay_worldpay %>
+  <form action="/orders/add_credit" method="post">
+    <div class="block_title"><h2>Add credits to your <%= Configuration.site_name %> account by Credit/Debit Card</h2></div>
+    <div class="step">
+      <table id="account_cap" cellpadding="0px" cellspacing="0">
+        <tr class="even">
+          <td colspan="2" class="odd">We sell 1 Credit at &pound;1. <em>Minimum purchase is 5 Credits = &pound;5.</em></td>
+        </tr>
+        <tr>
+          <td class="odd"><strong>Credits To buy</strong></td>
+          <td class="even">&pound;<%= select 'order', :credit, [5,10,20,30,50,100,200,500].map {|o| o.to_s} %> GBP</td>
+        </tr>
+        <tr>
+          <td class="even" colspan="3">
+            <fieldset>
+              <%= render_payment_options %>
+            </fieldset>
+          </td>
+        </tr>
+      </table>
+      <div style="clear:all"></div>
+    </div>
+  </form>
+<% end %>  
+<% if Configuration.pay_invoice_us %>
+  <form action="/orders/invoice_us" method="post">
+    <div class="block_title"><h2>Add credits to your <%= Configuration.site_name %> account by invoice</h2></div>
+    <div class="step">
+      <table id="account_cap" cellpadding="0px" cellspacing="0">
+        <tr class="even">
+          <td colspan="2" class="odd">We sell 1 Credit at &pound;1. <em>Minimum purchase is 5 Credits = &pound;5.</em></td>
+        </tr>
+        <tr>
+          <td class="odd"><strong>Credits To buy</strong></td>
+          <td class="even">&pound;<%= select 'order', :credit, [5,10,20,30,50,100,200,500].map {|o| o.to_s} %> GBP</td>
+        </tr>
+        <tr>
+          <td class="even" colspan="2">
+            <p><label for="order_company">Organisation</label><br/>
+               <%= text_field 'user', 'company' %></p>
+            <p><label for="contact_name">Contact Name</label><br/>
+               <%= text_field 'user', 'contact_name' %></p>
+            <p><label for="contact_number">Contact Number</label><br/>
+               <%= text_field 'user', 'contact_number' %></p>
+            <p><label for="order_purchase_order">Purchase Order Number</label><br/>
+               <%= text_field 'order', 'purchase_order' %></p>
+            <p><label for="order_address">Billing Address</label><br/>
+               <%= text_area 'user', 'billing_address', :size => '40x8' %></p>
+          </td>
+        </tr>
+        <tr class="odd">
+          <td colspan="2" align="center"><%= submit_tag 'Place Order' %></td>
+        </tr>
+      </table>
+      <div style="clear:all"></div>
+    </div>
+  </form>
+<% end %>  
+<% if current_user.credit_histories.count > 0 %>
+  <div class="block_title"><h2>My Last Credits Activity</h2> - <a href="/orders/all_credits">view full list</a></div>
+  <div class="step">
+    <%= render :partial => '/orders/credit_history_block', :locals => {:credit_histories => current_user.credit_histories,
+                                                           :list_limit => 10 } %>
+  </div>
+<% end %>
+
+<%= end_tabnav %>

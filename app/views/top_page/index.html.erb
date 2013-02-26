@@ -1,0 +1,91 @@
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => 'site_news'}, {:title => 'All News'})) %>
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => 'all_blogs'}, {:title => 'All Blogs'})) %>
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => :top_photos}, {:title => 'Top Photos'})) %>
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => :latest_photos}, {:title => 'Latest Blogs'})) %>
+<% add_extra_header_content(auto_discovery_link_tag(:rss, {:controller => 'feed', :action => :popular_links_feed}, {:title => 'Popular Photography Links'})) %>
+<% add_extra_header_content(stylesheet_link_tag 'links') %>
+<% content_for 'center' do %> <%=  %>
+  <% cache('top_page') do %>
+    <div class="block_title">
+      <div class="feed"><%= link_to(image_tag('rss.gif'), {:controller => 'feed', :action => :top_photos},{:class => 'no_underline'}) %></div>
+      <h2>Recently Voted Top Photos</h2> - <a href="/photos/more_top">view more</a>
+    </div>    
+    <a id="top_photo_link"></a>
+    <div class="step">
+      <%= render_top_five_photos %>
+      <div style="clear:both"></div>
+    </div>
+    <a id="recent_photo_link"></a>
+    <div class="block_title">
+      <div class="feed"><%= link_to(image_tag('rss.gif'), {:controller => 'feed', :action => :latest_photos},{:class => 'no_underline'}) %></div>
+      <h2>Recent Photos</h2> - <a href="/photos/more_recent">view more</a>
+    </div>
+    <div class="step">
+      <%= render_last_five_photos %>
+    </div>
+    <% if NewsItem.latest_item.length > 0 %>
+      <div class="block_title">
+        <div class="feed"><%= link_to(image_tag('rss.gif'), {:controller => 'feed', :action => :site_news}, {:class => 'no_underline'}) %></div>
+        <h2>Recent <%= Configuration.site_name %> News</h2>
+      </div>
+      <div class="step">
+        <%= render :partial => '/news/news_item', :locals => {:news_item => NewsItem.latest_item[0], :link => true}%>
+      </div>
+    <% end %>
+    <% recent_collections = render_recent_collections %>
+    <a id="recent_collection_link"></a>
+    <% if recent_collections -%>
+      <div class="block_title">
+        <h2>Latest Collections</h2> - <%= link_to 'View more collections', {:controller => 'collections'} %>
+      </div>
+      <div class="step">
+        <%= recent_collections %>
+      </div>
+    <% end %>
+    <% if Configuration.module_links -%>
+      <a id="latest_links_link"></a>
+      <% links = render_popular_links(2) %>
+      <% if links %> 
+        <a id="popular_links"></a>
+        <div class="block_title">
+          <div class="feed"><%= link_to(image_tag('rss.gif'), {:controller => 'feed', :action => :popular_links_feed}, {:class => 'no_underline'}) %></div>
+          <h2>Latest Photography Links</h2> - <a href="/links">View more links</a> 
+        </div>
+        <div class="step">
+          <%= links  %>
+        </div>
+      <% end %>
+    <% end -%>
+    <% if Configuration.module_blogs -%>
+      <% last_blog = render_last_blog %>
+      <% if last_blog %> 
+        <a id="latest_blog_link"></a>
+        <div class="block_title">
+          <div class="feed"><%= link_to(image_tag('rss.gif'), {:controller => 'feed', :action => :all_blogs}, {:class => 'no_underline'}) %></div>
+          <h2>Recent Blogs</h2> - <a href="/blogs">View more blogs</a> 
+        </div>
+        <div class="step">
+          <%= last_blog  %>
+        </div>
+      <% end %>
+    <% end -%>
+    <% if Configuration.module_forums -%>
+      <% recent_topics = render_recent_forum_topics %>
+      <% if recent_topics %>
+        <a id="recent_topics_link"></a>
+        <div class="block_title">
+          <h2>Recent Forum Topics</h2> - <a href="/forums">Visit forums</a>
+        </div>
+        <div class="padded forums"><%= recent_topics %></div>
+      <% end %>
+    <% end -%>
+    <% recent_comments = render_recent_comments %>
+    <% if recent_comments %>
+      <a id="recent_comments_link"></a>
+      <div class="block_title">
+        <h2>Recent Comments</h2>
+      </div>
+      <div class="padded forums" ><%= recent_comments %></div>
+    <% end %>
+  <% end %>
+<% end %>

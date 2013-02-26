@@ -1,0 +1,29 @@
+<% @page_title = "My #{Configuration.site_name} Account" %>
+<%= start_tabnav :account %>
+<div class="block_title"><h2><%= "My #{Configuration.site_name} Hosting Plan" %></h2></div>
+<div class="block_title"><h2>Hosting Plan</h2></div>
+<div class="step">
+  <p><strong><a href="/host_plans/upgrade">Upgrade or downgrade your <%= Configuration.site_name %> account.</a></strong></p>
+  <%= render :partial => '/host_plans/current_plan' %>
+  <div style="clear:both"></div>
+</div>
+<div class="block_title"><h2>Account Credit</h2></div>
+<div class="step">
+  <% if current_user.credits > 0 %> 
+    <p>You have <%= pluralize(current_user.credits,'credit') %> in your <%= Configuration.site_name %> account. </p>
+  <% else %>
+    <p>You have no credits in your <%= Configuration.site_name %> account</p>
+  <% end %> 
+  <p><strong><a href="/orders/credit">Add credits to your <%= Configuration.site_name %> account.</a></strong></p>
+  <div style="clear:both"></div>
+</div>
+<% if current_user.subscription_histories.length > 0 %>
+  <p><span style="font-size: 12px; font-weight: bold">Subscription payments</span></p>
+  <div class="step"> 
+    <%= render :partial => '/subscription_histories/sub_history_items', 
+              :locals => {:histories => current_user.subscription_histories,
+                          :list_limit => 10} %> 
+    <div style="clear:both"></div>
+  </div>
+<% end %>
+<%= end_tabnav %>

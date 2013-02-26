@@ -1,0 +1,5 @@
+<% limit ||= 3 %>
+<% for collection in Collection.latest_user_collections(user, limit)  %>
+  <%= render :partial => 'collections/collection_snapshot', :locals => {:collection => collection} %>
+<% end  %>
+<br clear="all">

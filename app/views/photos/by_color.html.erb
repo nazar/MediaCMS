@@ -1,0 +1,32 @@
+<table id="viewmedia" cellpadding="0" cellspacing="5">
+  <tr>
+    <td class="major">
+      <h1><%= h @media.title -%></h1>
+      <table cellpadding="0" cellspacing="0"><tr><td align="center" valign="middle">
+        <%= link_to render_view(@media), photo_view_path(@media, @media.safe_title) -%>
+      </td></tr></table>
+    </td>
+    <td>
+      <h2>Description</h2>
+      <%= @media.formatted_description -%>
+      <h2>Swatch</h2>
+      <div id="swatches">
+        <div class="swatch_container clearfix">
+          <% render_swatch(@media, :limit => 9, :selected_swatch_member_id => @color.id) do |container, member| -%>
+            <%= link_to container, :action => :by_color, :id => @media.id, :color => member.id -%>
+          <% end %>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <h2>Medias with Selected Palette Colour</h2>
+      <%= will_paginate @medias -%>
+      <div class="step">
+      <%=  render_photo_block(@medias) -%>
+      </div>
+      <%= will_paginate @medias -%>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,13 @@
+<div class="list_photos_library">
+  <div class="thumbnail">
+    <% if lightbox.link_type == 'Media' -%>
+      <%= link_to(renderThumbnail(lightbox.link, {:class => 'collect_photo'}), {:controller => 'photos', :action => 'details', :id => lightbox.link.id}) %><br>
+      <div class="small" align="center"><%= link_to 'download', :controller => 'lightboxes', :action => :download, :id => lightbox.id %></div>
+    <% elsif lightbox.link_type == 'PhotoResolutionPrice' -%>
+      <%= link_to(renderThumbnail(lightbox.link.photo, {:class => 'collect_photo'}), {:controller => 'photos', :action => 'details', :id => lightbox.link.id}) %><br>
+      <div class="small" align="center"><%= link_to "download #{lightbox.link.width}x#{lightbox.link.height}", :controller => 'lightboxes', :action => :download, :id => lightbox.id %></div>
+    <% end -%>
+    <div class="small" align="center">downloaded:<%=lightbox.downloaded%>. Bought:<%=date_ago(lightbox.created_at)%> ago</div>
+  </div>
+</div>
+<div clear="both"></div>

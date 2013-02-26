@@ -1,0 +1,19 @@
+  <h2>Meta Tags</h2>
+  <p><label for="keywords">Keywrods</label><br/>
+  <%= text_field_tag 'keywords', Configuration.keywords, :size => 40 %></p>                  
+  <p><label for="author">Author</label><br/>
+  <%= text_field_tag 'author', Configuration.author, :size => 40 %></p>                  
+  <p><label for="copyright">Copyright</label><br/>
+  <%= text_field_tag 'copyright', Configuration.copyright, :size => 40 %></p>     
+  <h2>Front Page</h2>
+  <%= markup_editor_tag('top_page', Configuration.top_page, {:area_class => 'front_page_editor', :preview_class => 'markup_preview_frontpage'}) %>
+  <h2>About Us</h2>
+  <%= markup_editor_tag('about_us', Configuration.about_us, {:area_class => 'front_page_editor', :preview_class => 'markup_preview_frontpage'}) %>
+  <h2>FAQS</h2>
+  <%= markup_editor_tag('faqs', Configuration.faqs, {:area_class => 'front_page_editor', :preview_class => 'markup_preview_frontpage'}) %>
+  <h2>Terms and Conditions</h2>
+  <%= markup_editor_tag('tos', Configuration.tos, {:area_class => 'front_page_editor', :preview_class => 'markup_preview_frontpage'}) %>
+  <h2>Copyright</h2>
+  <%= markup_editor_tag('copyright_page', Configuration.copyright_page, {:area_class => 'front_page_editor', :preview_class => 'markup_preview_frontpage'}) %>
+  <h2>Contact Us</h2>
+  <%= markup_editor_tag('contact_us', Configuration.contact_us, {:area_class => 'front_page_editor', :preview_class => 'markup_preview_frontpage'}) %>

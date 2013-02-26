@@ -1,0 +1,22 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>My Audio Library</h2></div>
+  <div class="step">
+    <p>This page lists all your purchased Audio files.</p>
+  </div>
+  <div class="block_title"><h2>My Audio Library</h2></div>
+  <small><%= will_paginate @lightboxes, {:param_name => 'lightbox_page'} %></small>
+  <% if @lightboxes.length > 0 %>
+    <div class="step">
+      <% for lightbox in @lightboxes %>
+        <%= TODO %>
+      <% end %>
+      <br clear="all">
+    </div>
+  <% end %>
+  <small><%= will_paginate @lightboxes, {:param_name => 'lightbox_page'} %></small>
+  <% unless (@lightboxes.length > 0) ||  (@licenses.length > 0)  %>
+    <div class="step">
+      <p>No audio files in your library</p>
+    </div>
+  <% end %>
+<%= end_tabnav %>

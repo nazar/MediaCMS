@@ -1,0 +1,14 @@
+<% unless @site_news.blank? -%>
+  <%= feed_title_link_block('Latest Website News', link_to('view all site news', site_news_path), feed_site_news_url, {:auto_rss => true}) %>
+  <%= render :partial => 'news_block', :locals => {:news => @site_news} %>
+<% end -%>
+
+<% unless @club_news.blank? -%>
+  <%= feed_title_link_block('Latest Club News', link_to('view all club news', club_news_path), feed_club_news_url, {:auto_rss => true}) %>
+  <%= render :partial => 'news_block', :locals => {:news => @club_news} %>
+<% end -%>
+
+<% unless @vfeeds.blank? -%>
+  <%= feed_title_block('Syndicated News', feed_syndicated_all_url, {:pic_lens => false, :rss_icon => false}) %>
+  <%= render :partial => 'rss_feed_verbose_block', :locals => {:feeds => @vfeeds} %>
+<% end -%>

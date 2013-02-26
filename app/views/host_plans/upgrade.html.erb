@@ -1,0 +1,38 @@
+<% @page_title = "Upgrade #{Configuration.site_name} hosting plan" %>
+<%= start_tabnav :account %>
+<div class="block_title"><h2>My <%= Configuration.site_name %>Account</h2></div>
+<div class="block_title"><h2>Your current <%= Configuration.site_name %> package</h2></div>
+<div class="step">
+  <%= render :partial => '/host_plans/current_plan' %>
+  <div style="clear:both"></div>
+</div>
+<div class="block_title"><h2>Change <%= Configuration.site_name %> Package</h2></div>
+<div class="step">
+   <form action="/host_plans/update_plan" method="post">
+     <table id="account_cap" cellpadding="0px" cellspacing="0">
+       <tr>
+         <td class="head">Select</td>
+         <td class="head">Package</td>
+       </tr>
+       <% for plan in @plans %>
+       <% sell_text = plan.can_sell ? 'can sell photos' : 'cannot sell photos' %>
+       <% blog_text = plan.can_blog ? 'can blog' : 'cannot blog' %>
+       <% price_text = plan.monthly_fee > 0 ? "<em>&pound;#{plan.monthly_fee} GBP per month</em>," : '' %>
+       <% lic_text   = plan.can_sell ? (plan.own_license ? 'own licenses' : 'standard licenses') : 'free license' %>
+       <% club_text  = plan.create_club ? 'create clubs & groups' : '' %>
+         <tr>
+           <td class="even"><%= radio_button 'user', 'host_plan_id', plan.id%></td>
+           <td class="odd"><%= "<strong>#{plan.name}</strong>, #{price_text} #{plan.disk_space} MB disk space, #{sell_text}, #{blog_text}, #{lic_text}, #{club_text}" %></td>
+         </tr>
+       <% end %>
+     </table>
+     <p><%= submit_tag 'Change Package' %></p>
+     <p>Please note that subscription payments are managed through Paypal. 
+     A Paypal account is therefore required to upgrade to either the Premium or Professional hosting plans.</p>
+     <p>A Paypal account is free to setup if you do not have an existing account. Please follow the prompts on the screen once directed to Paypal.</p>
+     <p>Once subscription payments are setup you will be able to manage or cancel your
+      <%= Configuration.site_name %> subscription payments from your Paypal account.</p>
+   </form>
+</div>
+<%= render :partial => 'account/hosting_plans' %>
+<% end_tabnav %>

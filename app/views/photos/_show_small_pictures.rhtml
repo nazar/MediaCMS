@@ -1,0 +1,8 @@
+<div class="step">
+  <% for photo in photos %>
+    <div class="listPhotos">
+      <%= render :partial => '/photos/small_picture', :locals => { :photo => photo} %>
+    </div>
+  <% end %>
+<div style="clear:both"></div>
+</div>

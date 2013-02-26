@@ -1,0 +1,30 @@
+<table cellspacing="0" cellpadding="0" class="outer" id="collections">
+  <tr class="head">
+    <td class="nosort" valign="middle">&nbsp;</td>
+    <td class="sortfirstasc">Name</td>
+    <td>Description</td>
+    <td class="number">Price</td>
+    <td class="number" title="Number of items">Items</td>
+    <td class="number">Viewed</td>
+    <td class="number" title="Downloaded">Down</td>
+    <td class="number">Sold</td>
+    <td class="number">Sales</td>
+  </tr>
+  <% for collection in collections -%>
+    <tr>
+      <td>
+        <%= link_to image_tag('delete.png'), collections_delete_path(collection), {:confirm => 'Delete this complete collection?'} %>
+        <%= link_to image_tag('edit.png'), collections_edit_path(collection) %>
+      </td>
+      <td><%= link_to collection.name, collections_path(collection) %></td>
+      <td><%= truncate(collection.description, 30) %></td>
+      <td class="number"><%= collection.price %></td>
+      <td class="number"><%= collection.collection_items_count %></td>
+      <td class="number"><%= collection.view_count %></td>
+      <td class="number"><%= collection.download_count %></td>
+      <td class="number"><%= collection.sold_count %></td>
+      <td class="number"><%= collection.total_sales %></td>
+    </tr>
+  <% end -%>  
+</table>
+<%= javascript_tag("SortableTable.init('collections');") %>

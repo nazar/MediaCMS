@@ -1,0 +1,5 @@
+<a id="back_to_top"></a>
+<div class="step">
+    <%= render :partial => '/links/render_link', :locals => {:link => @link, :saved => @saved.length > 0} %>
+</div>  
+<%= render :partial => 'comments/show_comments', :locals => {:model => @link} %>

@@ -1,0 +1,26 @@
+xml.instruct!
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
+  xml.channel do
+    xml.title "All #{Configuration.site_name} Blogs"
+    xml.link url_for(:only_path => false,
+    :controller => 'blogs')
+    xml.pubDate CGI.rfc1123_date(@blogs.first.created_at)
+    xml.description h("An aggregate of all user Blogs on #{Configuration.site_name}.")
+    @blogs.each do |blog|
+      xml.item do
+        xml.title blog.title
+        xml.link url_for(:only_path => false,
+        :controller => 'blogs',
+        :action => 'show',
+        :id => blog.id)
+        xml.description (blog.formatted_body)
+        xml.pubDate CGI.rfc1123_date(blog.created_at)
+        xml.guid url_for(:only_path => false,
+        :controller => 'blogs',
+        :action => 'show',
+        :id => blog.id)
+        xml.author h(blog.user.pretty_name)
+      end
+    end
+  end
+end

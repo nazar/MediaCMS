@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/atom10full.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?><feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0">
+    <title>Paul Dix Explains Nothing</title>
+    
+    <link rel="hub" href="http://hubbub.api.typepad.com/" />
+    <link rel="alternate" type="text/html" href="http://www.pauldix.net/" />
+    <id>tag:typepad.com,2003:weblog-108605</id>
+    <updated>2009-10-29T12:29:29-04:00</updated>
+    <subtitle>Entrepreneurship, programming, software development, politics, NYC, and random thoughts.</subtitle>
+    <generator uri="http://www.typepad.com/">TypePad</generator>
+    <link rel="self" href="http://feeds.feedburner.com/PaulDixExplainsNothing" type="application/atom+xml" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com" /><entry>
+        <title>Typhoeus, the best Ruby HTTP client just got better</title>
+        <link rel="alternate" type="text/html" href="http://feedproxy.google.com/~r/PaulDixExplainsNothing/~3/vgoUs9dLlAk/typhoeus-the-best-ruby-http-client-just-got-better.html" />
+        <link rel="replies" type="text/html" href="http://www.pauldix.net/2009/10/typhoeus-the-best-ruby-http-client-just-got-better.html" thr:count="2" thr:updated="2009-10-29T21:54:38-04:00" />
+        <id>tag:typepad.com,2003:post-6a00d8341f4a0d53ef0120a6340f31970b</id>
+        <published>2009-10-29T12:29:29-04:00</published>
+        <updated>2009-10-29T12:29:29-04:00</updated>
+        <summary>I've been quietly working on Typhoeus for the last few months. With the help of Wilson Bilkovich and David Balatero I've finished what I think is a significant improvement to the library. The new interface removes all the magic and...</summary>
+        <author>
+            <name>Paul Dix</name>
+        </author>
+        
+        
+<content type="html" xml:lang="en-US" xml:base="http://www.pauldix.net/">&lt;p&gt;I've been quietly working on Typhoeus for the last few months. With the help of &lt;a href="http://metaclass.org/"&gt;Wilson Bilkovich&lt;/a&gt; and &lt;a href="http://github.com/dbalatero"&gt;David Balatero&lt;/a&gt; I've finished what I think is a significant improvement to the library. The new interface removes all the magic and opts instead for clarity.&lt;/p&gt;&lt;p&gt;It's really slick and includes improved stubing support, caching, memoization, and (of course) parallelism. The &lt;a href="http://github.com/pauldix/typhoeus/"&gt;Typhoeus readme&lt;/a&gt; highlights all of the awesomeness. It should be noted that the old interface of including Typhoeus into classes and defining remote methods has been deprecated. I'll be removing that sometime in the next six months.&lt;/p&gt;&lt;p&gt;In addition to thanking everyone using the library and everyone contributing, I should also thank my employer kgbweb. If you're a solid Rubyist that likes parsing, crawling, and stuff, or a machine learning guy, or a Solr/Lucene/indexing bad ass, let me know. We need you and we're doing some crazy awesome stuff.&lt;/p&gt;&lt;div class="feedflare"&gt;
+&lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=vgoUs9dLlAk:g11LczuoG8k:yIl2AUoC8zA"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?d=yIl2AUoC8zA" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=vgoUs9dLlAk:g11LczuoG8k:F7zBnMyn0Lo"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?i=vgoUs9dLlAk:g11LczuoG8k:F7zBnMyn0Lo" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=vgoUs9dLlAk:g11LczuoG8k:V_sGLiPBpWU"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?i=vgoUs9dLlAk:g11LczuoG8k:V_sGLiPBpWU" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;img src="http://feeds.feedburner.com/~r/PaulDixExplainsNothing/~4/vgoUs9dLlAk" height="1" width="1"/&gt;</content>
+
+
+    <feedburner:origLink>http://www.pauldix.net/2009/10/typhoeus-the-best-ruby-http-client-just-got-better.html</feedburner:origLink></entry>
+    <entry>
+        <title>Bypassing wxWidgets error when building Erlang from Source on OS X</title>
+        <link rel="alternate" type="text/html" href="http://feedproxy.google.com/~r/PaulDixExplainsNothing/~3/nDlp2sOxi7A/bypassing-wxwidgets-error-when-building-erlang-from-source-on-os-x.html" />
+        <link rel="replies" type="text/html" href="http://www.pauldix.net/2009/10/bypassing-wxwidgets-error-when-building-erlang-from-source-on-os-x.html" thr:count="0" />
+        <id>tag:typepad.com,2003:post-6a00d8341f4a0d53ef0120a6779ff3970c</id>
+        <published>2009-10-26T11:23:13-04:00</published>
+        <updated>2009-10-26T11:23:13-04:00</updated>
+        <summary>I had the following error when trying to build Erlang from source on OS X: make[3]: *** [i386-apple-darwin9.8.0/wxe_events.o] Error 1 make[2]: *** [opt] Error 2 make[1]: *** [opt] Error 2 make: *** [libs] Error 2 After a quick search I...</summary>
+        <author>
+            <name>Paul Dix</name>
+        </author>
+        
+        
+<content type="html" xml:lang="en-US" xml:base="http://www.pauldix.net/">&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;I had the following error when trying to build Erlang from source on OS X:&lt;/p&gt;&#xD;
+&#xD;
+&lt;pre&gt;&#xD;
+make[3]: *** [i386-apple-darwin9.8.0/wxe_events.o] Error 1&#xD;
+make[2]: *** [opt] Error 2&#xD;
+make[1]: *** [opt] Error 2&#xD;
+make: *** [libs] Error 2&#xD;
+&lt;/pre&gt;&#xD;
+&lt;p&gt;After a quick search I uncovered this &lt;a href="http://www.nabble.com/OS-X-10.5-build-without-WxWidgets-td25687201.html"&gt;post about building without wxWidgets support&lt;/a&gt; (which is fine by me for running RabbitMQ Server.) So putting it all together, building and installing Erlang looks like this:&lt;/p&gt;&#xD;
+&lt;pre&gt;&#xD;
+# in the erlang source directory&#xD;
+./configure&#xD;
+touch lib/wx/SKIP&#xD;
+make&#xD;
+sudo make install&#xD;
+&lt;/pre&gt;&lt;/div&gt;&lt;div class="feedflare"&gt;
+&lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=nDlp2sOxi7A:RY7TmYqjFqk:yIl2AUoC8zA"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?d=yIl2AUoC8zA" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=nDlp2sOxi7A:RY7TmYqjFqk:F7zBnMyn0Lo"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?i=nDlp2sOxi7A:RY7TmYqjFqk:F7zBnMyn0Lo" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=nDlp2sOxi7A:RY7TmYqjFqk:V_sGLiPBpWU"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?i=nDlp2sOxi7A:RY7TmYqjFqk:V_sGLiPBpWU" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;img src="http://feeds.feedburner.com/~r/PaulDixExplainsNothing/~4/nDlp2sOxi7A" height="1" width="1"/&gt;</content>
+
+
+    <feedburner:origLink>http://www.pauldix.net/2009/10/bypassing-wxwidgets-error-when-building-erlang-from-source-on-os-x.html</feedburner:origLink></entry>
+    <entry>
+        <title>Detect and Parse Atom and RSS Feed URLs from HTML with TruffleHog</title>
+        <link rel="alternate" type="text/html" href="http://feedproxy.google.com/~r/PaulDixExplainsNothing/~3/PQEEAfhlnGo/detect-and-parse-atom-and-rss-feed-urls-from-html-with-trufflehog.html" />
+        <link rel="replies" type="text/html" href="http://www.pauldix.net/2009/10/detect-and-parse-atom-and-rss-feed-urls-from-html-with-trufflehog.html" thr:count="3" thr:updated="2009-10-24T13:52:29-04:00" />
+        <id>tag:typepad.com,2003:post-6a00d8341f4a0d53ef0120a617bfb3970b</id>
+        <published>2009-10-23T11:55:31-04:00</published>
+        <updated>2009-10-23T11:55:31-04:00</updated>
+        <summary>TruffleHog is a small library I wrote for detecting and parsing Atom and RSS feeds in a web page. I'm sure there are other libraries out there, but I couldn't find one easily. I found Cory Forsyth's FeedDetector, but there...</summary>
+        <author>
+            <name>Paul Dix</name>
+        </author>
+        
+        
+<content type="html" xml:lang="en-US" xml:base="http://www.pauldix.net/">&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;a href="http://github.com/pauldix/truffle-hog"&gt;TruffleHog is a small library I wrote for detecting and parsing Atom and RSS feeds in a web page&lt;/a&gt;. I'm sure there are other libraries out there, but I couldn't find one easily. I found &lt;a href="http://github.com/bantic/feeddetector"&gt;Cory Forsyth's FeedDetector&lt;/a&gt;, but there were some cases that it didn't handle.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;Anyway, here is everything you need to get running.&lt;/p&gt;&#xD;
+&lt;pre&gt;gem install truffle-hog --source http://gemcutter.org&lt;br&gt;&lt;br&gt;# and then in teh rubys&lt;br&gt;require 'rubygems'&lt;br&gt;require 'truffle-hog'&lt;br&gt;&lt;br&gt;# get atom and rss&lt;br&gt;feed_urls = TruffleHog.parse_feed_urls(some_html)&lt;br&gt;&lt;br&gt;# get atom if available, otherwise rss&lt;br&gt;feed_urls = TruffleHog.parse_feed_urls(some_html, :atom)&lt;br&gt;&lt;br&gt;# get rss if available, otherwise atom&lt;br&gt;feed_urls = TruffleHog.parse_feed_urls(some_html, :rss)&lt;br&gt;&lt;/pre&gt;&#xD;
+&lt;p&gt;Behind the scenes it's grabbing the urls through a regex. Really just a few lines of code. I may update it with some fancy Nokogiri parsing and some other stuff, but for now it's just a simple way to parse out feed urls.&lt;/p&gt;&lt;/div&gt;&lt;div class="feedflare"&gt;
+&lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=PQEEAfhlnGo:aGEAXuenQGI:yIl2AUoC8zA"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?d=yIl2AUoC8zA" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=PQEEAfhlnGo:aGEAXuenQGI:F7zBnMyn0Lo"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?i=PQEEAfhlnGo:aGEAXuenQGI:F7zBnMyn0Lo" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=PQEEAfhlnGo:aGEAXuenQGI:V_sGLiPBpWU"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?i=PQEEAfhlnGo:aGEAXuenQGI:V_sGLiPBpWU" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;img src="http://feeds.feedburner.com/~r/PaulDixExplainsNothing/~4/PQEEAfhlnGo" height="1" width="1"/&gt;</content>
+
+
+    <feedburner:origLink>http://www.pauldix.net/2009/10/detect-and-parse-atom-and-rss-feed-urls-from-html-with-trufflehog.html</feedburner:origLink></entry>
+    <entry>
+        <title>Using the Nginx Memcached module with Passenger</title>
+        <link rel="alternate" type="text/html" href="http://feedproxy.google.com/~r/PaulDixExplainsNothing/~3/zLyEHS7UBnM/using-the-nginx-memcached-module-with-passenger.html" />
+        <link rel="replies" type="text/html" href="http://www.pauldix.net/2009/10/using-the-nginx-memcached-module-with-passenger.html" thr:count="0" />
+        <id>tag:typepad.com,2003:post-6a00d8341f4a0d53ef0120a6247d0c970c</id>
+        <published>2009-10-08T11:28:26-04:00</published>
+        <updated>2009-10-08T11:28:26-04:00</updated>
+        <summary>Nginx, everyone's favorite speedy web server has a module to hook in directly to memcached. For those of us running Ruby servers behind nginx we can avoid hitting our running Ruby processes completely on a cache hit. I'll avoid the...</summary>
+        <author>
+            <name>Paul Dix</name>
+        </author>
+        
+        
+<content type="html" xml:lang="en-US" xml:base="http://www.pauldix.net/">&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;Nginx, everyone's favorite speedy web server has a module to hook in directly to memcached. For those of us running Ruby servers behind nginx we can avoid hitting our running Ruby processes completely on a cache hit. I'll avoid the details and point you instead to &lt;a href="http://www.igvita.com/2008/02/11/nginx-and-memcached-a-400-boost/"&gt;Ilya Grigorik's coverage of the Nginx + Memcached&lt;/a&gt; goodness.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;My trouble was that I couldn't find a good example of using Passenger and the Nginx memcached module together. The &lt;a href="http://wiki.nginx.org/NginxHttpMemcachedModule"&gt;module documentation&lt;/a&gt; shows how to proxy cache misses to your running web servers (like Mongrel), but with Passenger you don't know what processes are running. This is because Passenger automatically spawns web server processes for you. Well, after a little trial and error I figured out a config that works.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;I'll show the config at the bottom of this post, but first let's look at some performance numbers. For my use case this goes beyond simple page caching. I'm using HTTP services to serve up data. So it's entirely possible that I can achieve a high cache hit ratio and make things really speedy. To check performance I set up two tests. The first returns a small json object and the second returns a collection of objects. The test Passenger application is a simple Sinatra service that looks like this:&lt;/p&gt;&#xD;
+&#xD;
+&lt;pre&gt;require 'rubygems'&lt;br&gt;require 'json'&lt;br&gt;require 'sinatra'&lt;br&gt;&lt;br&gt;get '/api/v1/comments/users/:id/no_cache' do&lt;br&gt; ([{:id =&amp;gt; 2, &lt;br&gt;   :user_id =&amp;gt; "paul", &lt;br&gt;   :body =&amp;gt; "this is a test comment to see how this thing works."}&lt;br&gt;  ] * 25).to_json&lt;br&gt;end&lt;br&gt;&lt;br&gt;get '/api/v1/comments/:id/no_cache' do&lt;br&gt; {:id =&amp;gt; 2, &lt;br&gt;  :user_id =&amp;gt; "paul", &lt;br&gt;  :body =&amp;gt; "this is a test comment to see how this thing works."}.to_json&lt;br&gt;end&lt;/pre&gt;&#xD;
+&#xD;
+&lt;p&gt;The setup was a single small EC2 instance running nginx and another small instance in the same availability zone running Apache Bench against the server. The first run is for cache misses that fall through to Passenger. The second run is against cache hits that go from nginx straight to memcached. Here's a small section of the results:&lt;/p&gt;&#xD;
+&#xD;
+&lt;pre&gt;# single json object cache miss (passenger)&lt;br&gt;ab -n 10000 -c 50 http://ec2-some-ip.compute-1.amazonaws.com/api/v1/comments/1/no_cache&lt;br&gt;Requests per second: 310.08 [#/sec] (mean)&lt;br&gt;Time per request: 161.249 [ms] (mean)&lt;br&gt;Time per request: 3.225 [ms] (mean, across all concurrent requests)&lt;br&gt;Transfer rate: 94.17 [Kbytes/sec] received&lt;br&gt;&lt;br&gt;# single json object cache hit (nginx + memcached)&lt;br&gt;ab -n 10000 -c 50 http://ec2-some-ip.compute-1.amazonaws.com/api/v1/comments/1&lt;br&gt;Requests per second: 2496.64 [#/sec] (mean)&lt;br&gt;Time per request: 20.027 [ms] (mean)&lt;br&gt;Time per request: 0.401 [ms] (mean, across all concurrent requests)&lt;br&gt;Transfer rate: 556.12 [Kbytes/sec] received&lt;br&gt;&lt;br&gt;# collection of 25 json objects cache miss (passenger)&lt;br&gt;ab -n 10000 -c 50 http://ec2-some-ip.compute-1.amazonaws.com/api/v1/comments/users/1/no_cache&lt;br&gt;Requests per second: 225.98 [#/sec] (mean)&lt;br&gt;Time per request: 221.256 [ms] (mean)&lt;br&gt;Time per request: 4.425 [ms] (mean, across all concurrent requests)&lt;br&gt;Transfer rate: 530.31 [Kbytes/sec] received&lt;br&gt;&lt;br&gt;# collection of 25 json objects cache hit (nginx + memcached)&lt;br&gt;Requests per second: 2385.22 [#/sec] (mean)&lt;br&gt;Time per request: 20.962 [ms] (mean)&lt;br&gt;Time per request: 0.419 [ms] (mean, across all concurrent requests)&lt;br&gt;Transfer rate: 5434.29 [Kbytes/sec] received&lt;br&gt;&lt;/pre&gt;&#xD;
+&#xD;
+&lt;p&gt;As you can see the time per request and the number of concurrent requests is significantly higher for the cache hits. The performance bump this reflects is actually better than the 400% Ilya mentioned in his blog post (of course, your mileage may vary). If you're interested, I've posted the &lt;a href="http://gist.github.com/205103"&gt;full ab output in this gist&lt;/a&gt;.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;And finally, without any more delay, here's the nginx.conf I used.&lt;/p&gt;&#xD;
+&lt;pre&gt;user nobody nogroup;&lt;br&gt;worker_processes 4;&lt;br&gt;&lt;br&gt;error_log logs/error.log;&lt;br&gt;&lt;br&gt;events {&lt;br&gt; worker_connections 1024;&lt;br&gt;}&lt;br&gt;&lt;br&gt;http {&lt;br&gt; passenger_root /usr/lib/ruby/gems/1.8/gems/passenger-2.2.5;&lt;br&gt; passenger_ruby /usr/bin/ruby1.8;&lt;br&gt;&lt;br&gt; include mime.types;&lt;br&gt; default_type application/octet-stream;&lt;br&gt; tcp_nopush on;&lt;br&gt; tcp_nodelay on;&lt;br&gt; gzip on;&lt;br&gt;&lt;br&gt; sendfile on;&lt;br&gt;&lt;br&gt; keepalive_timeout 65;&lt;br&gt;&lt;br&gt; server {&lt;br&gt; listen 80;&lt;br&gt; server_name localhost; # put in your IP in place of localhost&lt;br&gt; location / {&lt;br&gt; set $memcached_key $uri;&lt;br&gt; memcached_pass 127.0.0.1:11211;&lt;br&gt; default_type application/json;&lt;br&gt; error_page 404 502 = @fallback;&lt;br&gt; }&lt;br&gt;&lt;br&gt; location @fallback {&lt;br&gt; root /var/www/public;&lt;br&gt; passenger_enabled on;&lt;br&gt; }&lt;br&gt; }&lt;br&gt;}&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="feedflare"&gt;
+&lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=zLyEHS7UBnM:h5g0H8Q630c:yIl2AUoC8zA"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?d=yIl2AUoC8zA" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=zLyEHS7UBnM:h5g0H8Q630c:F7zBnMyn0Lo"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?i=zLyEHS7UBnM:h5g0H8Q630c:F7zBnMyn0Lo" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=zLyEHS7UBnM:h5g0H8Q630c:V_sGLiPBpWU"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?i=zLyEHS7UBnM:h5g0H8Q630c:V_sGLiPBpWU" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;img src="http://feeds.feedburner.com/~r/PaulDixExplainsNothing/~4/zLyEHS7UBnM" height="1" width="1"/&gt;</content>
+
+
+    <feedburner:origLink>http://www.pauldix.net/2009/10/using-the-nginx-memcached-module-with-passenger.html</feedburner:origLink></entry>
+    <entry>
+        <title>First NYC Machine Learning Meetup</title>
+        <link rel="alternate" type="text/html" href="http://feedproxy.google.com/~r/PaulDixExplainsNothing/~3/opCiukwbem8/first-nyc-machine-learning-meetup.html" />
+        <link rel="replies" type="text/html" href="http://www.pauldix.net/2009/09/first-nyc-machine-learning-meetup.html" thr:count="0" />
+        <id>tag:typepad.com,2003:post-6a00d8341f4a0d53ef0120a560db6e970b</id>
+        <published>2009-09-10T11:22:35-04:00</published>
+        <updated>2009-09-10T11:22:35-04:00</updated>
+        <summary>I have organized the first NYC Machine Learning meetup. The goal of the group is to have discussions based on recent papers in the machine learning community. This can include topics like search, information retrieval, pattern recognition, natural language processing,...</summary>
+        <author>
+            <name>Paul Dix</name>
+        </author>
+        
+        
+<content type="html" xml:lang="en-US" xml:base="http://www.pauldix.net/">&lt;p&gt;I have organized the first NYC Machine Learning meetup. The goal of the group is to have discussions based on recent papers in the machine learning community. This can include topics like search, information retrieval, pattern recognition, natural language processing, artificial intelligence, collaborative filtering, recommendation systems, and other topics related to machine learning.&lt;/p&gt;&lt;p&gt;The format is pretty simple. Pick a research paper. Everyone in the group reads and attempts to understand the paper before the meetup. Meet and discuss with one person leading the discussion. For the first meeting we'll be going over Yehuda Koren's paper "&lt;a href="http://research.yahoo.com/files/kdd-fp074-koren.pdf"&gt;Collaborative Filtering with Temporal Dynamics&lt;/a&gt;." This paper is based on his work in the BellKor Pragmatic Chaos team that is in contention for the Netflix prize.&lt;/p&gt;&lt;p&gt;To RSVP go to the &lt;a href="http://www.meetup.com/NYC-Machine-Learning/calendar/11331674/"&gt;NYC Machine Learning meetup page&lt;/a&gt;. You don't need to be a machine learning expert to join in the conversation. Just make an honest attempt to read the paper and we can go over questions.&lt;/p&gt;&lt;div class="feedflare"&gt;
+&lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=opCiukwbem8:jLPeFEj4E8M:yIl2AUoC8zA"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?d=yIl2AUoC8zA" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=opCiukwbem8:jLPeFEj4E8M:F7zBnMyn0Lo"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?i=opCiukwbem8:jLPeFEj4E8M:F7zBnMyn0Lo" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?a=opCiukwbem8:jLPeFEj4E8M:V_sGLiPBpWU"&gt;&lt;img src="http://feeds.feedburner.com/~ff/PaulDixExplainsNothing?i=opCiukwbem8:jLPeFEj4E8M:V_sGLiPBpWU" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
+&lt;/div&gt;&lt;img src="http://feeds.feedburner.com/~r/PaulDixExplainsNothing/~4/opCiukwbem8" height="1" width="1"/&gt;</content>
+
+
+    <feedburner:origLink>http://www.pauldix.net/2009/09/first-nyc-machine-learning-meetup.html</feedburner:origLink></entry>
+ 
+</feed><!-- ph=1 --><!-- nhm:dynamic-ssi -->

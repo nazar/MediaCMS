@@ -1,0 +1,41 @@
+<%= error_messages_for 'post', 'topic' %>
+<table class="outer" cellspacing="0" width="100%">
+    <tr class="head">
+      <% if post.blank? -%>
+        <th colspan="2">New Topic</th>
+      <% else -%>
+        <th colspan="2">Replying to <%= h topic.title %></th>
+      <% end -%>
+    </tr>
+    <tr align="left" valign="top" class="body">
+      <td class="even post_info">Subject:</td>
+      <td class="odd" style="width:85%"><%=text_field 'topic', :title, :size => 60%></td>
+    </tr>
+    <% if current_user and current_user.admin? %>
+      <tr class="body">
+        <td class="even post_info">Admin</td>
+        <td class="odd">
+         <%=check_box 'topic', :sticky %> Sticky
+         <%=check_box 'topic', :locked %> Locked
+        </td>
+      </tr>
+    <% end %>
+    <% if @topic.new_record? || current_user.admin? %>
+      <tr class="body">
+        <td class="even post_info">Forum</td>
+        <td class="odd"><%=select('topic',:forum_id, Forum.find(:all, :order=>'name').map {|f| [f.name, f.id]})%></td>
+      </tr>
+    <% end %>
+    <tr align="left" valign="top" class="body">
+      <td class="even post_info">Message:</td>
+      <td class="odd"><%=markup_area 'topic', :body, {:rows => 70}%></td>
+    </tr>
+    <tr align="left" valign="top" class="body">
+      <td class="even"></td>
+      <td class="odd foot">
+        <input type="submit" class="formButton" name="post" id="post" value="Post" type="button">     
+        <input type="button" class="formButton" name="cancel" id="cancel" value="Cancel" >
+      </td>
+    </tr>
+</table>
+<%= javascript_tag "jQuery('#topic_title').focus();" %>

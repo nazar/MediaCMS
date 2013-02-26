@@ -1,0 +1,29 @@
+<div id="comment">
+  <% if !Configuration.anonymous_comments && !current_user -%>
+    <h2>Comments</h2>
+    <div class="step"><p>Comments disabled for non-registered visitors.</p></div>
+  <% else -%>
+    <h2>Comments - <small>add your comment</small></h2>
+    <div class="step"><%= render :partial => "comments/add_comment", :locals => { :model => model } %> </div>
+  <% end -%>
+</div>
+<div id="comments"></div>
+<% unless model.comments.blank? %>
+  <h2>What others have said:</h2>
+  <div class="step">
+    <% for comment in model.comments.not_spam %>
+      <%= render :partial => 'comments/comment_row', :locals => {:comment => comment, :commentable => model, :counter => model.comments.index(comment) + 1 } %>
+    <% end %>
+  </div>
+  <%= javascript_tag("jQuery('a.edit_comment').attach(AjaxEditArea, {container: 'comment'});") %>
+  <%= javascript_tag("jQuery('div.markup-area-link').attach(MarkupShowJSEnabled);") %>
+  <%= javascript_tag("jQuery('a.delete_comment').attach(MarkupConfirmRemove);") %>
+  <%= javascript_tag("jQuery('a.spam_comment').attach(MarkupConfirmRemove);") %>
+<% else %>
+  <% unless !Configuration.anonymous_comments && !current_user  -%>
+    <div class="step"><strong>No comments yet. Be the first the comment!</strong></div>
+  <% else -%>
+    <div class="step"><strong>No comments yet.</strong></div>
+  <% end -%>
+<% end %>
+<div id="last_comment"></div>

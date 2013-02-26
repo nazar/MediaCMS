@@ -1,0 +1,23 @@
+<% @page_title = "Viewing Pictures in Tag: #{@tag.name} by #{@user.pretty_name}" %>
+<div class="block_title"><h2>Viewing Tag: <%= @tag.name %></h2></div>
+<div class="step">
+  <% if @tag.taggings_count == 1 %>
+    There is <%=@tag.taggings_count%> tagged photo.
+  <% else %>
+    There are <%=@tag.taggings_count%> tagged photos. 
+    <strong><%= link_to "View all photos in #{@tag.name}.", :action => :all_photos, :id => @tag.name %></strong>
+  <% end %>
+</div>
+<% if @tag.taggings_count > 0 %>
+  <div class="block_title"><h2>Photos tagged <%= @tag.name %> for <%= @user.pretty_name %></h2></div>
+  <small><%= will_paginate @photos -%></small>
+  <div class="step">
+    <% for photo in @photos %>
+      <div class="listPhotos">
+        <%= render :partial => '/photos/small_picture', :locals => { :photo => photo} %>
+      </div>
+    <% end %>
+    <div style="clear:both"></div>
+  </div>
+  <small><%= will_paginate @photos -%></small>
+<% end %>

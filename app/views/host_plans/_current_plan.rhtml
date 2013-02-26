@@ -1,0 +1,71 @@
+  <p>You are subscribed to our <strong><%= current_user.host_plan.name.titleize %></strong> hosting plan, which gives access to the following features:</p>
+  <table id = "account_cap"  cellpadding="0px" cellspacing="0">
+    <tr>
+      <td class="odd"><strong>Subscription Fee</strong></td>
+      <td class="even">
+        <% if current_user.host_plan.monthly_fee > 0 %>
+          &pound;<%= current_user.host_plan.monthly_fee %> per month
+        <% else %>
+          Free
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="odd"><strong>Photo Upload Capacity</strong></td>
+      <td class="even"><%=current_user.host_plan.disk_space%> MB</td>
+    </tr>
+    <tr>
+      <td class="odd"><strong>Sell Photos</strong></td>
+      <td class="even">
+        <%= current_user.host_plan.commerce ? 'Yes' : 'No' %>
+      </td>
+    </tr>
+    <tr>
+      <td class="odd"><strong>Photo Sales - System set photo price</strong></td>
+      <td class="even">
+        <% if current_user.host_plan.commerce %>
+          <%= current_user.host_plan.price_setting ? 'No' : 'Yes' %>
+        <% else %>
+          No commerce capability in Free hosting plan
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="odd"><strong>Photo Sales - Set your own photo price</strong></td>
+      <td class="even">
+        <% if current_user.host_plan.commerce %>
+          <%= current_user.host_plan.price_setting ? 'Yes' : 'No' %>
+        <% else %>
+          No commerce capability in free account
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="odd"><strong>Photo Collection Sales</strong></td>
+      <td class="even">
+        <% if current_user.host_plan.commerce %>
+          <%= current_user.host_plan.price_setting ? 'Yes' : 'No' %>
+        <% else %>
+          No commerce capability in free account
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="odd"><strong>Blogging</strong></td>
+      <td class="even">
+        <%= current_user.host_plan.blog ? 'Yes' : 'No blogging capability in free account' %>
+      </td>
+    </tr>
+    <tr>
+      <td class="odd"><strong>Photo Licenses</strong></td>
+      <td class="even">
+        <%= current_user.host_plan.license_type %>
+      </td>
+    </tr>
+    <tr>
+      <td class="odd"><strong>Clubs & Groups</strong></td>
+      <td class="even">
+        <%= current_user.host_plan.create_club ? 'Create your own clubs and groups for others to join' : 'Join clubs and groups' %>
+      </td>
+    </tr>
+  </table>

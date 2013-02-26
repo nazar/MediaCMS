@@ -1,0 +1,1 @@
+page.visual_effect :toggle_blind, "report_row_#{@report.id}", :duration => 0.5

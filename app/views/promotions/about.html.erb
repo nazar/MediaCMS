@@ -1,0 +1,12 @@
+<% @page_title = "Welcome to #{Configuration.site_name}" %>
+<div class="block_title"><h2>Welcome to <%= Configuration.site_name %> Ebay interface</h2></div>
+<div class="step">
+  <h4>What is the <%= Configuration.site_name %> Ebay interface?</h4>
+  <p><%= Configuration.site_name %> is a website that allows members to both share and sell photos.</p>
+  <p>Various levels of services, ranging from out free membership plan to our premium membership plam aimed at professional
+     photographers. We provide the capability of presenting your photos with little or no technical expertise on your part.
+  <p>Our photo selling solutions provide an ideal mechanism where large sized photos can be delivered to end users without
+    the complications associated with either emailing these as attachments or setting up secure webpages.</p>
+  <p><strong><a href="/account/signup">Register for a free <%= Configuration.site_name %> account now!</a></strong></p>
+  <p><%= render :partial => '/account/hosting_plans' %></p>
+</div>

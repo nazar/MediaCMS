@@ -1,0 +1,15 @@
+<table cellspacing="3" cellpadding="0">
+  <tr>
+    <td class="head" width="20%">License Name</td>
+    <td class="even"><%= text_field('license', 'name') %></td>
+  </tr>
+  <tr>
+    <td class="head" width="20%">Default Price</td>
+    <td class="even"><%= text_field('license', 'default_price') %> Credit(s)</td>
+  </tr>
+  <tr>
+    <td class="head">License Text</td>
+    <td class="even"><%= markup_area('license','description') %></td>
+  </tr>
+</table>
+<%= hidden_field('license','id') %>

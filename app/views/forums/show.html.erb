@@ -1,0 +1,23 @@
+<div class="crumbs">
+  <strong>
+    <%= link_to "Forums Home", forums_path %>
+  </strong>
+</div>
+<div style="margin-bottom: 7px; float: right; text-align: right;">
+  <%= link_to(image_tag('forums/t_new-a.png', :alt => 'New Topic'), new_topic_url(:forum_id => @forum.id), {:class => 'new_topic_link'}) %>
+</div>
+<div class="block_title"><h2>Viewing Forum: <%= @forum.name %></h2></div>
+<div class="step"><%= @forum.description %></div>
+<br />
+<div id="new_topic_block" style="display: none">&amp;nbsp;</div>
+<% if @topics.length > 0 %>
+  <%= will_paginate @topics %>
+  <%= render :partial => 'forums/topics_table', :locals => {:topics => @topics} -%>
+  <%= will_paginate @topics %>
+<% end %>
+<div id="new_top_bottom" style="display: none">&nbsp;</div>
+<div style="padding-top: 7px; float: left; text-align: right;">
+  <%= link_to(image_tag('forums/t_new-a.png', :alt => 'New Topic'), new_topic_url(:forum_id => @forum.id), {:class => 'new_topic_link'}) %>
+</div>
+<br clear="all">
+<%= javascript_tag("jQuery('a.new_topic_link').attach(RemoteUpdateBlindShow, {update: '#new_topic_block', focus: '#topic_title'});") %>

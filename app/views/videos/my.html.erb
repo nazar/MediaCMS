@@ -1,0 +1,21 @@
+<%= start_tabnav :account %>
+  <div class="block_title"><h2>My Photos - Listing most recent photos first</h2></div>
+  <p><strong><%= link_to 'View videos by statistics (most viewed, commented etc...)', :action => 'stat_videos' %></strong></p>
+  <small><%= will_paginate @videos %></small>
+  <div class="step clearfix media">
+    <% if @videos.length > 0 %>
+      <%= render_video_block(@videos) %>
+    <% else %>
+      <div class="step_text">You haven't uploaded any videos yet.</div>
+    <% end %>
+  </div>
+  <% if (current_user.video_markers_count > 0) && (params[:page].to_i < 2)%>
+    <div class="block_title"><h2>My Videos Markers</h2></div>
+    <div class="step clearfix">
+      <%= render :partial => '/maps/map_viewer',
+                 :locals => {:data_url => "/videos/user_markers/#{current_user.id}",
+                             :height => '290px'} %>
+    </div>
+  <% end %>
+  <small><%= will_paginate @videos %></small>
+<%= end_tabnav %>

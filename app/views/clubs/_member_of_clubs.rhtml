@@ -1,0 +1,19 @@
+<table class="outer" cellpadding="0" cellspacing="0" id="clubs_list">
+  <tr class="head">
+    <td class="sortfirstasc">Club</td>
+    <td>Club Description Excerpt</td>
+    <td>Members</td>
+    <td>Type</td>
+  </tr>
+  <% for club in clubs %>
+    <tr>
+      <td><%= link_to club.name, 
+                          {:controller => 'clubs',
+                           :action => 'view', :id => club.id} %></td>
+      <td><%= truncate(club.description, 50) %></td>
+      <td><%= club.members_count %></td>
+      <td><%= club.type_desc %></td>
+    </tr>
+  <% end %>
+</table>
+<%= javascript_tag("SortableTable.init('clubs_list');") %>
